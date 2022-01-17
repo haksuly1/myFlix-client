@@ -2,6 +2,29 @@ import React from "react";
 
 export class MainView extends React.Component {
 
+render() {
+  const movies = this.state.movies;
+  if (movies.length === 0){
+    return <div className="main-view">The list is empty!</div>;
+  } else {
+    return (
+      <div className="main-view">
+        {movies.map((movie) => {
+          return <div>{movie.Title}</div>;
+        })}
+      </div>
+    );
+  }
+}
+}
+
+
+/*
+//Import movie Card into MovieView
+import { MovieCard } from '../movie-card/movie-card';
+*/
+
+/*
   //To add a movies state that will host list of movies
   constructor(){
     super();
@@ -14,7 +37,6 @@ export class MainView extends React.Component {
     } 
   }
   
-/*
   render() {
     return (
       <div className="main-view">
@@ -28,7 +50,6 @@ export class MainView extends React.Component {
 
 export default MainView;
 */
-
 
 /*
 render() {
@@ -47,6 +68,7 @@ render() {
 }
 */
 
+/*
 render() {
   const { movies } = this.state;
 
@@ -59,4 +81,21 @@ render() {
   );
 }
 }
+*/
 
+/*
+render() {
+  const { movies } = this.state;
+
+  if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+
+  return (
+    <div className="main-view">
+      {movies.map(movie => <MovieCard />)}
+    </div>
+  );
+}
+}
+
+export default MainView;
+*/
