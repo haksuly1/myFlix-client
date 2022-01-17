@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export class MainView extends React.Component {
 
@@ -14,12 +14,31 @@ export class MainView extends React.Component {
     } 
   }
   
+
   render() {
     return (
       <div className="main-view">
-        <div>Inception</div>
+        <div>Silence of the Lambs</div>
         <div>The Shawshank Redemption</div>
-        <div>Gladiator</div>
+        <div>The Green Mile</div>
+      </div>
+    );
+  }
+}
+
+export default MainView;
+
+
+render(); {
+  const movies = this.state.movies;
+  if (movies.length === 0){
+    return <div className="main-view">The list is empty!</div>;
+  } else {
+    return (
+      <div className="main-view">
+        {movies.map((movie) => {
+          return <div>{movie.Title}</div>;
+        })}
       </div>
     );
   }
@@ -27,6 +46,5 @@ export class MainView extends React.Component {
 
 
 export default MainView;
-
 
   
