@@ -1,7 +1,3 @@
-import React from "react";
-
-export class MainView extends React.Component {
-
 render() {
   const movies = this.state.movies;
   if (movies.length === 0){
@@ -16,8 +12,14 @@ render() {
     );
   }
 }
-}
 
+
+
+/*
+import React from "react";
+
+export class MainView extends React.Component {
+*/
 
 /*
 //Import movie Card into MovieView
