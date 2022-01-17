@@ -14,7 +14,7 @@ export class MainView extends React.Component {
     } 
   }
   
-
+/*
   render() {
     return (
       <div className="main-view">
@@ -27,8 +27,10 @@ export class MainView extends React.Component {
 }
 
 export default MainView;
+*/
 
 
+/*
 render(); {
   const movies = this.state.movies;
   if (movies.length === 0){
@@ -43,8 +45,20 @@ render(); {
     );
   }
 }
+*/
+
+render() {
+  const { movies } = this.state;
+
+  if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+
+  return (
+    <div className="main-view">
+      {movies.map(movie => <div key={movie._id}>{movie.Title}</div>)}
+    </div>
+  );
+}
 
 
-export default MainView;
 
   
