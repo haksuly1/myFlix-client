@@ -26,7 +26,6 @@ export class MainView extends React.Component{
     });
   }
 
-
   render() {
     const { movies, selectedMovie } = this.state;
   
@@ -45,7 +44,7 @@ export class MainView extends React.Component{
   }
 }
 
-  export default MainView 
+export default MainView 
 
   
 
