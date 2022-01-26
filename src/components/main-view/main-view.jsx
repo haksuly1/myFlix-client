@@ -5,18 +5,6 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 export class MainView extends React.Component {
 
-//TO TEST componentIsUnmounted
-componentDidMount() {
-  document.addEventListener('keypress', event => {
-    console.log(event.key);
-  });
-}
-
-render() {
-  // same code
-}
-}
-
   constructor(){
     super();
     this.state = {
@@ -52,6 +40,16 @@ render() {
       selectedMovie: newSelectedMovie
     });
   }
+
+
+  //TO TEST componentIsUnmounted for Event Listener for "Keyboard press"
+  componentDidMount() {
+    document.addEventListener("keypress", event => {
+      console.log(event.key);
+    });
+  }
+
+
 
   render() {
     const { movies, selectedMovie } = this.state;
