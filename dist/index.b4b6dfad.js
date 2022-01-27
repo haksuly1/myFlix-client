@@ -22800,10 +22800,11 @@ var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
 class MainView extends _reactDefault.default.Component {
     //TO TEST componentIsUnmounted for Event Listener for "Keyboard press"
+    keypressCallback(event) {
+        console.log(event.key);
+    }
     componentDidMount() {
-        document.addEventListener("keypress", (event)=>{
-            console.log(event.key);
-        });
+        document.addEventListener("keypress", this.keypressCallback);
     }
     constructor(){
         super();
@@ -22815,20 +22816,17 @@ class MainView extends _reactDefault.default.Component {
             selectedMovie: null
         };
     }
-    /*
-//TO TEST componentDidMount to display Movies
-  componentDidMount(){
-    axios.get("https://haksuly1movieapp.herokuapp.com/movies")
-      .then(response => {
-        this.setState({
-          movies: response.data
+    //TO TEST componentDidMount to display Movies
+    componentDidMount() {
+        _axiosDefault.default.get("https://haksuly1movieapp.herokuapp.com/movies").then((response)=>{
+            this.setState({
+                movies: response.data
+            });
+        }).catch((error)=>{
+            console.log(error);
         });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-*/ setSelectedMovie(newSelectedMovie) {
+    }
+    setSelectedMovie(newSelectedMovie) {
         this.setState({
             selectedMovie: newSelectedMovie
         });
@@ -22839,7 +22837,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 54,
+            lineNumber: 56,
             columnNumber: 37
         }, this)); //The list is empty!</div>;
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22851,7 +22849,7 @@ class MainView extends _reactDefault.default.Component {
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 59,
+                lineNumber: 61,
                 columnNumber: 13
             }, this) : movies.map((movie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
                     movie: movie,
@@ -22860,13 +22858,13 @@ class MainView extends _reactDefault.default.Component {
                     }
                 }, movie._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 61,
+                    lineNumber: 63,
                     columnNumber: 13
                 }, this)
             )
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 57,
+            lineNumber: 59,
             columnNumber: 7
         }, this));
     }

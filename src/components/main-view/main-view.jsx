@@ -7,11 +7,13 @@ export class MainView extends React.Component {
 
 
  //TO TEST componentIsUnmounted for Event Listener for "Keyboard press"
+ keypressCallback(event) {
+  console.log(event.key);
+}
+
 componentDidMount() {
-  document.addEventListener("keypress", event => {
-    console.log(event.key);
-  });
-} 
+  document.addEventListener("keypress", this.keypressCallback);
+}
 
   constructor(){
     super();
@@ -26,7 +28,7 @@ componentDidMount() {
     }
   }
 
-/*
+
 //TO TEST componentDidMount to display Movies
   componentDidMount(){
     axios.get("https://haksuly1movieapp.herokuapp.com/movies")
@@ -39,7 +41,7 @@ componentDidMount() {
         console.log(error);
       });
   }
-*/
+
 
 
   setSelectedMovie(newSelectedMovie) {
