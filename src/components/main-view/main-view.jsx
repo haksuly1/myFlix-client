@@ -31,22 +31,22 @@ export class MainView extends React.Component {
         console.log(error);
       });
   }
-  
+
+
+//TO TEST componentIsUnmounted for Event Listener for "Keyboard press"
+componentDidMount() {
+  document.addEventListener("keypress", event => {
+    console.log(event.key);
+  });
+}
+
+
 
   setSelectedMovie(newSelectedMovie) {
     this.setState({
       selectedMovie: newSelectedMovie
     });
   }
-
-
-  //TO TEST componentIsUnmounted for Event Listener for "Keyboard press"
-  componentDidMount() {
-    document.addEventListener("keypress", event => {
-      console.log(event.key);
-    });
-  }
-
 
 
   render() {
