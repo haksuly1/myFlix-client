@@ -5,8 +5,8 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 export class MainView extends React.Component {
 
-
- //TO TEST componentIsUnmounted for Event Listener for "Keyboard press"
+/*
+ //TO TEST componentWillUnmount for Event Listener for "Key-press"
  keypressCallback(event) {
   console.log(event.key);
 }
@@ -14,6 +14,7 @@ export class MainView extends React.Component {
 componentDidMount() {
   document.addEventListener("keypress", this.keypressCallback);
 }
+*/
 
   constructor(){
     super();

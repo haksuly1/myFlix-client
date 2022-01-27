@@ -22799,14 +22799,16 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
 class MainView extends _reactDefault.default.Component {
-    //TO TEST componentIsUnmounted for Event Listener for "Keyboard press"
-    keypressCallback(event) {
-        console.log(event.key);
-    }
-    componentDidMount() {
-        document.addEventListener("keypress", this.keypressCallback);
-    }
-    constructor(){
+    /*
+ //TO TEST componentWillUnmount for Event Listener for "Key-press"
+ keypressCallback(event) {
+  console.log(event.key);
+}
+
+componentDidMount() {
+  document.addEventListener("keypress", this.keypressCallback);
+}
+*/ constructor(){
         super();
         this.state = {
             movies: [],
@@ -22837,7 +22839,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 56,
+            lineNumber: 57,
             columnNumber: 37
         }, this)); //The list is empty!</div>;
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22849,7 +22851,7 @@ class MainView extends _reactDefault.default.Component {
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 61,
+                lineNumber: 62,
                 columnNumber: 13
             }, this) : movies.map((movie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
                     movie: movie,
@@ -22858,13 +22860,13 @@ class MainView extends _reactDefault.default.Component {
                     }
                 }, movie._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 63,
+                    lineNumber: 64,
                     columnNumber: 13
                 }, this)
             )
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 59,
+            lineNumber: 60,
             columnNumber: 7
         }, this));
     }
