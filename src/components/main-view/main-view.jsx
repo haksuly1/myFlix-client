@@ -5,6 +5,14 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 export class MainView extends React.Component {
 
+
+ //TO TEST componentIsUnmounted for Event Listener for "Keyboard press"
+componentDidMount() {
+  document.addEventListener("keypress", event => {
+    console.log(event.key);
+  });
+} 
+
   constructor(){
     super();
     this.state = {
@@ -18,13 +26,7 @@ export class MainView extends React.Component {
     }
   }
 
-//TO TEST componentIsUnmounted for Event Listener for "Keyboard press"
-componentDidMount() {
-  document.addEventListener("keypress", event => {
-    console.log(event.key);
-  });
-}
-
+/*
 //TO TEST componentDidMount to display Movies
   componentDidMount(){
     axios.get("https://haksuly1movieapp.herokuapp.com/movies")
@@ -37,6 +39,8 @@ componentDidMount() {
         console.log(error);
       });
   }
+*/
+
 
   setSelectedMovie(newSelectedMovie) {
     this.setState({
