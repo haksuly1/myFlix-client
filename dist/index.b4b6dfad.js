@@ -22799,12 +22799,6 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
 class MainView extends _reactDefault.default.Component {
-    //TO TEST componentIsUnmounted for Event Listener for "Keyboard press"
-    componentDidMount() {
-        document.addEventListener("keypress", (event)=>{
-            console.log(event.key);
-        });
-    }
     constructor(){
         super();
         this.state = {
@@ -22828,6 +22822,12 @@ class MainView extends _reactDefault.default.Component {
     setSelectedMovie(newSelectedMovie) {
         this.setState({
             selectedMovie: newSelectedMovie
+        });
+    }
+    //TO TEST componentIsUnmounted for Event Listener for "Keyboard press"
+    componentDidMount() {
+        document.addEventListener("keypress", (event)=>{
+            console.log(event.key);
         });
     }
     render() {
