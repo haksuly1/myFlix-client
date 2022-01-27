@@ -18,6 +18,12 @@ export class MainView extends React.Component {
     }
   }
 
+//TO TEST componentIsUnmounted for Event Listener for "Keyboard press"
+componentDidMount() {
+  document.addEventListener("keypress", event => {
+    console.log(event.key);
+  });
+}
 
 //TO TEST componentDidMount to display Movies
   componentDidMount(){
@@ -37,14 +43,6 @@ export class MainView extends React.Component {
       selectedMovie: newSelectedMovie
     });
   }
-
-
-//TO TEST componentIsUnmounted for Event Listener for "Keyboard press"
-componentDidMount() {
-  document.addEventListener("keypress", event => {
-    console.log(event.key);
-  });
-}
 
   render() {
     const { movies, selectedMovie } = this.state;
