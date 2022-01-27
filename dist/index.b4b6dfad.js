@@ -22809,16 +22809,20 @@ class MainView extends _reactDefault.default.Component {
             selectedMovie: null
         };
     }
-    componentDidMount() {
-        _axiosDefault.default.get("https://haksuly1movieapp.herokuapp.com/movies").then((response)=>{
-            this.setState({
-                movies: response.data
-            });
-        }).catch((error)=>{
-            console.log(error);
+    /*
+//TO TEST componentDidMount to display Movies
+  componentDidMount(){
+    axios.get("https://haksuly1movieapp.herokuapp.com/movies")
+      .then(response => {
+        this.setState({
+          movies: response.data
         });
-    }
-    setSelectedMovie(newSelectedMovie) {
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+*/ setSelectedMovie(newSelectedMovie) {
         this.setState({
             selectedMovie: newSelectedMovie
         });
@@ -22835,7 +22839,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 57,
+            lineNumber: 55,
             columnNumber: 37
         }, this)); //The list is empty!</div>;
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22847,7 +22851,7 @@ class MainView extends _reactDefault.default.Component {
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 62,
+                lineNumber: 60,
                 columnNumber: 13
             }, this) : movies.map((movie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
                     movie: movie,
@@ -22856,13 +22860,13 @@ class MainView extends _reactDefault.default.Component {
                     }
                 }, movie._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 64,
+                    lineNumber: 62,
                     columnNumber: 13
                 }, this)
             )
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 60,
+            lineNumber: 58,
             columnNumber: 7
         }, this));
     }
