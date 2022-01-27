@@ -18,7 +18,7 @@ export class MainView extends React.Component {
     }
   }
 
-/*
+
 //TO TEST componentDidMount to display Movies
   componentDidMount(){
     axios.get("https://haksuly1movieapp.herokuapp.com/movies")
@@ -31,7 +31,7 @@ export class MainView extends React.Component {
         console.log(error);
       });
   }
-*/
+  
 
   setSelectedMovie(newSelectedMovie) {
     this.setState({

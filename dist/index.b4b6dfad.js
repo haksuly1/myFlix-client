@@ -22809,20 +22809,17 @@ class MainView extends _reactDefault.default.Component {
             selectedMovie: null
         };
     }
-    /*
-//TO TEST componentDidMount to display Movies
-  componentDidMount(){
-    axios.get("https://haksuly1movieapp.herokuapp.com/movies")
-      .then(response => {
-        this.setState({
-          movies: response.data
+    //TO TEST componentDidMount to display Movies
+    componentDidMount() {
+        _axiosDefault.default.get("https://haksuly1movieapp.herokuapp.com/movies").then((response)=>{
+            this.setState({
+                movies: response.data
+            });
+        }).catch((error)=>{
+            console.log(error);
         });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-*/ setSelectedMovie(newSelectedMovie) {
+    }
+    setSelectedMovie(newSelectedMovie) {
         this.setState({
             selectedMovie: newSelectedMovie
         });
