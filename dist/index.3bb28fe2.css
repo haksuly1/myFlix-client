@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+.registration-view {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  background-color: grey;
+  border: solid black 2px;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.registration-form {
+  display: block;
+  max-width: 650px;
+  margin: auto;
+  line-height: 2em;
+}
+
+.registration-form__line {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.registration-form__line__label {
+  display: inline;
+  margin: auto;
+}
+
+.registration-form__line__input-field {
+  display: inline;
+  width: 200px;
+}
+
+.registration-form__login-button {
+  display: block;
+  margin: auto;
+}
+
+@media (max-width: 700px) {
+  .registration-form__line {
+    display: block;
+  }
+
+  .registration-form__line__input-field {
+    display: block;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+.login-view {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  background-color: grey;
+  border: solid blue 2px;
+  border-radius: 15px;
+  padding: 50px;
+}
+
+.login-form {
+  display: block;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.login-form__line {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 30px;
+}
+
+@media (max-width: 350px) {
+  .login-form__line {
+    display: block;
+  }
+
+  .login-form__line__input-field {
+    display: block;
+  }
+}
+.movie-card {
+  width: 100%;
+  margin: 20px;
+}
+.movie-view {
+  width: 100%;
+  margin: 20px;
+}
+
+.movie-title {
+  display: flex;
+}
+
+.movie-description {
+  display: flex;
+}
+
+.my-flix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.3bb28fe2.css.map */
