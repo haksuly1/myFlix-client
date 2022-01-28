@@ -1,3 +1,19 @@
+.movie-card {
+  width: 100%;
+  margin: 20px;
+}
+.movie-view {
+  width: 100%;
+  margin: 20px;
+}
+
+.movie-title {
+  display: flex;
+}
+
+.movie-description {
+  display: flex;
+}
 * {
   box-sizing: border-box;
 }
@@ -32,7 +48,6 @@
 .registration-form__line__input-field {
   display: inline;
   width: 200px;
-  // float: right;
 }
 
 .registration-form__login-button {
@@ -49,3 +64,8 @@
     display: block;
   }
 }
+
+.my-flix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.e3f97e84.css.map */

@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+.login-view {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  background-color: grey;
+  border: solid blue 2px;
+  border-radius: 15px;
+  padding: 50px;
+}
+
+.login-form {
+  display: block;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.login-form__line {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 30px;
+}
+
+@media (max-width: 350px) {
+  .login-form__line {
+    display: block;
+  }
+
+  .login-form__line__input-field {
+    display: block;
+  }
+}
