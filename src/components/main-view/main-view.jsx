@@ -1,36 +1,25 @@
 import React from "react";
 import axios from "axios";
 
+import { RegistrationView } from "../registration-view/registration-view";
+//import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+
+import "./main-view.scss";
 export class MainView extends React.Component {
-
-/*
- //TO TEST componentWillUnmount for Event Listener for "Key-press"
- keypressCallback(event) {
-  console.log(event.key);
-}
-
-componentDidMount() {
-  document.addEventListener("keypress", this.keypressCallback);
-}
-*/
 
   constructor(){
     super();
+    //initial state is set to null
     this.state = {
       movies: [],
-
-        //{ _id: 1, Title: "Silence of the Lambs", Description: "A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer.", ImagePath: "https://www.imdb.com/title/tt0102926/mediaviewer/rm3242988544/?ref_=tt_ov_i"},
-        //{ _id: 2, Title: "The Shawshank Redemption", Description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", ImagePath: "https://www.imdb.com/title/tt0111161/mediaviewer/rm10105600/?ref_=tt_ov_i"},
-        //{ _id: 3, Title: "The Green Mile", Description: "The lives of guards on death row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.", ImagePath: "https://www.imdb.com/title/tt0120689/mediaviewer/rm946247936/?ref_=tt_ov_i"}
-      
-      selectedMovie: null
-    }
+      selectedMovie: null,
+      user: null
+    };
   }
 
-
-//TO TEST componentDidMount to display Movies
+//componentDidMount to display Movies
   componentDidMount(){
     axios.get("https://haksuly1movieapp.herokuapp.com/movies")
       .then(response => {
@@ -43,21 +32,44 @@ componentDidMount() {
       });
   }
 
+/* These following methods let me affect the state of this parent element from interactions within the Child component */
+  /* Functions are passed as an attribute into the child component */
 
-
-  setSelectedMovie(newSelectedMovie) {
+//When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' i.e the property of that movie
+  setSelectedMovie(movie) {
     this.setState({
-      selectedMovie: newSelectedMovie
+      selectedMovie: movie
     });
   }
 
+//When a user sucessfully register
+onRegistration(register) {
+  this.setState({
+    register,
+  });
+}
+
+//When a user successfully logs in, this function updates the 'user' property in state to that to that 'particular user'
+onLoggedIn(user) {
+  this.setState({
+    user
+  });
+}
+
   render() {
-    const { movies, selectedMovie } = this.state;
+    const { movies, selectedMovie, user, registered } = this.state;
+
+    if (!registered) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
+
+    //If there is no user, the loginView is rendered. If there is a user loggedin, the user details are 'passed as a prop to the LoginView'
+    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+
+    //Before the nmovies have been loaded
+    if (movies.length === 0) return <div className="main-view" />;
   
-    if (movies.length === 0) return <div className="main-view" />; //The list is empty!</div>;
-  
+    //If state of 'sdelectedMovie' is not null, that selected moviewill be returned, otherwise, all movies will be returned.
     return (
-      <div className="main-view">
+      <div className="main-view"> 
         {selectedMovie
           ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
           : movies.map(movie => (
@@ -69,7 +81,6 @@ componentDidMount() {
     );
   }
 }
-
 
 export default MainView 
   
