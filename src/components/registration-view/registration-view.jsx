@@ -1,6 +1,11 @@
-import React, { useState } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
+import React, { useState } from "react";
 
+//React Bootstrap
+import { Navbar, Container, Nav, Form, Button, Card, Container } from "react-bootstrap";
+
+//SCSS Import
 import "./registration-view.scss";
 
 export function RegistrationView(props) {
@@ -9,53 +14,79 @@ export function RegistrationView(props) {
   const [ email, setEmail ] = useState('');
   const [ Birthday, setBirthday] = useState('');
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email, Birthday);
-    /* Send a request to the server for authentication */
-    /* then call props on registored user(username) */
-    props.onRegistration(username);
-  };
+    axios.post("https://haksuly1movieapp.herokuapp.com/movies", {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: Birthday
+    })
+
+    .then(response => {
+      const data = response.data;
+      console.log(data)
+      window.open("/", "_self");
+    })
+    .catch(e => {
+      console.log("error registering the user")
+    });
+};
 
   return (
 
     <div className="registration-view">
-    <h2>Please register:</h2>
+      <Navbar expand="lg" bg="#5B84B1FF" variant="dark" className="registrationNavbar">
+      <Container>
+      <Navbar.Brand href="#myflix">MyFlixApp</Navbar.Brand>
+          <Nav className="me-auto">
+          <Nav.Link href="#profile">Profile</Nav.Link>
+          <Nav.Link href="#update-profile">Update Profile</Nav.Link>
+          <Nav.Link href="#logout">Logout</Nav.Link>
+          </Nav>
+      </Container>
+      </Navbar>
 
-    <form className="registration-form">
 
-      <div className="registration-form__line">
-        <label className="registration-form__line-label">Username:</label>
-          <input className="registration-form__line__input-field" type="text" value={username} onChange={e => setUsername(e.target.value)} />
-            <span className="registration-form__label-tips">5+ characters, no spaces</span>
-      </div>
-      
-      <div class="registration-form__line">
-        <label className="registration-form__line-label">Enter password:</label>
-          <input className="registration-form__line__input-field" type="text" value={password} onChange={e => setPassword(e.target.value)} />
-            <span className="registration-form__label-tips">Must not be blank</span>
-      </div>
-      
-      <div className="registration-form__line">
-        <label className="registration-form__line-label">Email:</label>
-          <input className="registration-form__line__input-field" type="text" value={email} onChange={e => setEmail(e.target.value)} />
-            <span className="registration-form__label-tips">required</span>
-      </div>
-      
-      <div className="registration-form__line">
-        <label class="registration-form__line-label">Birthday:</label>
-          <input className="registration-form__line__input-field" type="text" value={Birthday} onChange={e => setBirthday(e.target.value)} />
-            <span className="registration-form__label-tips">optional</span>
-      </div>
-      
-
-      <button type="submit" onClick={handleSubmit}>Register</button>
-    </form>
-  </div>
-)
+    <Container fluid className="registrationContainer">
+      <Card bg="#fc766aff" className="registrationCard"> 
+      <Card.Body> 
+        <Card.Title className="text-center">Welcome to the registration page</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted text-center">Please Register</Card.Subtitle>
+      <Form>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+          
+        </Form.Group>
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+          <Form.Text className="text-muted">
+            Password must be minimum of 8 characters.
+          </Form.Text>
+        
+        </Form.Group>
+        <Form.Group controlId="formBasicCheckbox">
+          <Form.Check type="checkbox" label="Confirm action" />
+        </Form.Group>
+        <Button variant="primary" type="register">Register</Button>
+      </Form>
+      </Card.Body> 
+      </Card>
+    </Container>
+    </div>
+  );
 }
 
 RegistrationView.propTypes = {
-  onRegistration: PropTypes.func.isRequired,
+  register: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Birthday: PropTypes.string.isRequired
+  })
 };

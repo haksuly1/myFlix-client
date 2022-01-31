@@ -1,51 +1,21 @@
-* {
-  box-sizing: border-box;
+.registrationNavbar {
+  background: #162b48;
 }
 
-.registration-view {
-  display: block;
-  width: 50%;
-  margin: 0 auto;
-  background-color: grey;
-  border: solid black 2px;
-  border-radius: 15px;
-  padding: 20px;
+html,
+body,
+#registrationCard > div {
+  background: #0095c4 !important;
+  height: 100%;
 }
 
-.registration-form {
-  display: block;
-  max-width: 650px;
-  margin: auto;
-  line-height: 2em;
+html,
+body,
+#registrationContainer > div {
+  background: none;
+  height: 100%;
 }
 
-.registration-form__line {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.registration-form__line__label {
-  display: inline;
-  margin: auto;
-}
-
-.registration-form__line__input-field {
-  display: inline;
-  width: 200px;
-  // float: right;
-}
-
-.registration-form__login-button {
-  display: block;
-  margin: auto;
-}
-
-@media (max-width: 700px) {
-  .registration-form__line {
-    display: block;
-  }
-
-  .registration-form__line__input-field {
-    display: block;
-  }
+body {
+  font-family: serif;
 }

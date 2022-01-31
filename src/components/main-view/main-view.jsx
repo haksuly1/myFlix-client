@@ -1,12 +1,17 @@
 import React from "react";
 import axios from "axios";
 
-import { RegistrationView } from "../registration-view/registration-view";
+//SCSS <Import>
+import "./main-view.scss";
+
+//React Components
 import { LoginView } from "../login-view/login-view";
+import { RegistrationView } from "../registration-view/registration-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
-import "./main-view.scss";
+//React Bootstrap
+import { Navbar, Container, Nav, Row, Col } from "react-bootstrap";
 export class MainView extends React.Component {
 
   constructor(){
@@ -16,7 +21,7 @@ export class MainView extends React.Component {
       movies: [],
       selectedMovie: null,
       user: null
-    };
+    }
   }
 
 //componentDidMount to display Movies
@@ -32,22 +37,32 @@ export class MainView extends React.Component {
       });
   }
 
-/* These following methods let me affect the state of this parent element from interactions within the Child component */
-  /* Functions are passed as an attribute into the child component */
+/*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie`
+   *property to that movie*/
 
+setSelectedMovie(newSelectedMovie) {
+  this.setState({
+    selectedMovie: newSelectedMovie
+  });
+}
+
+/*
 //When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' i.e the property of that movie
   setSelectedMovie(movie) {
     this.setState({
       selectedMovie: movie
     });
   }
+*/
 
+/*
 //When a user sucessfully register
 onRegistration(register) {
   this.setState({
     register,
   });
 }
+*/
 
 //When a user successfully logs in, this function updates the 'user' property in state to that to that 'particular user'
 onLoggedIn(user) {
@@ -69,19 +84,43 @@ onLoggedIn(user) {
   
     //If state of 'sdelectedMovie' is not null, that selected moviewill be returned, otherwise, all movies will be returned.
     return (
-      <div className="main-view"> 
+
+      <div className="main-view">
+        <Navbar expand="lg" bg="#162b48" variant="dark" className="mainNavbar">
+        <Container>
+        <Navbar.Brand href="#myflix">MyFlixApp</Navbar.Brand>
+            <Nav className="me-auto">
+            <Nav.Link href="#profile">Profile</Nav.Link>
+            <Nav.Link href="#update-profile">Update Profile</Nav.Link>
+            <Nav.Link href="#logout">Logout</Nav.Link>
+            </Nav>
+        </Container>
+        </Navbar>
+
+        <Row className="main-view justify-content-md-center">
         {selectedMovie
-          ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-          : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
-            //(movie) => { this.setSelectedMovie(movie) }}/>
-          ))
+          ? (
+            <Col md={8}>
+              <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+            </Col>
+          )
+          : movies.map((movie) => (
+            <Col md={3} key={movie._id}>
+              <MovieCard
+                movie={movie}
+                onMovieClick={(newSelectedMovie) => {
+                  this.setSelectedMovie(newSelectedMovie);
+                }}
+              />
+            </Col>
+          ))        
         }
+        </Row>
       </div>
-    );
+    );    
   }
 }
 
-export default MainView 
+export default MainView
   
 

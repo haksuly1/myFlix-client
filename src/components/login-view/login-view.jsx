@@ -1,55 +1,74 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+//SCSS Import
 import "./login-view.scss";
 
+//React Bootstrap
+import { Navbar, Container, Nav, Form, Button, Card, Container } from "react-bootstrap";
 export function LoginView(props) {
-  const [ username, setUsername ] = useState('');
-  const [ password, setPassword ] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password);
-    /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
+    // Send a request to the server for authentication, then call props.onLoggedIn(username)
     props.onLoggedIn(username);
   };
 
-  const handleClickRegister = (e) => {
-    e.preventDefault();
-    props.toRegistrationView('');
-  }
-
   return (
     <div className="login-view">
-      <h2>please register</h2>
+      <Navbar expand="lg" bg="#5B84B1FF" variant="dark" className="loginNavbar">
+      <Container>
+      <Navbar.Brand href="#myflix">MyFlixApp</Navbar.Brand>
+          <Nav className="me-auto">
+          <Nav.Link href="#profile">Profile</Nav.Link>
+          <Nav.Link href="#update-profile">Update Profile</Nav.Link>
+          <Nav.Link href="#logout">Logout</Nav.Link>
+          </Nav>
+      </Container>
+      </Navbar>
 
-      <form className="login-form">
-
-        <div className="login-form__line">
-          <label className="login-form__line__label">Username:</label >
-            <input className="login-form__line__input-field" type="text" value={username} onChange={e => setUsername(e.target.value)} />
-        </div>
-
-        <div className="login-form__line">
-          <label className="login-form__line__label">Password:</label>
-            <input className="login-form__line__input-field" type="text" value={password} onChange={e => setPassword(e.target.value)} />        
-        </div>
-
-        <button className="login-form__login-button" type="submit" onClick={handleSubmit}>Log in</button>
-      
-      </form> 
-
-      <div>
-        <span>Don't have an account? </span>
-        <button type="submit" onClick={handleClickRegister}>Register</button>
-      </div>
+      <Container fluid className="loginContainer" >   
+        <Card bg="#fc766aff" className="loginCard">
+          <Card.Body>
+            <Card.Title className="text-center">Welcome to the login page!</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted text-center">Please Login</Card.Subtitle>
+            <Form >
+              <Form.Group controlId="formUsername">
+                <Form.Label>Username</Form.Label>
+                <Form.Control 
+                  type="text" 
+                  onChange={e => setUsername(e.target.value)}
+                  placeholder="Enter a username"
+                />
+              </Form.Group>
+              <Form.Group controlId="formPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control 
+                  className="mb-3" 
+                  type="password" 
+                  onChange={e => setPassword(e.target.value)}
+                  placeholder="Enter a password"
+                />
+              </Form.Group>
+              <Button className="loginButton" variant="primary" size="lg" type="submit" onClick={handleSubmit}>
+                Login
+              </Button>
+            </Form>
+          </Card.Body>
+        </Card>
+      </Container>
     </div>
-  )
+  );
 }
 
 // Give informational warnings in browser if data does not match required shape
 LoginView.propTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+  }),
   onLoggedIn: PropTypes.func.isRequired,
-  toRegistrationView: PropTypes.func.isRequired
 };
