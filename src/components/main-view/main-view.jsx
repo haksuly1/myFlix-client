@@ -62,7 +62,7 @@ onLoggedIn(user) {
 }
 
   render() {
-    const { movies, selectedMovie, user } = this.state;
+    const { movies, selectedMovie, user, registered } = this.state;
 
     //if (!registered) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
 
@@ -110,6 +110,6 @@ onLoggedIn(user) {
   }
 }
 
-export default RegistrationView
-  
+
+
 

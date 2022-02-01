@@ -23811,7 +23811,7 @@ class MainView extends _reactDefault.default.Component {
         });
     }
     render() {
-        const { movies , selectedMovie , user: user1  } = this.state;
+        const { movies , selectedMovie , user: user1 , registered  } = this.state;
         //if (!registered) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
         //If there is no user, the loginView is rendered. If there is a user loggedin, the user details are 'passed as a prop to the LoginView'
         if (!user1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginView.LoginView, {
@@ -23941,7 +23941,6 @@ class MainView extends _reactDefault.default.Component {
         }, this));
     }
 }
-exports.default = _registrationView.RegistrationView;
 
   $parcel$ReactRefreshHelpers$f7a6.postlude(module);
 } finally {
