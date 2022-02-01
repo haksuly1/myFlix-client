@@ -1,6 +1,6 @@
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import React, { useState } from "react";
 
 //React Bootstrap
 import { Navbar, Container, Nav, Form, Button, Card, Container } from "react-bootstrap";
@@ -12,15 +12,15 @@ export function RegistrationView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ email, setEmail ] = useState('');
-  const [ Birthday, setBirthday] = useState('');
+  const [ birthday, setBirthday] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("https://haksuly1movieapp.herokuapp.com/movies", {
+    axios.post("https://haksuly1movieapp.herokuapp.com/users", {
       Username: username,
       Password: password,
       Email: email,
-      Birthday: Birthday
+      Birthday: birthday
     })
 
     .then(response => {
@@ -34,7 +34,6 @@ export function RegistrationView(props) {
 };
 
   return (
-
     <div className="registration-view">
       <Navbar expand="lg" bg="#5B84B1FF" variant="dark" className="registrationNavbar">
       <Container>
@@ -58,18 +57,18 @@ export function RegistrationView(props) {
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
           <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
+            We'll never share your email with anyone.
           </Form.Text>
-          
         </Form.Group>
+
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
           <Form.Text className="text-muted">
             Password must be minimum of 8 characters.
           </Form.Text>
-        
         </Form.Group>
+
         <Form.Group controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Confirm action" />
         </Form.Group>

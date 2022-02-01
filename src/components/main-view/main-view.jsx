@@ -39,7 +39,6 @@ export class MainView extends React.Component {
 
 /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie`
    *property to that movie*/
-
 setSelectedMovie(newSelectedMovie) {
   this.setState({
     selectedMovie: newSelectedMovie
@@ -55,15 +54,6 @@ setSelectedMovie(newSelectedMovie) {
   }
 */
 
-/*
-//When a user sucessfully register
-onRegistration(register) {
-  this.setState({
-    register,
-  });
-}
-*/
-
 //When a user successfully logs in, this function updates the 'user' property in state to that to that 'particular user'
 onLoggedIn(user) {
   this.setState({
@@ -72,9 +62,9 @@ onLoggedIn(user) {
 }
 
   render() {
-    const { movies, selectedMovie, user, registered } = this.state;
+    const { movies, selectedMovie, user } = this.state;
 
-    if (!registered) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
+    //if (!registered) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
 
     //If there is no user, the loginView is rendered. If there is a user loggedin, the user details are 'passed as a prop to the LoginView'
     if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
@@ -84,7 +74,6 @@ onLoggedIn(user) {
   
     //If state of 'sdelectedMovie' is not null, that selected moviewill be returned, otherwise, all movies will be returned.
     return (
-
       <div className="main-view">
         <Navbar expand="lg" bg="#162b48" variant="dark" className="mainNavbar">
         <Container>
@@ -121,6 +110,6 @@ onLoggedIn(user) {
   }
 }
 
-export default MainView
+export default RegistrationView
   
 

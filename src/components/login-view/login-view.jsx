@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+//import axios from "axios";
 
 //SCSS Import
 import "./login-view.scss";
@@ -13,9 +14,28 @@ export function LoginView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password);
-    // Send a request to the server for authentication, then call props.onLoggedIn(username)
+    /* Send a request to the server for authentication */
+    /* then call props.onLoggedIn(username) */
     props.onLoggedIn(username);
   };
+
+/*
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //Send a request to the server for authentication 
+    axios.post("https://haksuly1movieapp.herokuapp.com/login", {
+      Username: username,
+      Password: password
+    })
+    .then(response => {
+      const data = response.data;
+      props.onLoggedIn(data);
+    })
+    .catch(e => {
+      console.log('no such user')
+    });
+  };
+  */
 
   return (
     <div className="login-view">
