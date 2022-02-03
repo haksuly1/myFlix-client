@@ -92,7 +92,7 @@ componentWillUnmount() {
       
         <button onClick={() => { onBackClick(null); }}>Back</button>
       </div>
-    );
+    )
   }
 }
 
