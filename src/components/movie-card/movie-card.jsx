@@ -6,9 +6,6 @@ import "./movie-card.scss"
 
 //React Bootstrap
 import { Card, Button } from "react-bootstrap";
-import { propTypes } from "react-bootstrap/esm/Image";
-
-
 export class MovieCard extends React.Component {
   render() {
     const { movie, onMovieClick } = this.props;
