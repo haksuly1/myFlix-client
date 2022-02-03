@@ -40,7 +40,8 @@ MovieCard.propTypes = {
       Death: PropTypes.date
     }),
     Featured: PropTypes.bool,
-    ImagePath: PropTypes.string.isRequired
+    ReleaseYear: PropTypes.data,
+    ImagePath: PropTypes.string.isRequired,
   }).isRequired,
   onMovieClick: PropTypes.func.isRequired
 };
