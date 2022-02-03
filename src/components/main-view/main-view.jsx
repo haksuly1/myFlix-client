@@ -64,10 +64,10 @@ onLoggedIn(user) {
   render() {
     const { movies, selectedMovie, user, registered } = this.state;
 
-    //if (!registered) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
-
     //If there is no user, the loginView is rendered. If there is a user loggedin, the user details are 'passed as a prop to the LoginView'
     if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+
+    //if (!registered) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
 
     //Before the nmovies have been loaded
     if (movies.length === 0) return <div className="main-view" />;

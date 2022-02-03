@@ -6,8 +6,6 @@ import "./movie-card.scss"
 
 //React Bootstrap
 import { Card, Button } from "react-bootstrap";
-
-
 export class MovieCard extends React.Component {
   render() {
     const { movie, onMovieClick } = this.props;
@@ -29,19 +27,21 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string.isRequired,
+    ReleaseYear: PropTypes.date,
+
     Genre: PropTypes.shape({
       Name: PropTypes.string.isRequired,
       Description: PropTypes.string.isRequired
     }),
+
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired,
       Bio: PropTypes.string.isRequired,
-      Birth: PropTypes.date,
+      Birth: PropTypes.date.isRequired,
       Death: PropTypes.date
     }),
-    Featured: PropTypes.bool,
-    ReleaseYear: PropTypes.data,
-    ImagePath: PropTypes.string.isRequired,
+
   }).isRequired,
   onMovieClick: PropTypes.func.isRequired
 };
