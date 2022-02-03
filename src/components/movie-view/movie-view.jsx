@@ -26,7 +26,7 @@ componentWillUnmount() {
 
     return (
       
-      /*
+      
       <div className="movie-view">
       <Navbar expand="lg" bg="#5B84B1FF" variant="dark" className="MovieViewNavbar">
       <Container>
@@ -38,7 +38,7 @@ componentWillUnmount() {
           </Nav>
       </Container>
       </Navbar>
-      */
+      
 
       <div className="movie-view">
         <div className="movie-poster">
@@ -87,6 +87,7 @@ componentWillUnmount() {
 
         <button onClick={() => { onBackClick(null); }}>Back</button>  
 
+        </div>
         </div>
     )
   }
