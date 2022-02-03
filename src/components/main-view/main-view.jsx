@@ -4,14 +4,14 @@ import axios from "axios";
 //SCSS <Import>
 import "./main-view.scss";
 
+//React Bootstrap
+import { Navbar, Container, Nav, Row, Col } from "react-bootstrap";
+
 //React Components
 import { LoginView } from "../login-view/login-view";
 import { RegistrationView } from "../registration-view/registration-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
-
-//React Bootstrap
-import { Navbar, Container, Nav, Row, Col } from "react-bootstrap";
 export class MainView extends React.Component {
 
   constructor(){

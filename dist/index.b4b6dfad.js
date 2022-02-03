@@ -23763,13 +23763,13 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 //SCSS <Import>
 var _mainViewScss = require("./main-view.scss");
+//React Bootstrap
+var _reactBootstrap = require("react-bootstrap");
 //React Components
 var _loginView = require("../login-view/login-view");
 var _registrationView = require("../registration-view/registration-view");
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
-//React Bootstrap
-var _reactBootstrap = require("react-bootstrap");
 class MainView extends _reactDefault.default.Component {
     constructor(){
         super();
