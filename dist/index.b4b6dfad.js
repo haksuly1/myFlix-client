@@ -25757,7 +25757,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","./login-view.scss":"e57ax","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC","axios":"jo6P5"}],"7wKI2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","axios":"jo6P5","./login-view.scss":"e57ax","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC"}],"7wKI2":[function(require,module,exports) {
 var ReactIs = require('react-is');
 // By explicitly using `prop-types` you are opting into new development behavior.
 // http://fb.me/prop-types-in-prod
@@ -26789,7 +26789,7 @@ var _toggleButtonGroupDefault = parcelHelpers.interopDefault(_toggleButtonGroup)
 var _tooltip = require("./Tooltip");
 var _tooltipDefault = parcelHelpers.interopDefault(_tooltip);
 
-},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./Alert":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"aPzUt","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"lAynp","./CardImg":"1reTi","./CardGroup":false,"./Carousel":false,"./CarouselItem":false,"./CloseButton":"1wmVl","./Col":"2L2I6","./Collapse":"acuzI","./Dropdown":false,"./DropdownButton":false,"./Fade":"aH18S","./Form":"iBZ80","./FormControl":"iynMc","./FormCheck":"idkr0","./FormFloating":"aj346","./FloatingLabel":"coYzo","./FormGroup":"1qBHH","./FormLabel":"66epi","./FormText":"ffeC7","./FormSelect":"hHWyB","./Container":"hEdsw","./Image":"cyVPa","./Figure":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalFooter":false,"./ModalTitle":false,"./Nav":"cXyL2","./Navbar":"1mHjo","./NavbarBrand":"iOo4v","./NavDropdown":false,"./NavItem":"ew05W","./NavLink":"7geL8","./Offcanvas":"eC3RS","./OffcanvasHeader":"a6xAh","./OffcanvasTitle":"77qdX","./OffcanvasBody":"fX7Bo","./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverHeader":false,"./PopoverBody":false,"./ProgressBar":false,"./Ratio":false,"./Row":"cMC39","./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":false,"./ThemeProvider":"dVixI","./Toast":false,"./ToastBody":false,"./ToastHeader":false,"./ToastContainer":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"aPzUt":[function(require,module,exports) {
+},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./Alert":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"aPzUt","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"lAynp","./CardImg":"1reTi","./CardGroup":false,"./Carousel":false,"./CarouselItem":false,"./CloseButton":"1wmVl","./Col":"2L2I6","./Collapse":"acuzI","./Dropdown":false,"./DropdownButton":false,"./Fade":"aH18S","./Form":"iBZ80","./FormControl":"iynMc","./FormCheck":"idkr0","./FormFloating":"aj346","./FloatingLabel":"coYzo","./FormGroup":"1qBHH","./FormLabel":"66epi","./FormText":"ffeC7","./FormSelect":"hHWyB","./Container":"hEdsw","./Image":false,"./Figure":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalFooter":false,"./ModalTitle":false,"./Nav":"cXyL2","./Navbar":"1mHjo","./NavbarBrand":"iOo4v","./NavDropdown":false,"./NavItem":"ew05W","./NavLink":"7geL8","./Offcanvas":"eC3RS","./OffcanvasHeader":"a6xAh","./OffcanvasTitle":"77qdX","./OffcanvasBody":"fX7Bo","./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverHeader":false,"./PopoverBody":false,"./ProgressBar":false,"./Ratio":false,"./Row":"cMC39","./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":false,"./ThemeProvider":"dVixI","./Toast":false,"./ToastBody":false,"./ToastHeader":false,"./ToastContainer":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"aPzUt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -28894,55 +28894,7 @@ const FloatingLabel = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , 
 FloatingLabel.displayName = 'FloatingLabel';
 exports.default = FloatingLabel;
 
-},{"classnames":"jocGM","react":"21dqq","./FormGroup":"1qBHH","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"cyVPa":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "propTypes", ()=>propTypes
-);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-const propTypes = {
-    /**
-   * @default 'img'
-   */ bsPrefix: _propTypesDefault.default.string,
-    /**
-   * Sets image as fluid image.
-   */ fluid: _propTypesDefault.default.bool,
-    /**
-   * Sets image shape as rounded.
-   */ rounded: _propTypesDefault.default.bool,
-    /**
-   * Sets image shape as circle.
-   */ roundedCircle: _propTypesDefault.default.bool,
-    /**
-   * Sets image shape as thumbnail.
-   */ thumbnail: _propTypesDefault.default.bool
-};
-const defaultProps = {
-    fluid: false,
-    rounded: false,
-    roundedCircle: false,
-    thumbnail: false
-};
-const Image = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , fluid , rounded , roundedCircle , thumbnail , ...props }, ref)=>{
-    bsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'img');
-    return(/*#__PURE__*/ _jsxRuntime.jsx("img", {
-        // eslint-disable-line jsx-a11y/alt-text
-        ref: ref,
-        ...props,
-        className: _classnamesDefault.default(className, fluid && `${bsPrefix}-fluid`, rounded && `rounded`, roundedCircle && `rounded-circle`, thumbnail && `${bsPrefix}-thumbnail`)
-    }));
-});
-Image.displayName = 'Image';
-Image.defaultProps = defaultProps;
-exports.default = Image;
-
-},{"classnames":"jocGM","react":"21dqq","prop-types":"7wKI2","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"cXyL2":[function(require,module,exports) {
+},{"classnames":"jocGM","react":"21dqq","./FormGroup":"1qBHH","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"cXyL2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -32167,6 +32119,6 @@ MovieView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","./movie-view.scss":"jnlR5","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC","react-bootstrap":"3AD9A"}],"jnlR5":[function() {},{}],"lJZlQ":[function() {},{}]},["6HQxs","1Twyd","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap":"3AD9A","./movie-view.scss":"jnlR5","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC"}],"jnlR5":[function() {},{}],"lJZlQ":[function() {},{}]},["6HQxs","1Twyd","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
