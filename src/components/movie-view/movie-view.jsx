@@ -25,8 +25,6 @@ componentWillUnmount() {
     const { movie, onBackClick } = this.props;
 
     return (
-      
-      
       <div className="movie-view">
       <Navbar expand="lg" bg="#5B84B1FF" variant="dark" className="MovieViewNavbar">
       <Container>
@@ -39,7 +37,6 @@ componentWillUnmount() {
       </Container>
       </Navbar>
       
-
       <div className="movie-view">
         <div className="movie-poster">
           <img src={movie.ImagePath} crossOrigin="true" />
