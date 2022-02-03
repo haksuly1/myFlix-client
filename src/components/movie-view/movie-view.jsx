@@ -63,6 +63,11 @@ componentWillUnmount() {
           <span className="value">{movie.Genre.Name}</span>
         </div>
 
+        <div className="movie-genre">
+          <span className="label">Description: </span>
+          <span className="value">{movie.Genre.Description}</span>
+        </div>
+
         <div className="movie-director">
           <span className="label">Director: </span>
           <span className="value">{movie.Director.Name}</span>
@@ -94,19 +99,23 @@ MovieView.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
+
     Genre: PropTypes.shape({
       Name: PropTypes.string.isRequired,
       Description: PropTypes.string.isRequired
     }),
+
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired,
       Bio: PropTypes.string.isRequired,
       Birth: PropTypes.date,
       Death: PropTypes.date
     }),
+
     Featured: PropTypes.bool,
     ReleaseYear: PropTypes.data,
     ImagePath: PropTypes.string.isRequired
+
     }).isRequired,
     onBackClick: PropTypes.func.isRequired
   };
