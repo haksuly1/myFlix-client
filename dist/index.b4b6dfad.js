@@ -31476,7 +31476,7 @@ function RegistrationView(props) {
     const [birthday, setBirthday] = _react.useState('');
     const handleSubmit = (e)=>{
         e.preventDefault();
-        _axiosDefault.default.post("https://haksuly1movieapp.herokuapp.com/users", {
+        _axiosDefault.default.post("https://localhost:8080/users", {
             Username: username,
             Password: password,
             Email: email,
