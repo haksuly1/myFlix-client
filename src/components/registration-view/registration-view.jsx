@@ -16,13 +16,12 @@ export function RegistrationView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("https://localhost:8080/users", {
+    axios.post("https://haksuly1movieapp.herokuapp.com/users", {
       Username: username,
       Password: password,
       Email: email,
       Birthday: birthday
     })
-
     .then(response => {
       const data = response.data;
       console.log(data)
