@@ -23782,7 +23782,7 @@ class MainView extends _reactDefault.default.Component {
     }
     //componentDidMount to display Movies
     componentDidMount() {
-        _axiosDefault.default.get("https://haksuly1movieapp.herokuapp.com/movies").then((response)=>{
+        _axiosDefault.default.get("https://localhost:8080/movies").then((response)=>{
             this.setState({
                 movies: response.data
             });
@@ -31112,23 +31112,20 @@ function LoginView(props) {
         //then call props.onLoggedIn(username) 
         props.onLoggedIn(username);
     };
-    /*
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    //Send a request to the server for authentication 
-    axios.post("https://haksuly1movieapp.herokuapp.com/login", {
-      Username: username,
-      Password: password
-    })
-    .then(response => {
-      const data = response.data;
-      props.onLoggedIn(data);
-    })
-    .catch(e => {
-      console.log("no such user")
-    });
-  };
-*/ return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        //Send a request to the server for authentication 
+        _axiosDefault.default.post("https://localhost:8080/login", {
+            Username: username,
+            Password: password
+        }).then((response)=>{
+            const data = response.data;
+            props.onLoggedIn(data);
+        }).catch((e)=>{
+            console.log("no such user");
+        });
+    };
+    return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
         className: "login-view",
         children: [
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar, {

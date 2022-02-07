@@ -21,11 +21,11 @@ export function LoginView(props) {
   };
   
 
-  /*
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     //Send a request to the server for authentication 
-    axios.post("https://haksuly1movieapp.herokuapp.com/login", {
+    axios.post("https://localhost:8080/login", {
       Username: username,
       Password: password
     })
@@ -37,7 +37,7 @@ export function LoginView(props) {
       console.log("no such user")
     });
   };
-*/
+
 
   return (
     <div className="login-view">
