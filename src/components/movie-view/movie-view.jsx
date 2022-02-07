@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 //React Bootstrap
-import { Navbar, Nav, Container } from "react-bootstrap";
+//import { Navbar, Nav, Container } from "react-bootstrap";
 
 //SCSS Import
 import "./movie-view.scss";
