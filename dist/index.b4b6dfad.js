@@ -31793,7 +31793,7 @@ MovieCard.propTypes = {
         Title: _propTypesDefault.default.string.isRequired,
         Description: _propTypesDefault.default.string.isRequired,
         ImagePath: _propTypesDefault.default.string.isRequired,
-        ReleaseYear: _propTypesDefault.default.date,
+        ReleaseYear: _propTypesDefault.default.string,
         Genre: _propTypesDefault.default.shape({
             Name: _propTypesDefault.default.string.isRequired,
             Description: _propTypesDefault.default.string.isRequired
@@ -31801,8 +31801,8 @@ MovieCard.propTypes = {
         Director: _propTypesDefault.default.shape({
             Name: _propTypesDefault.default.string.isRequired,
             Bio: _propTypesDefault.default.string.isRequired,
-            Birth: _propTypesDefault.default.date,
-            Death: _propTypesDefault.default.date
+            Birth: _propTypesDefault.default.string,
+            Death: _propTypesDefault.default.string
         })
     }).isRequired,
     onMovieClick: _propTypesDefault.default.func.isRequired
