@@ -21,7 +21,7 @@ export function LoginView(props) {
   };
   
 
-  /*
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     //Send a request to the server for authentication 
@@ -37,7 +37,7 @@ export function LoginView(props) {
       console.log("no such user")
     });
   };
-*/
+
 
   return (
     <div className="login-view">
