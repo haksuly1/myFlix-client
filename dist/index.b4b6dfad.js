@@ -31112,6 +31112,7 @@ function LoginView(props) {
         //then call props.onLoggedIn(username) 
         props.onLoggedIn(username);
     };
+    /*
   const handleSubmit = (e) => {
     e.preventDefault();
     //Send a request to the server for authentication 
