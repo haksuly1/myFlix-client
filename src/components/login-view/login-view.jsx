@@ -15,16 +15,16 @@ export function LoginView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     //send a request to the server for athentication
-    axios.post("https://haksuly1movieapp.herokuapp.com/login", { 
+    axios.post( "https://haksuly1movieapp.herokuapp.com/login", { 
       Username: username,
       Password: password
     })
     .then(response => {
       const data = response.data;
-      props.onLoggedIn (data);
+      props.onLoggedIn(data);
     })
     .catch(e => {
-      console.log( "no such user")
+      console.log( "no such user" )
     });
     //console.log(username, password);
     //Send a request to the server for authentication 
