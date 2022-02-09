@@ -62,6 +62,7 @@ body {
 .movie-view {
   width: 100%;
   margin: 20px;
+  padding-bottom: 20px;
 }
 
 .movie-title {

@@ -32123,11 +32123,11 @@ MovieView.propTypes = {
         Director: _propTypesDefault.default.shape({
             Name: _propTypesDefault.default.string.isRequired,
             Bio: _propTypesDefault.default.string.isRequired,
-            Birth: _propTypesDefault.default.date,
-            Death: _propTypesDefault.default.date
+            Birth: _propTypesDefault.default.string,
+            Death: _propTypesDefault.default.string
         }),
         Featured: _propTypesDefault.default.bool,
-        ReleaseYear: _propTypesDefault.default.data,
+        ReleaseYear: _propTypesDefault.default.string,
         ImagePath: _propTypesDefault.default.string.isRequired
     }).isRequired,
     onBackClick: _propTypesDefault.default.func.isRequired
