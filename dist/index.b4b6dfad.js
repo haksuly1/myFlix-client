@@ -31108,7 +31108,7 @@ function LoginView(props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         //send a request to the server for athentication
-        _axiosDefault.default.post("https://haksuly1movieapp.herokuapp.com/", {
+        _axiosDefault.default.post("https://haksuly1movieapp.herokuapp.com/login", {
             Username: username,
             Password: password
         }).then((response)=>{
