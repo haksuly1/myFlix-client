@@ -39,6 +39,15 @@ export class MainView extends React.Component {
   }
   */
 
+  componentDidMount() {
+    let accessToken = localStorage.getItem("token");
+    if (accessToken !== null) {
+      this.setState({
+      });
+      this.getMovies(accessToken);
+    }
+  }
+
   getMovies(token) {
     axios.get('https://haksuly1movieapp.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}`}
