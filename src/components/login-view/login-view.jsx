@@ -15,7 +15,7 @@ export function LoginView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     //send a request to the server for athentication
-    axios.post("Access-Control-Allow-Origin", "https://haksuly1movieapp.herokuapp.com/login", { 
+    axios.post("https://haksuly1movieapp.herokuapp.com/login", { 
       Username: username,
       Password: password
     })
