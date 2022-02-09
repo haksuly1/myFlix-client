@@ -121,7 +121,7 @@ onLoggedOut() {
             <Nav className="me-auto">
             <Nav.Link href="#profile">Profile</Nav.Link>
             <Nav.Link href="#update-profile">Update Profile</Nav.Link>
-            <Nav.Link href="#logout">Logout</Nav.Link>
+            <button onClick={() => { this.onLoggedOut() }}>Logout</button>
             </Nav>
         </Container>
         </Navbar>
@@ -141,7 +141,6 @@ onLoggedOut() {
                   this.setSelectedMovie(newSelectedMovie);
                 }}
               />
-              <button onClick={() => { this.onLoggedOut() }}>Logout</button>
             </Col>
           ))        
         }

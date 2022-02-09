@@ -23903,8 +23903,10 @@ onLoggedIn(user) {
                                         lineNumber: 123,
                                         columnNumber: 13
                                     }, this),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
-                                        href: "#logout",
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                                        onClick: ()=>{
+                                            this.onLoggedOut();
+                                        },
                                         children: "Logout"
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
@@ -23948,29 +23950,17 @@ onLoggedIn(user) {
                         columnNumber: 13
                     }, this) : movies.map((movie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                             md: 3,
-                            children: [
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
-                                    movie: movie,
-                                    onMovieClick: (newSelectedMovie)=>{
-                                        this.setSelectedMovie(newSelectedMovie);
-                                    }
-                                }, void 0, false, {
-                                    fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 138,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                                    onClick: ()=>{
-                                        this.onLoggedOut();
-                                    },
-                                    children: "Logout"
-                                }, void 0, false, {
-                                    fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 144,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, movie._id, true, {
+                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
+                                movie: movie,
+                                onMovieClick: (newSelectedMovie)=>{
+                                    this.setSelectedMovie(newSelectedMovie);
+                                }
+                            }, void 0, false, {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 138,
+                                columnNumber: 15
+                            }, this)
+                        }, movie._id, false, {
                             fileName: "src/components/main-view/main-view.jsx",
                             lineNumber: 137,
                             columnNumber: 13
