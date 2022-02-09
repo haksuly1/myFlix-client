@@ -46,20 +46,26 @@ setSelectedMovie(newSelectedMovie) {
 }
 
 /*
-//When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' i.e the property of that movie
-  setSelectedMovie(movie) {
-    this.setState({
-      selectedMovie: movie
-    });
-  }
-*/
-
 //When a user successfully logs in, this function updates the 'user' property in state to that to that 'particular user'
 onLoggedIn(user) {
   this.setState({
     user
   });
 }
+*/
+
+//UPDATEV OnLoggedIn metghod
+onLoggedIn(authData) {
+  console.log(authData);
+  this.setState({
+    user: authData.user.Username
+  });
+
+  localStorage.setItem("token", authData.token);
+  localStorage.setItem("user", authData.user.Username);
+  this.getMovies(authData.token);
+}
+
 
   render() {
     const { movies, selectedMovie, user, registered } = this.state;
