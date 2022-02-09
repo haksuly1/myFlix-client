@@ -32,25 +32,6 @@ export function LoginView(props) {
     //props.onLoggedIn(username);
   };
   
-
-  /*
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    //Send a request to the server for authentication 
-    axios.post("https://https://haksuly1movieapp.herokuapp.com/users/movies/login", {
-      Username: username,
-      Password: password
-    })
-    .then(response => {
-      const data = response.data;
-      props.onLoggedIn(data);
-    })
-    .catch(e => {
-      console.log("no such user")
-    });
-  };
-*/
-
   return (
     <div className="login-view">
       <Navbar expand="lg" bg="#5B84B1FF" variant="dark" className="loginNavbar">
