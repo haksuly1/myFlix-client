@@ -121,7 +121,7 @@ onLoggedOut() {
             <Nav className="me-auto">
             <Nav.Link href="#profile">Profile</Nav.Link>
             <Nav.Link href="#update-profile">Update Profile</Nav.Link>
-            <button onClick={() => { this.onLoggedOut() }}>Logout</button>
+            <button className="logoutButton" variant="primary" size="lg" type="logout" onClick={() => { this.onLoggedOut() }}>Logout</button>
             </Nav>
         </Container>
         </Navbar>

@@ -23904,6 +23904,10 @@ onLoggedIn(user) {
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                                        className: "logoutButton",
+                                        variant: "primary",
+                                        size: "lg",
+                                        type: "logout",
                                         onClick: ()=>{
                                             this.onLoggedOut();
                                         },
