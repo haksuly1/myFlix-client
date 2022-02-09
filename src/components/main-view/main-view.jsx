@@ -39,23 +39,20 @@ export class MainView extends React.Component {
   }
   */
 
-  //UPDATED getMovies method
   getMovies(token) {
-    axios.get("https://haksuly1movieapp.herokuapp.com/movies", {
+    axios.get('https://haksuly1movieapp.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(response => {
-  //Assign the result to the state
-  this.setState({
-    movies: response.data
-  });
-
+      // Assign the result to the state
+      this.setState({
+        movies: response.data
+      });
     })
     .catch(function (error) {
       console.log(error);
     });
   }
-
 
 /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie`
    *property to that movie*/
