@@ -23839,6 +23839,13 @@ onLoggedIn(user) {
         localStorage.setItem("user", authData.user.Username);
         this.getMovies(authData.token);
     }
+    onLoggedOut() {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        this.setState({
+            user: null
+        });
+    }
     render() {
         const { movies , selectedMovie , user: user1 , registered  } = this.state;
         //If there is no user, the loginView is rendered. If there is a user loggedin, the user details are 'passed as a prop to the LoginView'
@@ -23846,7 +23853,7 @@ onLoggedIn(user) {
             onLoggedIn: (user)=>this.onLoggedIn(user)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 100,
+            lineNumber: 108,
             columnNumber: 23
         }, this));
         //if (!registered) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
@@ -23855,7 +23862,7 @@ onLoggedIn(user) {
             className: "main-view"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 105,
+            lineNumber: 113,
             columnNumber: 37
         }, this));
         //If state of 'sdelectedMovie' is not null, that selected moviewill be returned, otherwise, all movies will be returned.
@@ -23874,7 +23881,7 @@ onLoggedIn(user) {
                                 children: "MyFlixApp"
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 112,
+                                lineNumber: 120,
                                 columnNumber: 9
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav, {
@@ -23885,7 +23892,7 @@ onLoggedIn(user) {
                                         children: "Profile"
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 114,
+                                        lineNumber: 122,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
@@ -23893,7 +23900,7 @@ onLoggedIn(user) {
                                         children: "Update Profile"
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 115,
+                                        lineNumber: 123,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
@@ -23901,24 +23908,24 @@ onLoggedIn(user) {
                                         children: "Logout"
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 116,
+                                        lineNumber: 124,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 113,
+                                lineNumber: 121,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 111,
+                        lineNumber: 119,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 110,
+                    lineNumber: 118,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
@@ -23932,40 +23939,52 @@ onLoggedIn(user) {
                             }
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 125,
+                            lineNumber: 133,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 124,
+                        lineNumber: 132,
                         columnNumber: 13
                     }, this) : movies.map((movie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                             md: 3,
-                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
-                                movie: movie,
-                                onMovieClick: (newSelectedMovie)=>{
-                                    this.setSelectedMovie(newSelectedMovie);
-                                }
-                            }, void 0, false, {
-                                fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 130,
-                                columnNumber: 15
-                            }, this)
-                        }, movie._id, false, {
+                            children: [
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
+                                    movie: movie,
+                                    onMovieClick: (newSelectedMovie)=>{
+                                        this.setSelectedMovie(newSelectedMovie);
+                                    }
+                                }, void 0, false, {
+                                    fileName: "src/components/main-view/main-view.jsx",
+                                    lineNumber: 138,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                                    onClick: ()=>{
+                                        this.onLoggedOut();
+                                    },
+                                    children: "Logout"
+                                }, void 0, false, {
+                                    fileName: "src/components/main-view/main-view.jsx",
+                                    lineNumber: 144,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, movie._id, true, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 129,
+                            lineNumber: 137,
                             columnNumber: 13
                         }, this)
                     )
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 121,
+                    lineNumber: 129,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 109,
+            lineNumber: 117,
             columnNumber: 7
         }, this));
     }

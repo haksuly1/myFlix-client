@@ -93,6 +93,14 @@ onLoggedIn(authData) {
   this.getMovies(authData.token);
 }
 
+onLoggedOut() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  this.setState({
+    user: null
+  });
+}
+
   render() {
     const { movies, selectedMovie, user, registered } = this.state;
 
@@ -133,6 +141,7 @@ onLoggedIn(authData) {
                   this.setSelectedMovie(newSelectedMovie);
                 }}
               />
+              <button onClick={() => { this.onLoggedOut() }}>Logout</button>
             </Col>
           ))        
         }
