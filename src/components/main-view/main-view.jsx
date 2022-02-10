@@ -24,6 +24,7 @@ export class MainView extends React.Component {
     }
   }
 
+  /*
 //componentDidMount to display Movies
   componentDidMount(){
     axios.get("https://haksuly1movieapp.herokuapp.com/movies")
@@ -36,6 +37,32 @@ export class MainView extends React.Component {
         console.log(error);
       });
   }
+  */
+
+  componentDidMount() {
+    let accessToken = localStorage.getItem("token");
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem("user")
+      });
+      this.getMovies(accessToken);
+    }
+  }
+
+  getMovies(token) {
+    axios.get('https://haksuly1movieapp.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}`}
+    })
+    .then(response => {
+      // Assign the result to the state
+      this.setState({
+        movies: response.data
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 
 /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie`
    *property to that movie*/
@@ -46,18 +73,31 @@ setSelectedMovie(newSelectedMovie) {
 }
 
 /*
-//When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' i.e the property of that movie
-  setSelectedMovie(movie) {
-    this.setState({
-      selectedMovie: movie
-    });
-  }
-*/
-
 //When a user successfully logs in, this function updates the 'user' property in state to that to that 'particular user'
 onLoggedIn(user) {
   this.setState({
     user
+  });
+}
+*/
+
+//UPDATEV OnLoggedIn metghod
+onLoggedIn(authData) {
+  console.log(authData);
+  this.setState({
+    user: authData.user.Username
+  });
+
+  localStorage.setItem("token", authData.token);
+  localStorage.setItem("user", authData.user.Username);
+  this.getMovies(authData.token);
+}
+
+onLoggedOut() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  this.setState({
+    user: null
   });
 }
 
@@ -81,7 +121,7 @@ onLoggedIn(user) {
             <Nav className="me-auto">
             <Nav.Link href="#profile">Profile</Nav.Link>
             <Nav.Link href="#update-profile">Update Profile</Nav.Link>
-            <Nav.Link href="#logout">Logout</Nav.Link>
+            <button className="logoutButton" variant="primary" size="lg" type="logout" onClick={() => { this.onLoggedOut() }}>Logout</button>
             </Nav>
         </Container>
         </Navbar>

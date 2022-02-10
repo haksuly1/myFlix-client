@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 //React Bootstrap
-import { Navbar, Nav, Container } from "react-bootstrap";
+//import { Navbar, Nav, Container } from "react-bootstrap";
 
 //SCSS Import
 import "./movie-view.scss";
@@ -108,12 +108,12 @@ MovieView.propTypes = {
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired,
       Bio: PropTypes.string.isRequired,
-      Birth: PropTypes.date,
-      Death: PropTypes.date
+      Birth: PropTypes.string,
+      Death: PropTypes.string
     }),
 
     Featured: PropTypes.bool,
-    ReleaseYear: PropTypes.data,
+    ReleaseYear: PropTypes.string,
     ImagePath: PropTypes.string.isRequired
 
     }).isRequired,
