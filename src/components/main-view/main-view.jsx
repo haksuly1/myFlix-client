@@ -24,21 +24,6 @@ export class MainView extends React.Component {
     }
   }
 
-  /*
-//componentDidMount to display Movies
-  componentDidMount(){
-    axios.get("https://haksuly1movieapp.herokuapp.com/movies")
-      .then(response => {
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-  */
-
   componentDidMount() {
     let accessToken = localStorage.getItem("token");
     if (accessToken !== null) {
