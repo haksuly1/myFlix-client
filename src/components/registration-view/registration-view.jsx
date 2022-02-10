@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 
 //React Bootstrap
-import { Navbar, Container, Nav, Form, Button, Card, Container } from "react-bootstrap";
+import { Navbar, Container, Nav, Form, Button, Card, CardGroup, Col, Row, Container } from "react-bootstrap";
 
 //SCSS Import
 import "./registration-view.scss";
@@ -14,8 +14,51 @@ export function RegistrationView(props) {
   const [ email, setEmail ] = useState('');
   const [ birthday, setBirthday] = useState('');
 
+  //Declare hook for each imput
+  const [ usernameErr, setUsernameErr ] = useState('');
+  const [ passwordErr, setPasswordErr ] = useState('');
+  const [ emailErr, setEmailErr ] = useState('');
+  const [ birthdayErr, setBirthdayErr ] = useState('');
+
+  //Valiadate user inputs
+  const validate = () => {
+    let isReq = true;
+    if(!username){
+      setUsernameErr("Username Required");
+      isReq = false;
+    }else if(username.length < 2){
+      setUsernameErr("Username must be at least 2 characters");
+      isReq = false;
+    }
+
+    if(!password){
+      setPasswordErr("Pasword is Required");
+      isReq = false;
+    }else if(password.length < 6){
+      setPasswordErr("Password must be at least 6 characters");
+      isReq = false;
+    }
+
+    if(!email){
+      setEmailErr("Email must be a valid email");
+    }else if(!email.indexOf("@") === -1){
+      setEmailErr("Please use valid email");
+      isReq = false;
+    }
+
+    if(!birthday){
+      setBirthdayErr("Please engter Birthday");
+      isReq = false;
+    }
+    return isReq;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const isReq = validate();
+    if(isReq) { 
+      console.log(Username, Password);
+      //send request to the server for authentication.
     axios.post("https://haksuly1movieapp.herokuapp.com/users", {
       Username: username,
       Password: password,
@@ -24,12 +67,14 @@ export function RegistrationView(props) {
     })
     .then(response => {
       const data = response.data;
-      console.log(data)
+      console.log(data);
       window.open("/", "_self");
     })
     .catch(e => {
-      console.log("error registering the user")
+      console.log("Error registering the user")
     });
+    props.onLoggedIn(username);
+  }
 };
 
   return (
