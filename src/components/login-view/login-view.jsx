@@ -53,8 +53,8 @@ const validate = () => {
     .catch(e => {
       console.log("no such user")
     });
-  };
-}
+  }
+};
   
   return (
     <div className="login-view">
