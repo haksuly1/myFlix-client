@@ -4,14 +4,17 @@ import axios from "axios";
 //SCSS <Import>
 import "./main-view.scss";
 
-//React Bootstrap
-import { Navbar, Container, Nav, Row, Col } from "react-bootstrap";
+//Import React-Router-Dom
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 //React Components
-import { LoginView } from "../login-view/login-view";
-import { RegistrationView } from "../registration-view/registration-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import { LoginView } from "../login-view/login-view";
+import { RegistrationView } from "../registration-view/registration-view";
+
+//React Bootstrap
+import { Navbar, Container, Nav, Row, Col } from "react-bootstrap";
 export class MainView extends React.Component {
 
   constructor(){
@@ -21,21 +24,11 @@ export class MainView extends React.Component {
       movies: [],
       selectedMovie: null,
       user: null
-    }
-  }
-
-  componentDidMount() {
-    let accessToken = localStorage.getItem("token");
-    if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem("user")
-      });
-      this.getMovies(accessToken);
-    }
+    };
   }
 
   getMovies(token) {
-    axios.get('https://haksuly1movieapp.herokuapp.com/movies', {
+    axios.get("https://haksuly1movieapp.herokuapp.com/movies", {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(response => {
@@ -47,6 +40,16 @@ export class MainView extends React.Component {
     .catch(function (error) {
       console.log(error);
     });
+  }
+
+  componentDidMount() {
+    let accessToken = localStorage.getItem("token");
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem("user")
+      });
+      this.getMovies(accessToken);
+    }
   }
 
 /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie`
@@ -66,7 +69,7 @@ onLoggedIn(user) {
 }
 */
 
-//UPDATEV OnLoggedIn metghod
+//UPDATED OnLoggedIn metghod
 onLoggedIn(authData) {
   console.log(authData);
   this.setState({
@@ -87,10 +90,43 @@ onLoggedOut() {
 }
 
   render() {
-    const { movies, selectedMovie, user, registered } = this.state;
+    const { movies, user } = this.state;
+
+    if (!user) return 
+    <Row>
+      <Col>
+        <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+      </Col>
+    </Row>
+    if (movies.length === 0) return <div className="main-view" />;
+
+    return (
+      <Router>
+        <Row className="main-view justify-content-md-center">
+          <Route exact path="/" render={() => {
+            return movies.map(m => (
+              <Col md={3} key={m._id}>
+                <MovieCard movie={m} />
+              </Col>
+            ))
+          }} />
+          <Route path="/movies/:movieId" render={({ match }) => {
+            return <Col md={8}>
+              <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
+            </Col>
+          }} />
+        </Row>
+      </Router>
+    );
+  }
+}
+
+
+
+    //const { movies, selectedMovie, user, registered } = this.state;
 
     //If there is no user, the loginView is rendered. If there is a user loggedin, the user details are 'passed as a prop to the LoginView'
-    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+    //if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
     //if (!registered) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
 
