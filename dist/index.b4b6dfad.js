@@ -25888,7 +25888,7 @@ var _toggleButtonGroupDefault = parcelHelpers.interopDefault(_toggleButtonGroup)
 var _tooltip = require("./Tooltip");
 var _tooltipDefault = parcelHelpers.interopDefault(_tooltip);
 
-},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./Alert":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"aPzUt","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"lAynp","./CardImg":"1reTi","./CardGroup":"2j3Ij","./Carousel":false,"./CarouselItem":false,"./CloseButton":"1wmVl","./Col":"2L2I6","./Collapse":"acuzI","./Dropdown":false,"./DropdownButton":false,"./Fade":"aH18S","./Form":"iBZ80","./FormControl":"iynMc","./FormCheck":"idkr0","./FormFloating":"aj346","./FloatingLabel":"coYzo","./FormGroup":"1qBHH","./FormLabel":"66epi","./FormText":"ffeC7","./FormSelect":"hHWyB","./Container":"hEdsw","./Image":false,"./Figure":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalFooter":false,"./ModalTitle":false,"./Nav":"cXyL2","./Navbar":"1mHjo","./NavbarBrand":"iOo4v","./NavDropdown":false,"./NavItem":"ew05W","./NavLink":"7geL8","./Offcanvas":"eC3RS","./OffcanvasHeader":"a6xAh","./OffcanvasTitle":"77qdX","./OffcanvasBody":"fX7Bo","./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverHeader":false,"./PopoverBody":false,"./ProgressBar":false,"./Ratio":false,"./Row":"cMC39","./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":false,"./ThemeProvider":"dVixI","./Toast":false,"./ToastBody":false,"./ToastHeader":false,"./ToastContainer":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"aPzUt":[function(require,module,exports) {
+},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./Alert":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"aPzUt","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"lAynp","./CardImg":"1reTi","./CardGroup":false,"./Carousel":false,"./CarouselItem":false,"./CloseButton":"1wmVl","./Col":"2L2I6","./Collapse":"acuzI","./Dropdown":false,"./DropdownButton":false,"./Fade":"aH18S","./Form":"iBZ80","./FormControl":"iynMc","./FormCheck":"idkr0","./FormFloating":"aj346","./FloatingLabel":"coYzo","./FormGroup":"1qBHH","./FormLabel":"66epi","./FormText":"ffeC7","./FormSelect":"hHWyB","./Container":"hEdsw","./Image":false,"./Figure":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalFooter":false,"./ModalTitle":false,"./Nav":"cXyL2","./Navbar":"1mHjo","./NavbarBrand":"iOo4v","./NavDropdown":false,"./NavItem":"ew05W","./NavLink":"7geL8","./Offcanvas":"eC3RS","./OffcanvasHeader":"a6xAh","./OffcanvasTitle":"77qdX","./OffcanvasBody":"fX7Bo","./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverHeader":false,"./PopoverBody":false,"./ProgressBar":false,"./Ratio":false,"./Row":"cMC39","./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":false,"./ThemeProvider":"dVixI","./Toast":false,"./ToastBody":false,"./ToastHeader":false,"./ToastContainer":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"aPzUt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -26189,14 +26189,7 @@ const context = /*#__PURE__*/ _react.createContext(null);
 context.displayName = 'CardHeaderContext';
 exports.default = context;
 
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"2j3Ij":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _createWithBsPrefix = require("./createWithBsPrefix");
-var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
-exports.default = _createWithBsPrefixDefault.default('card-group');
-
-},{"./createWithBsPrefix":"itt7e","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"1wmVl":[function(require,module,exports) {
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"1wmVl":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _propTypes = require("prop-types");
@@ -31669,129 +31662,263 @@ function RegistrationView(props) {
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
                 fluid: true,
+                style: {
+                    paddingTop: "0.75rem"
+                },
                 className: "registrationContainer",
-                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
-                    bg: "#fc766aff",
-                    className: "registrationCard",
-                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
-                        children: [
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
-                                className: "text-center",
-                                children: "Welcome to the registration page"
-                            }, void 0, false, {
-                                fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 97,
-                                columnNumber: 9
-                            }, this),
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Subtitle, {
-                                className: "mb-2 text-muted text-center",
-                                children: "Please Register"
+                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Row, {
+                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Col, {
+                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(CardGroup, {
+                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
+                                bg: "#fc766aff",
+                                className: "registrationCard",
+                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
+                                    children: [
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
+                                            className: "text-center",
+                                            children: "Welcome to the registration page"
+                                        }, void 0, false, {
+                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                            lineNumber: 100,
+                                            columnNumber: 16
+                                        }, this),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Subtitle, {
+                                            className: "mb-2 text-muted text-center",
+                                            children: "Please Register"
+                                        }, void 0, false, {
+                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                            lineNumber: 101,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form, {
+                                            children: [
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
+                                                    controlId: "formBasicUsername",
+                                                    children: [
+                                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Label, {
+                                                            children: "User name"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 104,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
+                                                            type: "text",
+                                                            value: username,
+                                                            onChange: (e)=>setUsername(e.target.value)
+                                                            ,
+                                                            required: true,
+                                                            placeholder: "Enter username"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 105,
+                                                            columnNumber: 24
+                                                        }, this),
+                                                        usernameErr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                                            children: usernameErr
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 107,
+                                                            columnNumber: 38
+                                                        }, this),
+                                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Text, {
+                                                            className: "text-muted",
+                                                            children: "Enter your username."
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 108,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                                    lineNumber: 103,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
+                                                    controlId: "formBasicPassword",
+                                                    children: [
+                                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Label, {
+                                                            children: "Password"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 112,
+                                                            columnNumber: 25
+                                                        }, this),
+                                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
+                                                            type: "password",
+                                                            value: password,
+                                                            onChange: (e)=>setPassword(e.target.value)
+                                                            ,
+                                                            require: true,
+                                                            minLength: "8",
+                                                            placeholder: "Password"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 113,
+                                                            columnNumber: 27
+                                                        }, this),
+                                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Text, {
+                                                            className: "text-muted",
+                                                            children: "Password must be minimum of 8 characters."
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 116,
+                                                            columnNumber: 26
+                                                        }, this),
+                                                        passwordErr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                                            children: passwordErr
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 117,
+                                                            columnNumber: 43
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                                    lineNumber: 111,
+                                                    columnNumber: 23
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
+                                                    controlId: "formBasicEmail",
+                                                    children: [
+                                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Label, {
+                                                            children: "Email address"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 121,
+                                                            columnNumber: 27
+                                                        }, this),
+                                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
+                                                            type: "text",
+                                                            Value: email,
+                                                            onChange: (e)=>setEmail(e.target.value)
+                                                            ,
+                                                            required: true,
+                                                            placeholder: "Enter your email"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 122,
+                                                            columnNumber: 29
+                                                        }, this),
+                                                        emailErr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                                            children: emailErr
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 124,
+                                                            columnNumber: 42
+                                                        }, this),
+                                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Text, {
+                                                            className: "text-muted",
+                                                            children: "We'll never share your email with anyone."
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 125,
+                                                            columnNumber: 29
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                                    lineNumber: 120,
+                                                    columnNumber: 26
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
+                                                    controlId: "formBasicBirthday",
+                                                    children: [
+                                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Label, {
+                                                            children: "Birthday"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 129,
+                                                            columnNumber: 31
+                                                        }, this),
+                                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
+                                                            type: "date",
+                                                            Value: birthday,
+                                                            onChange: (e)=>setBirthday(e.target.value)
+                                                            ,
+                                                            required: true,
+                                                            placeholder: "Please enter birthday"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 130,
+                                                            columnNumber: 33
+                                                        }, this),
+                                                        birthdayErr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                                            children: birthdayErr
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 132,
+                                                            columnNumber: 49
+                                                        }, this),
+                                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Text, {
+                                                            className: "text-muted",
+                                                            children: "We'll never share your email with anyone."
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                                            lineNumber: 133,
+                                                            columnNumber: 33
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                                    lineNumber: 128,
+                                                    columnNumber: 29
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
+                                                    controlId: "formBasicCheckbox",
+                                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Check, {
+                                                        type: "checkbox",
+                                                        label: "Confirm action"
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/registration-view/registration-view.jsx",
+                                                        lineNumber: 137,
+                                                        columnNumber: 35
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                                    lineNumber: 136,
+                                                    columnNumber: 33
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                                                    variant: "light",
+                                                    style: {
+                                                        color: "blue"
+                                                    },
+                                                    type: "Register",
+                                                    onClick: handleSubmit,
+                                                    children: "Register"
+                                                }, void 0, false, {
+                                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                                    lineNumber: 139,
+                                                    columnNumber: 33
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/components/registration-view/registration-view.jsx",
+                                            lineNumber: 102,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                    lineNumber: 99,
+                                    columnNumber: 15
+                                }, this)
                             }, void 0, false, {
                                 fileName: "src/components/registration-view/registration-view.jsx",
                                 lineNumber: 98,
-                                columnNumber: 9
-                            }, this),
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form, {
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
-                                        controlId: "formBasicEmail",
-                                        children: [
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Label, {
-                                                children: "Email address"
-                                            }, void 0, false, {
-                                                fileName: "src/components/registration-view/registration-view.jsx",
-                                                lineNumber: 101,
-                                                columnNumber: 11
-                                            }, this),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
-                                                type: "email",
-                                                placeholder: "Enter email"
-                                            }, void 0, false, {
-                                                fileName: "src/components/registration-view/registration-view.jsx",
-                                                lineNumber: 102,
-                                                columnNumber: 11
-                                            }, this),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Text, {
-                                                className: "text-muted",
-                                                children: "We'll never share your email with anyone."
-                                            }, void 0, false, {
-                                                fileName: "src/components/registration-view/registration-view.jsx",
-                                                lineNumber: 103,
-                                                columnNumber: 11
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/components/registration-view/registration-view.jsx",
-                                        lineNumber: 100,
-                                        columnNumber: 9
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
-                                        controlId: "formBasicPassword",
-                                        children: [
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Label, {
-                                                children: "Password"
-                                            }, void 0, false, {
-                                                fileName: "src/components/registration-view/registration-view.jsx",
-                                                lineNumber: 109,
-                                                columnNumber: 11
-                                            }, this),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
-                                                type: "password",
-                                                placeholder: "Password"
-                                            }, void 0, false, {
-                                                fileName: "src/components/registration-view/registration-view.jsx",
-                                                lineNumber: 110,
-                                                columnNumber: 11
-                                            }, this),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Text, {
-                                                className: "text-muted",
-                                                children: "Password must be minimum of 8 characters."
-                                            }, void 0, false, {
-                                                fileName: "src/components/registration-view/registration-view.jsx",
-                                                lineNumber: 111,
-                                                columnNumber: 11
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/components/registration-view/registration-view.jsx",
-                                        lineNumber: 108,
-                                        columnNumber: 9
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
-                                        controlId: "formBasicCheckbox",
-                                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Check, {
-                                            type: "checkbox",
-                                            label: "Confirm action"
-                                        }, void 0, false, {
-                                            fileName: "src/components/registration-view/registration-view.jsx",
-                                            lineNumber: 117,
-                                            columnNumber: 11
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "src/components/registration-view/registration-view.jsx",
-                                        lineNumber: 116,
-                                        columnNumber: 9
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                                        variant: "primary",
-                                        type: "register",
-                                        children: "Register"
-                                    }, void 0, false, {
-                                        fileName: "src/components/registration-view/registration-view.jsx",
-                                        lineNumber: 119,
-                                        columnNumber: 9
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 99,
-                                columnNumber: 7
+                                columnNumber: 14
                             }, this)
-                        ]
-                    }, void 0, true, {
+                        }, void 0, false, {
+                            fileName: "src/components/registration-view/registration-view.jsx",
+                            lineNumber: 97,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
                         fileName: "src/components/registration-view/registration-view.jsx",
                         lineNumber: 96,
-                        columnNumber: 7
+                        columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/registration-view/registration-view.jsx",
