@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 //SCSS Import
 import "./login-view.scss";
@@ -21,15 +22,15 @@ const validate = () => {
   if(!username){
    setUsernameErr("Username Required");
    isReq = false;
-  }else if(username.length < 2){
-   setUsernameErr("Username must be 2 characters long");
+  }else if(username.length < 6){
+   setUsernameErr("Username must be at least 6 characters");
    isReq = false;
   }
   if(!password){
    setPasswordErr("Password Required");
    isReq = false;
-  }else if(password.length < 6){
-   setPassword("Password must be 6 characters long");
+  }else if(password.length < 8){
+   setPassword("Password must be at least 8 characters");
    isReq = false;
   }
 
@@ -53,10 +54,11 @@ const validate = () => {
     .catch(e => {
       console.log("no such user")
     });
-  };
-}
+  }
+};
   
   return (
+    /*
     <div className="login-view">
       <Navbar expand="lg" bg="#5B84B1FF" variant="dark" className="loginNavbar">
       <Container>
@@ -68,35 +70,40 @@ const validate = () => {
           </Nav>
       </Container>
       </Navbar>
+      */
 
-      <Container fluid className="loginContainer" >   
-        <Card bg="#fc766aff" className="loginCard">
-          <Card.Body>
-            <Card.Title className="text-center">Welcome to the login page!</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted text-center">Please Login</Card.Subtitle>
-            <Form >
+      <div className="login-view">
+      <Container fluid style={{paddingTop: "0.75rem"}}>
+        <Row>
+          <Col>
+            <CardGroup>
+              <Card bg="secondary" text="light" border="light">
+                <Card.Body>
+                  <Card.Title className="text-center">Welcome to myFlixApp login page!</Card.Title>
+                   <Card.Subtitle className="mb-2 text-muted text-center">Please Login</Card.Subtitle>
+                     <Form >
               <Form.Group controlId="formUsername">
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="Enter username" value={username}
-                  onChange={e => setUsername(e.target.value)}
-                />
-                {usernameErr && <p>{usernameErr}</p>}
+                  <Form.Control type="text" placeholder="Enter username" value={username}
+                    onChange={e => setUsername(e.target.value)} />
+                    {usernameErr && <p>{usernameErr}</p>}
 
               </Form.Group>
-              <Form.Group controlId="formPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" value={password}
-                  //className="mb-3" 
-                  onChange={e => setPassword(e.target.value)}
-                />
-                {passwordErr && <p>{passwordErr}</p>} 
+                <Form.Group controlId="formPassword">
+                  <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" value={password}
+                      onChange={e => setPassword(e.target.value)} />
+                      {passwordErr && <p>{passwordErr}</p>} 
               </Form.Group>
-              <Button className="loginButton" variant="primary" size="lg" type="submit" onClick={handleSubmit}>
-                Login
-              </Button>
+                <Button variant="light" style={{ color: "white" }} type="submit" onClick={handleSubmit}>Login</Button>
+                  <Link to={`/register`} className="float-right">
+                    <Button variant="light" style={{ color: "blue" }} type="button">Please click here to Register</Button>
+                  </Link>
             </Form>
           </Card.Body>
         </Card>
+        </CardGroup></Col>
+        </Row>
       </Container>
     </div>
   );
