@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 //React Bootstrap
 import { Navbar, Container, Nav, Form, Button, Card, Container } from "react-bootstrap";
@@ -68,10 +69,12 @@ export function RegistrationView(props) {
     .then(response => {
       const data = response.data;
       console.log(data);
+      alert("You are now registered, please login!");
       window.open("/", "_self");
     })
-    .catch(e => {
-      console.log("Error registering the user")
+    .catch( response => {
+      console.error(response);
+      alert("Unable to register user")
     });
     props.onLoggedIn(username);
   }
@@ -101,7 +104,7 @@ export function RegistrationView(props) {
                 <Card.Subtitle className="mb-2 text-muted text-center">Please Register</Card.Subtitle>
                   <Form>
                     <Form.Group controlId="formBasicUsername">
-                      <Form.Label>User name</Form.Label>
+                      <Form.Label>Username</Form.Label>
                        <Form.Control type="text" value={username}
                       onChange={e => setUsername(e.target.value)} required placeholder="Enter username" />
                      {usernameErr && <p>{usernameErr}</p>}
@@ -156,5 +159,6 @@ RegistrationView.propTypes = {
     Password: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
     Birthday: PropTypes.string.isRequired
-  })
+  }),
+  onRegistration: PropTypes.func,
 };
