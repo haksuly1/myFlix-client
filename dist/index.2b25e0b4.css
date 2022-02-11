@@ -1,3 +1,4 @@
+/*
 .main-view {
   background: none;
   width: 100%;
@@ -11,12 +12,14 @@
 body {
   font-family: serif;
 }
+*/
 /*
 .movie-card {
   width: 100%;
   margin: 20px;
 }
 */
+/*
 .movie-view {
   width: 100%;
   margin: 20px;
@@ -29,6 +32,7 @@ body {
 .movie-description {
   display: flex;
 }
+*/
 .loginNavbar {
   background: #162b48;
 }
