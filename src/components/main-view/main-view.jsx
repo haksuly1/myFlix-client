@@ -85,6 +85,7 @@ render() {
   
 /*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/
   return ( 
+    /*
     <Router> 
       <Navbar bg="secondary" expand="lg" className="mb-4" sticky="top">
           <Navbar.Brand className="ml-4">
@@ -99,6 +100,8 @@ render() {
                   </Navbar.Collapse> 
               )}
       </Navbar>
+      */
+      <Router> 
         <NavbarView user={user} />
           <Container>
        <Row className="main-view justify-content-md-center">
