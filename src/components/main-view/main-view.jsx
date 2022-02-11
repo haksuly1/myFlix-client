@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 //SCSS <Import>
 import "./main-view.scss";
@@ -8,7 +9,7 @@ import "./main-view.scss";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 //React Bootstrap
-import { Navbar, Nav, Container, Nav, Row, Col } from "react-bootstrap";
+import { Navbar, Nav, Row, Col } from "react-bootstrap";
 
 //React Components
 import { MovieCard } from "../movie-card/movie-card";
@@ -19,7 +20,7 @@ import { ProfileView } from "../profile-view/profile-view";
 import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
 import { NavbarView } from "../navbar-view/navbar-view";
-import { Link } from "react-router-dom";
+
 export class MainView extends React.Component {
 
   constructor(){
@@ -56,24 +57,6 @@ export class MainView extends React.Component {
       this.getMovies(accessToken);
     }
   }
-
-/*
-//When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` property to that movie
-setSelectedMovie(newSelectedMovie) {
-  this.setState({
-    selectedMovie: newSelectedMovie
-  });
-}
-*/
-
-/*
-//When a user successfully logs in, this function updates the 'user' property in state to that to that 'particular user'
-onLoggedIn(user) {
-  this.setState({
-    user
-  });
-}
-*/
 
 //UPDATED OnLoggedIn metghod
 onLoggedIn(authData) {
@@ -116,6 +99,8 @@ render() {
                   </Navbar.Collapse> 
               )}
       </Navbar>
+        <NavbarView user={user} />
+          <Container>
        <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
           if (!user) return 
@@ -130,19 +115,26 @@ render() {
         ))
       }} />
 
-        <Route path="/register" render={() => {
+      <Route path="/register" render={() => {
           return <Col>
               <RegistrationView />
             </Col>
         }} />
-
-        <Route path="/login" render={() => {
-          if (user) {
-            return <Redirect to="/" />;
-        }
-            return <LoginView onLoggedIn={(data) => this.onLoggedIn(data)} />
-      }} />
       
+
+      <Route path="/login" render={({ match, history }) => {
+          if (user) return 
+          <Col> 
+            <LoginView onLoggedIn={(data) => this.onLoggedIn(data)} />
+          </Col>
+        if (movies.length === 0) { return <div className="main-view" />;
+      }
+         return <Col md={8}>
+             <MovieView movie={movies.find(m => m._id === match.params.movieId)}
+               onBackClick={() => history.goBack()} />
+           </Col>
+     }} />
+
       <Route path="/movies/:movieId" render={({ match, history }) => {
         if (!user) return 
             <Col>
@@ -215,7 +207,8 @@ render() {
       );
     }} />
           </Row> 
-        </Router>  
+        </Container>
+      </Router>  
   );
 }    
 }
