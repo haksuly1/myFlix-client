@@ -77,14 +77,22 @@ body {
 }
 
 
-
 * {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   background-color: #353535;
   color: #ffffff;
 }
-.my-flix {
-  color: steelblue;
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  background-color: #353535;
+  color: #ffffff;
+}
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  background-color: #353535;
+  color: #ffffff;
 }
 /*# sourceMappingURL=index.2b25e0b4.css.map */

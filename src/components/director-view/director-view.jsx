@@ -1,7 +1,8 @@
 import React from "react";
+import axios from "axios";
 import PropTypes from "prop-types";
-import { Link } from 'react-router-dom';
-import { Container, Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Container, Card, Button, Row } from "react-bootstrap";
 
 import "./director-view.scss";
 
@@ -11,34 +12,49 @@ export class DirectorView extends React.Component {
         const { Director, onBackClick } = this.props;
 
         return (
-            <Container>
-                <br />
+            <Container fluid>
                 <Card bg="secondary" text="light" border="light" align="center">
-                    
                     <Card.Body>
                     <Card.Title>Director</Card.Title>
-                        <div>
-                            <span className="label">Name: </span>
-                            <span className="value">{Director.Name}</span>
-                        </div>
-                        <div>
-                            <span className="label">Bio: </span>
-                            <span className="value">{Director.Bio}</span>
-                        </div>
-                        <div>
-                            <span className="label">Born: </span>
-                            <span className="value">{Director.Birthyear}</span>
-                        </div>
-                        <div>
+                    <Card.Text> 
+
+                        <span className="label">Name: </span>
+                        <span className="value">{Director.Name}</span>
+                    </Card.Text>
+
+                    <Card.Text>
+                        <span className="label">Bio: </span>
+                        <span className="value">{Director.Bio}</span>
+                    </Card.Text>
+
+                    <Card.Text>
+                            <span className="label">Birth: </span>
+                            <span className="value">{Director.Birth}</span>
+                        </Card.Text>
+
+                        <Card.Text>
                             <span className="label">Death: </span>
-                            <span className="value">{Director.Deathyear}</span>
-                        </div>
-                        <br />
-                        <div className="backButton">
-                            <Button size="md" variant="light" style={{ color: "blue" }} onClick={() => { onBackClick(null); }}>Back</Button>
-                        </div>
+                            <span className="value">{Director.Death}</span>
+                        </Card.Text>
+
+                        <Button variant="outline-light" onClick={() => { onBackClick(); }}>Back</Button>
                     </Card.Body>
                 </Card>
+                <Row>
+                    {movies.map(movie => (
+                        <Card className="favorite-movie card-content" key={movie._id} >
+                            <Card.Img
+                                className="fav-poster"
+                                variant="top"
+                                src={movie.ImagePath} />
+                            <Card.Body style={{ backgroundColor: "black" }}>
+                                <Card.Title className="movie_title">
+                                    {movie.Title}
+                                </Card.Title>
+                            </Card.Body>
+                        </Card>
+                    ))}
+                </Row>
             </Container>
         );
     }
