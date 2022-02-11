@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import "./login-view.scss";
 
 //React Bootstrap
-import { Navbar, Container, Nav, Form, Button, Card, Container } from "react-bootstrap";
+import { Form, Container, Col, Row, Button, Card, CardGroup } from "react-bootstrap";
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -72,8 +72,7 @@ const validate = () => {
       </Navbar>
       */
 
-      <div className="login-view">
-      <Container fluid style={{paddingTop: "0.75rem"}}>
+      <Container className="profile-view" align="center">
         <Row>
           <Col>
             <CardGroup>
@@ -102,14 +101,13 @@ const validate = () => {
             </Form>
           </Card.Body>
         </Card>
-        </CardGroup></Col>
+        </CardGroup>
+        </Col>
         </Row>
       </Container>
-    </div>
   );
 }
 
-// Give informational warnings in browser if data does not match required shape
 LoginView.propTypes = {
   user: PropTypes.shape({
     username: PropTypes.string.isRequired,
