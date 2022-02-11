@@ -33683,17 +33683,17 @@ function LoginView(props) {
     const validate = ()=>{
         let isReq = true;
         if (!username) {
-            setUsernameErr('Username Required');
+            setUsernameErr("Username Required");
             isReq = false;
         } else if (username.length < 2) {
-            setUsernameErr('Username must be 2 characters long');
+            setUsernameErr("Username must be 2 characters long");
             isReq = false;
         }
         if (!password) {
-            setPasswordErr('Password Required');
+            setPasswordErr("Password Required");
             isReq = false;
         } else if (password.length < 6) {
-            setPassword('Password must be 6 characters long');
+            setPassword("Password must be 6 characters long");
             isReq = false;
         }
         return isReq;
