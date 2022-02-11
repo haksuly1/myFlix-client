@@ -27,7 +27,7 @@ export class MainView extends React.Component {
     //initial state is set to null
     this.state = {
       movies: [],
-      selectedMovie: null,
+      movies: null,
       user: null
     };
   }
@@ -57,13 +57,14 @@ export class MainView extends React.Component {
     }
   }
 
-/*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie`
-   *property to that movie*/
+/*
+//When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` property to that movie
 setSelectedMovie(newSelectedMovie) {
   this.setState({
     selectedMovie: newSelectedMovie
   });
 }
+*/
 
 /*
 //When a user successfully logs in, this function updates the 'user' property in state to that to that 'particular user'
@@ -114,11 +115,7 @@ render() {
                       <Button onClick={() => this.onLoggedOut()} variant="light" style={{ color: "blue" }}>Logout</Button>
                   </Navbar.Collapse> 
               )}
-    </Navbar>
-
-    <NavbarView user={user} />
-  
-      <Container>
+      </Navbar>
        <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
           if (!user) return 
@@ -217,9 +214,7 @@ render() {
             </Col>
       );
     }} />
-
           </Row> 
-          </Container>
         </Router>  
   );
 }    
