@@ -1,5 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
+
+//React-Router-Dom
+import { Link } from "react-router-dom";
+
+//SCSS Import
+import "./movie-view.scss";
 
 //React Bootstrap
 //import { Navbar, Nav, Container } from "react-bootstrap";
@@ -7,11 +14,7 @@ import PropTypes from "prop-types";
 //React-bootstrap
 import { Container, Row, Col, Button } from "react-bootstrap";
 
-//React-Router-Dom
-import { Link } from "react-router-dom";
 
-//SCSS Import
-import "./movie-view.scss";
 
 export class MovieView extends React.Component {
 
@@ -34,10 +37,10 @@ componentWillUnmount() {
       <Container fluid className="moviesContainer">
       <Row>
         <Col>
-      <div className="movie-view">
-        <div className="movie-poster">
-          <img src={movie.ImagePath} crossOrigin="true" />
-        </div>
+          <div className="movie-view">
+            <div className="movie-poster">
+              <img src={movie.ImagePath} crossOrigin="true" />
+          </div>
 
         <div className="movie-title">
           <span className="label">Title: </span>
@@ -93,11 +96,11 @@ componentWillUnmount() {
         <button variant="primary" onClick={() => onBackClick(null)}>Back</button>  
 
         </div>
-        </Col>
-        </Row>
-        </Container>
-    );
-  }
+      </Col>
+    </Row>
+  </Container>
+);
+}
 }
 
 MovieView.propTypes = {
