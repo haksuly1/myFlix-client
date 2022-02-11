@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "./main-view.scss";
 
 //Import React-Router-Dom
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 //React Bootstrap
 import { Navbar, Nav, Row, Col } from "react-bootstrap";
@@ -28,7 +28,6 @@ export class MainView extends React.Component {
     //initial state is set to null
     this.state = {
       movies: [],
-      movies: null,
       user: null
     };
   }
@@ -85,7 +84,6 @@ render() {
   
 /*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/
   return ( 
-    /*
     <Router> 
       <Navbar bg="secondary" expand="lg" className="mb-4" sticky="top">
           <Navbar.Brand className="ml-4">
@@ -100,14 +98,11 @@ render() {
                   </Navbar.Collapse> 
               )}
       </Navbar>
-      */
-      <Router> 
         <NavbarView user={user} />
           <Container>
        <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
-          if (!user) return 
-          <Col>
+          if (!user) return <Col>
             <LoginView  onLoggedIn={user => this.onLoggedIn(user)} />
           </Col>
          if (movies.length === 0) return <div className="main-view" />;
@@ -119,6 +114,7 @@ render() {
       }} />
 
       <Route path="/register" render={() => {
+        if (user) return <Redirect to="/" />
           return <Col>
               <RegistrationView />
             </Col>
@@ -179,7 +175,7 @@ render() {
         </Col>
     }} />
 
-      <Route  path="/users" render={({ history }) => {
+      <Route  path="/users/:Username" render={({ history }) => {
         if (!user) return 
           <Col>
             <LoginView onLoggedIn={ (user) => this.onLoggedIn(user) } />
