@@ -6,17 +6,22 @@ import "./movie-card.scss"
 
 //React Bootstrap
 import { Card, Button } from "react-bootstrap";
+
+//React-Router-Dom
+import { Link } from "react-router-dom";
 export class MovieCard extends React.Component {
   render() {
-    const { movie, onMovieClick } = this.props;
+    const { movie } = this.props;
 
     return (
-      <Card>
+      <Card bg="secondary" text="light" border="light">
         <Card.Img variant="top" src={movie.ImagePath} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
-          <Button onClick={() => onMovieClick(movie)} variant="link">Open movie</Button>
+            <Link to={`/movies/${movie._id}`}> 
+            <Button variant="link" style={{ color: "blue" }}>Open movie</Button>
+          </Link>    
         </Card.Body>
       </Card>
     );
