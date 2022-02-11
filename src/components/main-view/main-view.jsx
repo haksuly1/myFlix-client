@@ -19,6 +19,7 @@ import { ProfileView } from "../profile-view/profile-view";
 import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
 import { NavbarView } from "../navbar-view/navbar-view";
+import { Link } from "react-router-dom";
 export class MainView extends React.Component {
 
   constructor(){
