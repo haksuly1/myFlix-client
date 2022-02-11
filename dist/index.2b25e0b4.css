@@ -11,6 +11,24 @@
 body {
   font-family: serif;
 }
+/*
+.movie-card {
+  width: 100%;
+  margin: 20px;
+}
+*/
+.movie-view {
+  width: 100%;
+  margin: 20px;
+}
+
+.movie-title {
+  display: flex;
+}
+
+.movie-description {
+  display: flex;
+}
 .loginNavbar {
   background: #162b48;
 }
@@ -53,24 +71,9 @@ body,
 body {
   font-family: serif;
 }
-/*
-.movie-card {
-  width: 100%;
-  margin: 20px;
-}
-*/
-.movie-view {
-  width: 100%;
-  margin: 20px;
-}
 
-.movie-title {
-  display: flex;
-}
 
-.movie-description {
-  display: flex;
-}
+
 .my-flix {
   color: steelblue;
 }
