@@ -30,6 +30,14 @@ body {
 .form-control {
   background-color: #d9d9d9;
 }
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", serif;
+  background-color: #353535;
+  color: #ffffff;
+}
+
+/*
 .registrationNavbar {
   background: #162b48;
 }
@@ -51,6 +59,7 @@ body,
 body {
   font-family: serif;
 }
+*/
 * {
   box-sizing: border-box;
   font-family: "Montserrat", serif;
