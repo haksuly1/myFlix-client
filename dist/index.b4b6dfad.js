@@ -23760,56 +23760,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MainView", ()=>MainView
-) /*
-<div className="main-view">
-        <Navbar expand="lg" bg="#162b48" variant="dark" className="mainNavbar">
-        <Container>
-        <Navbar.Brand href="#myflix">MyFlixApp</Navbar.Brand>
-            <Nav className="me-auto">
-            <Nav.Link href="#profile">Profile</Nav.Link>
-            <Nav.Link href="#update-profile">Update Profile</Nav.Link>
-            <button className="logoutButton" variant="primary" size="lg" type="logout" onClick={() => { this.onLoggedOut() }}>Logout</button>
-            </Nav>
-        </Container>
-        </Navbar>
-
-
-    //const { movies, selectedMovie, user, registered } = this.state;
-
-    //If there is no user, the loginView is rendered. If there is a user loggedin, the user details are 'passed as a prop to the LoginView'
-    //if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-
-    //if (!registered) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
-
-    //Before the nmovies have been loaded
-    //if (movies.length === 0) return <div className="main-view" />;
-  
-    //If state of 'sdelectedMovie' is not null, that selected moviewill be returned, otherwise, all movies will be returned.
-    return (
-        <Row className="main-view justify-content-md-center">
-        {selectedMovie
-          ? (
-            <Col md={8}>
-              <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-            </Col>
-          )
-          : movies.map((movie) => (
-            <Col md={3} key={movie._id}>
-              <MovieCard
-                movie={movie}
-                onMovieClick={(newSelectedMovie) => {
-                  this.setSelectedMovie(newSelectedMovie);
-                }}
-              />
-            </Col>
-          ))        
-        }
-        </Row>
-      </div>
-    );    
-  }
-}
-*/ ;
+);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
