@@ -2,10 +2,8 @@ import React from "react";
 import axios from "axios";
 //Import React-Router-Dom
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import PropTypes from "prop-types";
 //SCSS <Import>
 import "./main-view.scss";
-import { Link } from "react-router-dom";
 //React Bootstrap
 import { Container, Button, Navbar, Row, Col } from "react-bootstrap";
 //React Components

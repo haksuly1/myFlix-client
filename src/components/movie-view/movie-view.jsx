@@ -94,7 +94,7 @@ componentWillUnmount() {
 }
 }
 
-/*
+
 MovieView.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
@@ -119,4 +119,4 @@ MovieView.propTypes = {
     }).isRequired,
     onBackClick: PropTypes.func.isRequired
   };
-    */
+    
