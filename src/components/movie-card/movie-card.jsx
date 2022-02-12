@@ -1,14 +1,12 @@
 import React from "react";
+import axios from "axios";
 import PropTypes from "prop-types";
-
-//SCSS Import
-import "./movie-card.scss"
-
-//React Bootstrap
-import { Card, Button } from "react-bootstrap";
-
 //React-Router-Dom
 import { Link } from "react-router-dom";
+//React Bootstrap
+import { Card, Button } from "react-bootstrap";
+//SCSS Import
+import "./movie-card.scss"
 export class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;
@@ -20,7 +18,7 @@ export class MovieCard extends React.Component {
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
             <Link to={`/movies/${movie._id}`}> 
-            <Button variant="link" style={{ color: "blue" }}>Open movie</Button>
+            <Button variant="link">Open this movie</Button>
           </Link>    
         </Card.Body>
       </Card>
