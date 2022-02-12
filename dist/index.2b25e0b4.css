@@ -10,20 +10,12 @@
   background-color: #353535;
   color: #ffffff;
 }
-/*
-.movie-view {
-  width: 100%;
-  margin: 20px;
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", serif;
+  background-color: #353535;
+  color: #ffffff;
 }
-
-.movie-title {
-  display: flex;
-}
-
-.movie-description {
-  display: flex;
-}
-*/
 * {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
