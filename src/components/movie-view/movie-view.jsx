@@ -1,21 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-
 //React-Router-Dom
 import { Link } from "react-router-dom";
-
-//SCSS Import
-import "./movie-view.scss";
-
-//React Bootstrap
-//import { Navbar, Nav, Container } from "react-bootstrap";
-
 //React-bootstrap
 import { Container, Row, Col, Button } from "react-bootstrap";
-
-
-
+//SCSS Import
+import "./movie-view.scss";
 export class MovieView extends React.Component {
 
 keypressCallback(event) {
@@ -93,7 +84,7 @@ componentWillUnmount() {
           <span className="value">{movie.Director.Death}</span>
         </div>
 
-        <button variant="primary" onClick={() => onBackClick(null)}>Back</button>  
+        <Button variant="primary" onClick={() => onBackClick(null)}>Back</Button>  
 
         </div>
       </Col>
@@ -103,6 +94,7 @@ componentWillUnmount() {
 }
 }
 
+/*
 MovieView.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
@@ -127,4 +119,4 @@ MovieView.propTypes = {
     }).isRequired,
     onBackClick: PropTypes.func.isRequired
   };
-    
+    */
