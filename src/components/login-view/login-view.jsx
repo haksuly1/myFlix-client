@@ -51,7 +51,7 @@ const validate = () => {
       const data = response.data;
       props.onLoggedIn(data);
     })
-    .catch(e => {
+    .catch(error => {
       console.log("no such user")
     });
   }
@@ -80,33 +80,38 @@ const validate = () => {
                 <Card.Body>
                   <Card.Title className="text-center">Welcome to myFlixApp login page!</Card.Title>
                    <Card.Subtitle className="mb-2 text-muted text-center">Please Login</Card.Subtitle>
-                     <Form >
-              <Form.Group controlId="formUsername">
+                    
+              <Form>
+              <Form.Group className="mb-3" controlId="formUsername">
                 <Form.Label>Username</Form.Label>
-                  <Form.Control type="text" placeholder="Enter username" value={username}
-                    onChange={e => setUsername(e.target.value)} />
-                    {usernameErr && <p>{usernameErr}</p>}
+                <Form.Control type="text" onChange={e => setUsername(e.target.value)} placeholder="Enter username" />
+                {/* code added here to display validation error */}
+                {usernameErr && <p>{usernameErr}</p>}
+              </Form.Group>
 
-              </Form.Group>
-                <Form.Group controlId="formPassword">
+                <Form.Group className="mb-3" controlId="formPassword">
                   <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" value={password}
-                      onChange={e => setPassword(e.target.value)} />
-                      {passwordErr && <p>{passwordErr}</p>} 
-              </Form.Group>
-                <Button variant="light" style={{ color: "white" }} type="submit" onClick={handleSubmit}>Login</Button>
-                  <Link to={`/register`} className="float-right">
-                    <Button variant="light" style={{ color: "blue" }} type="button">Please click here to Register</Button>
-                  </Link>
-            </Form>
-          </Card.Body>
-        </Card>
-        </CardGroup>
-        </Col>
-        </Row>
-      </Container>
-  );
-}
+                  <Form.Control type="password"  onChange={e => setPassword(e.target.value)} placeholder="Password" />
+                   {/* code added here to display validation error */}
+                  {passwordErr && <p>{passwordErr}</p>}     
+                </Form.Group>
+
+                <div className="mt-3">
+                <Button variant="light" style={{ color: "blue" }} type="submit" onClick={handleSubmit}>Login</Button>
+                  <Link to="/register">
+                    <Button className="ml-3" variant="secondary">Please register here</Button>
+                    </Link>
+                    </div>
+                    </Form>
+                    </Card.Body>
+                    </Card>
+                    </CardGroup>
+                    </Col>
+                    </Row>
+                    </Container>
+
+          );
+        }
 
 LoginView.propTypes = {
   user: PropTypes.shape({
