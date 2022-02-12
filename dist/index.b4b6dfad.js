@@ -1016,9 +1016,9 @@ var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
 var _mainView = require("./components/main-view/main-view");
 var _container = require("react-bootstrap/Container");
 var _containerDefault = parcelHelpers.interopDefault(_container);
-// Import statement to indicate that you need to bundle `./index.scss`
+//index.scss
 var _indexScss = require("./index.scss");
-const store = createStore(moviesApp, devToolsEnhancer());
+//const store = createStore(moviesApp, devToolsEnhancer());
 // Main component (will eventually use all the others)
 class MyFlixApplication extends _reactDefault.default.Component {
     render() {
@@ -1026,12 +1026,12 @@ class MyFlixApplication extends _reactDefault.default.Component {
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_mainView.MainView, {
             }, void 0, false, {
                 fileName: "src/index.jsx",
-                lineNumber: 18,
+                lineNumber: 17,
                 columnNumber: 11
             }, this)
         }, void 0, false, {
             fileName: "src/index.jsx",
-            lineNumber: 17,
+            lineNumber: 16,
             columnNumber: 9
         }, this));
     }
