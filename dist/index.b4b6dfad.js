@@ -23815,16 +23815,19 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+//Import React-Router-Dom
 var _reactRouterDom = require("react-router-dom");
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 //SCSS <Import>
 var _mainViewScss = require("./main-view.scss");
 //React Bootstrap
 var _reactBootstrap = require("react-bootstrap");
 //React Components
-var _movieCard = require("../movie-card/movie-card");
-var _movieView = require("../movie-view/movie-view");
 var _loginView = require("../login-view/login-view");
 var _registrationView = require("../registration-view/registration-view");
+var _movieCard = require("../movie-card/movie-card");
+var _movieView = require("../movie-view/movie-view");
 var _profileView = require("../profile-view/profile-view");
 var _genreView = require("../genre-view/genre-view");
 var _directorView = require("../director-view/director-view");
@@ -23835,34 +23838,20 @@ class MainView extends _reactDefault.default.Component {
         //initial state is set to null
         this.state = {
             movies: [],
+            selectedMovie: null,
             user: null
         };
     }
-    getMovies(token) {
-        _axiosDefault.default.get("https://haksuly1movieapp.herokuapp.com/movies", {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>{
-            // Assign the result to the state
-            this.setState({
-                movies: response.data
-            });
-        }).catch(function(error) {
-            console.log(error);
-        });
-    }
     componentDidMount() {
-        let accessToken = localStorage.getItem("token");
+        let accessToken = localStorage.getItem('token');
         if (accessToken !== null) {
             this.setState({
-                user: localStorage.getItem("user")
+                user: localStorage.getItem('user')
             });
             this.getMovies(accessToken);
         }
     }
-    //UPDATED OnLoggedIn metghod
-    onLoggedIn(authData) {
+    /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/ onLoggedIn(authData) {
         console.log(authData);
         this.setState({
             user: authData.user.Username
@@ -23878,93 +23867,47 @@ class MainView extends _reactDefault.default.Component {
             user: null
         });
     }
+    getMovies(token) {
+        _axiosDefault.default.get("https://haksuly1movieapp.herokuapp.com/movies", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            // Assign the result to the state
+            this.setState({
+                movies: response.data
+            });
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
     render() {
         const { movies , user: user1  } = this.state;
-        //with no user logged in LoginView will show if one is logged in the user parameters are passed as prop to LoginView
-        /*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/ return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.BrowserRouter, {
+        return(/*
+    <Router> 
+      <Navbar bg="secondary" expand="lg" className="mb-4" sticky="top">
+          <Navbar.Brand className="ml-4">
+            <Link style={{ color: "blue" }} to={"/"}>MyFlixApp</Link>
+              </Navbar.Brand>
+                {user && (
+                  <Navbar.Collapse className="justify-content-end">
+                    <Link to={`/users/${user}`} className="mr-2">
+                      <Button variant="light" style={{ color: "blue" }}>Profile for {user}</Button>
+                    </Link>
+                      <Button onClick={() => this.onLoggedOut()} variant="light" style={{ color: "blue" }}>Logout</Button>
+                  </Navbar.Collapse> 
+              )}
+      </Navbar>
+      */ /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.BrowserRouter, {
             children: [
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar, {
-                    bg: "secondary",
-                    expand: "lg",
-                    className: "mb-4",
-                    sticky: "top",
-                    children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Brand, {
-                            className: "ml-4",
-                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
-                                style: {
-                                    color: "blue"
-                                },
-                                to: "/",
-                                children: "MyFlixApp"
-                            }, void 0, false, {
-                                fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 90,
-                                columnNumber: 13
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 89,
-                            columnNumber: 11
-                        }, this),
-                        user1 && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Collapse, {
-                            className: "justify-content-end",
-                            children: [
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
-                                    to: `/users/${user1}`,
-                                    className: "mr-2",
-                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Button, {
-                                        variant: "light",
-                                        style: {
-                                            color: "blue"
-                                        },
-                                        children: [
-                                            "Profile for ",
-                                            user1
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 95,
-                                        columnNumber: 23
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 94,
-                                    columnNumber: 21
-                                }, this),
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Button, {
-                                    onClick: ()=>this.onLoggedOut()
-                                    ,
-                                    variant: "light",
-                                    style: {
-                                        color: "blue"
-                                    },
-                                    children: "Logout"
-                                }, void 0, false, {
-                                    fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 97,
-                                    columnNumber: 23
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 93,
-                            columnNumber: 19
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 88,
-                    columnNumber: 7
-                }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_navbarView.NavbarView, {
                     user: user1
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 101,
-                    columnNumber: 9
+                    lineNumber: 99,
+                    columnNumber: 1
                 }, this),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Container, {
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
                         className: "main-view justify-content-md-center",
                         children: [
@@ -23990,7 +23933,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 104,
+                                lineNumber: 102,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -24006,7 +23949,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 116,
+                                lineNumber: 114,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -24032,7 +23975,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 124,
+                                lineNumber: 122,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -24058,7 +24001,33 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 137,
+                                lineNumber: 135,
+                                columnNumber: 7
+                            }, this),
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
+                                path: "/profile",
+                                render: ({ history  })=>{
+                                    if (!user1) return;
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
+                                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginView.LoginView, {
+                                            onLoggedIn: (user)=>this.onLoggedIn(user)
+                                        }, void 0, false, void 0, void 0)
+                                    }, void 0, false, void 0, void 0);
+                                    if (movies.length === 0) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                        className: "main-view"
+                                    }, void 0, false, void 0, void 0));
+                                    return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
+                                        md: 8,
+                                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieView.MovieView, {
+                                            movie: movies.find((m)=>m._id === match.params.movieId
+                                            ),
+                                            onBackClick: ()=>history.goBack()
+                                        }, void 0, false, void 0, void 0)
+                                    }, void 0, false, void 0, void 0));
+                                }
+                            }, void 0, false, {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 148,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -24087,7 +24056,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 150,
+                                lineNumber: 161,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -24116,7 +24085,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 164,
+                                lineNumber: 175,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -24141,46 +24110,25 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 178,
-                                columnNumber: 7
-                            }, this),
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
-                                path: "/profile",
-                                render: ({ history  })=>{
-                                    if (!user1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
-                                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginView.LoginView, {
-                                            onLoggedIn: (user)=>this.onLoggedIn(user)
-                                        }, void 0, false, void 0, void 0)
-                                    }, void 0, false, void 0, void 0));
-                                    return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
-                                        md: 8,
-                                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_profileView.ProfileView, {
-                                            movies: movies,
-                                            onBackClick: ()=>history.goBack()
-                                        }, void 0, false, void 0, void 0)
-                                    }, void 0, false, void 0, void 0));
-                                }
-                            }, void 0, false, {
-                                fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 194,
+                                lineNumber: 189,
                                 columnNumber: 7
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 103,
-                        columnNumber: 8
+                        lineNumber: 101,
+                        columnNumber: 5
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 102,
-                    columnNumber: 11
+                    lineNumber: 100,
+                    columnNumber: 3
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 87,
-            columnNumber: 5
+            lineNumber: 98,
+            columnNumber: 1
         }, this));
     }
 }
@@ -24190,7 +24138,7 @@ class MainView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","./main-view.scss":"eBaMl","react-router-dom":"fdOAw","react-bootstrap":"3AD9A","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../registration-view/registration-view":"3U8r7","../profile-view/profile-view":"2vVqf","../genre-view/genre-view":"4tuA0","../director-view/director-view":"9tpci","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC","../navbar-view/navbar-view":"divrl"}],"jo6P5":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","react-router-dom":"fdOAw","./main-view.scss":"eBaMl","react-bootstrap":"3AD9A","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../registration-view/registration-view":"3U8r7","../profile-view/profile-view":"2vVqf","../genre-view/genre-view":"4tuA0","../director-view/director-view":"9tpci","../navbar-view/navbar-view":"divrl","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC","prop-types":"7wKI2"}],"jo6P5":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"63MyY"}],"63MyY":[function(require,module,exports) {
@@ -25751,7 +25699,7 @@ var utils = require('./../utils');
     return utils.isObject(payload) && payload.isAxiosError === true;
 };
 
-},{"./../utils":"5By4s"}],"eBaMl":[function() {},{}],"fdOAw":[function(require,module,exports) {
+},{"./../utils":"5By4s"}],"fdOAw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MemoryRouter", ()=>_reactRouter.MemoryRouter
@@ -27441,7 +27389,7 @@ const normalizeSearch = (search)=>!search || search === "?" ? "" : search.starts
 const normalizeHash = (hash)=>!hash || hash === "#" ? "" : hash.startsWith("#") ? hash : "#" + hash
 ; ///////////////////////////////////////////////////////////////////////////////
 
-},{"react":"21dqq","history":"iE5Zp","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"3AD9A":[function(require,module,exports) {
+},{"react":"21dqq","history":"iE5Zp","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"eBaMl":[function() {},{}],"3AD9A":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>_accordionDefault.default
@@ -33928,7 +33876,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","axios":"jo6P5","./login-view.scss":"e57ax","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC","react-router-dom":"fdOAw"}],"e57ax":[function() {},{}],"3U8r7":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","axios":"jo6P5","react-router-dom":"fdOAw","./login-view.scss":"e57ax","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC"}],"e57ax":[function() {},{}],"3U8r7":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$789c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34369,7 +34317,7 @@ $RefreshReg$(_c, "RegistrationView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","axios":"jo6P5","react-bootstrap":"3AD9A","./registration-view.scss":"clIxH","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC","react-router-dom":"fdOAw"}],"clIxH":[function() {},{}],"2vVqf":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","axios":"jo6P5","react-router-dom":"fdOAw","react-bootstrap":"3AD9A","./registration-view.scss":"clIxH","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC"}],"clIxH":[function() {},{}],"2vVqf":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3c12 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
