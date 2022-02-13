@@ -9,11 +9,15 @@
     "type": "git",
     "url": "git+https://github.com/haksuly1/myFlix-client.git"
   },
-  "author": "Hakeem Sulyman",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/haksuly1/myFlix-client/issues"
   },
   "homepage": "https://github.com/haksuly1/myFlix-client#readme",
+  "dependencies": {
+    "node-addon-api": "^4.3.0"
+  },
+  "devDependencies": {},
   "description": ""
 }
