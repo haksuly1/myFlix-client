@@ -1,7 +1,6 @@
 {
   "name": "myflix-client",
   "version": "1.0.0",
-  "description": "",
   "main": "src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +14,6 @@
   "bugs": {
     "url": "https://github.com/haksuly1/myFlix-client/issues"
   },
-  "homepage": "https://github.com/haksuly1/myFlix-client#readme"
+  "homepage": "https://github.com/haksuly1/myFlix-client#readme",
+  "description": ""
 }
