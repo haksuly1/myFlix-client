@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/haksuly1/myFlix-client/issues"
   },
-  "homepage": "https://github.com/haksuly1/myFlix-client#readme"
+  "homepage": "https://github.com/haksuly1/myFlix-client#readme",
+  "dependencies": {
+    "request-promise-native": "^1.0.9",
+    "source-map-url": "^0.4.1",
+    "uuid": "^7.0.3"
+  }
 }
