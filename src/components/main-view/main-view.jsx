@@ -1,11 +1,13 @@
 import React from "react";
 import axios from "axios";
-//Import React-Router-Dom
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+
+//import { Link } from react-router-dom;
+//import PropTypes from "prop-types";
 //SCSS <Import>
 import "./main-view.scss";
 //React Bootstrap
-import { Container, Button, Navbar, Row, Col } from "react-bootstrap";
+import { Container, Router, Link, Button, Navbar, Row, Col } from "react-bootstrap";
 //React Components
 import { LoginView } from "../login-view/login-view";
 import { RegistrationView } from "../registration-view/registration-view";
@@ -76,24 +78,24 @@ render() {
   const { movies, user } = this.state;
 
   return ( 
-    /*
-    <Router> 
+
+<Router>
       <Navbar bg="secondary" expand="lg" className="mb-4" sticky="top">
           <Navbar.Brand className="ml-4">
-            <Link style={{ color: "blue" }} to={"/"}>MyFlixApp</Link>
+            <Link style={{ color: "blue" }}to={"/"}>MyFlixApp</Link>
               </Navbar.Brand>
                 {user && (
                   <Navbar.Collapse className="justify-content-end">
-                    <Link to={`/users/${user}`} className="mr-2">
+                    <Link to={"/users/${user}"} className="mr-2">
                       <Button variant="light" style={{ color: "blue" }}>Profile for {user}</Button>
                     </Link>
                       <Button onClick={() => this.onLoggedOut()} variant="light" style={{ color: "blue" }}>Logout</Button>
                   </Navbar.Collapse> 
               )}
       </Navbar>
-      */
 
-<Router>
+
+
 <NavbarView user={user} />
   <Container>
     <Row className="main-view justify-content-md-center">
@@ -202,7 +204,7 @@ render() {
 
           </Row> 
         </Container>
-      </Router>  
+        </Router>
   );
 }    
 }

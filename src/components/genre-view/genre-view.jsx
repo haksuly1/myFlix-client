@@ -1,8 +1,9 @@
 import React from "react";
-import axios from "axios";
+//import axios from "axios";
 import PropTypes from "prop-types";
+//import React from React-Router-Dom;
 import "./genre-view.scss";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { Container, Row, Button, Card } from "react-bootstrap";
 
 import "./genre-view.scss";

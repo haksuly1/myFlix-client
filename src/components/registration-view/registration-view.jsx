@@ -3,7 +3,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 //React Bootstrap
-import { Navbar, Container, Nav, Form, Button, Card, Container } from "react-bootstrap";
+import { Navbar, Container, Form, Button, Card, Container } from "react-bootstrap";
 //SCSS Import
 import "./registration-view.scss";
 
@@ -204,7 +204,7 @@ RegistrationView.propTypes = {
       Username: PropTypes.string.isRequired,
       Password: PropTypes.string.isRequired,
       Email: PropTypes.string.isRequired,
-      Birthday: PropsTypes.string.isRequired,
+      Birthday: PropTypes.string.isRequired,
   }),
   onRegistration: PropTypes.func,
 };

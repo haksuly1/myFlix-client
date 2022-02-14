@@ -1,7 +1,7 @@
 import React from "react";
 //import axios from "axios";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+//import { Link } from "React-Router-Dom";
 import { Container, Card, Button, Row } from "react-bootstrap";
 
 import "./director-view.scss";

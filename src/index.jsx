@@ -1,8 +1,9 @@
 import React from "react";
-import axios from "axios";
-import PropTypes from "prop-types";
+//import axios from "axios";
+//import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { MainView } from "./components/main-view/main-view";
+//React bootstrap
 import Container from "react-bootstrap/Container";
 //index.scss
 import "./index.scss";
