@@ -3,11 +3,11 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 //React Bootstrap
-import { Navbar, Container, Form, Button, Card, Container } from "react-bootstrap";
+import { CardGroup, Container, Row, Col, Form, Button, Card, Container } from "react-bootstrap";
 //SCSS Import
 import "./registration-view.scss";
 
-export function RegistrationView(props) {
+export function RegistrationView(Props) {
 
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');

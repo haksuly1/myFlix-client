@@ -37,7 +37,6 @@ const validate = () => {
   return isReq;
 }
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const isReq = validate();

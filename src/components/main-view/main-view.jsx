@@ -2,12 +2,13 @@ import React from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
+
 //import { Link } from react-router-dom;
 //import PropTypes from "prop-types";
 //SCSS <Import>
 import "./main-view.scss";
 //React Bootstrap
-import { Container, Router, Link, Button, Navbar, Row, Col } from "react-bootstrap";
+import { Container, Router, Route, Row, Col } from "react-bootstrap";
 //React Components
 import { LoginView } from "../login-view/login-view";
 import { RegistrationView } from "../registration-view/registration-view";
@@ -30,10 +31,10 @@ export class MainView extends React.Component {
   }
 
   componentDidMount() {
-    let accessToken = localStorage.getItem('token');
+    let accessToken = localStorage.getItem("token");
     if (accessToken !== null) {
         this.setState({
-            user: localStorage.getItem('user')
+            user: localStorage.getItem("user")
         });
         this.getMovies(accessToken);
     }
@@ -78,7 +79,7 @@ render() {
   const { movies, user } = this.state;
 
   return ( 
-
+/*
 <Router>
       <Navbar bg="secondary" expand="lg" className="mb-4" sticky="top">
           <Navbar.Brand className="ml-4">
@@ -93,9 +94,9 @@ render() {
                   </Navbar.Collapse> 
               )}
       </Navbar>
+*/
 
-
-
+<Router>
 <NavbarView user={user} />
   <Container>
     <Row className="main-view justify-content-md-center">
@@ -193,7 +194,7 @@ render() {
           </Col>
         if (movies.length === 0) return <div className="main-view" />;
         return (
-        <Col>
+          <Col>
           <ProfileView
          user = {this.state.user}
          movies = {movies}
