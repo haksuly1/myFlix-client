@@ -17,8 +17,7 @@
     "url": "https://github.com/haksuly1/myFlix-client/issues"
   },
   "homepage": "https://github.com/haksuly1/myFlix-client#readme",
-  "dependencies": {
-    
+  "dependencies": { 
     "axios": "^0.26.0",
     "parcel": "^2.0.0-rc.0",
     "prop-types": "^15.8.1",
