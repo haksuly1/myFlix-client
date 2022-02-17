@@ -1,4 +1,4 @@
-import React from "react";
+import {React} from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -18,7 +18,6 @@ import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
 import { NavbarView } from "../navbar-view/navbar-view";
 export class MainView extends React.Component {
-
   constructor(){
     super();
     //initial state is set to null
