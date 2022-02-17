@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 //SCSS Import
-import "./login-view.scss";
+ import "./login-view.scss";
 
 //React Bootstrap
 import { Form, Container, Col, Row, Button, Card, CardGroup } from "react-bootstrap";
-export function LoginView(props) {
+export default function LoginView(props)  {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -57,20 +57,6 @@ const validate = () => {
 };
   
   return (
-    /*
-    <div className="login-view">
-      <Navbar expand="lg" bg="#5B84B1FF" variant="dark" className="loginNavbar">
-      <Container>
-      <Navbar.Brand href="#myflix">MyFlixApp</Navbar.Brand>
-          <Nav className="me-auto">
-          <Nav.Link href="#profile">Profile</Nav.Link>
-          <Nav.Link href="#update-profile">Update Profile</Nav.Link>
-          <Nav.Link href="#logout">Logout</Nav.Link>
-          </Nav>
-      </Container>
-      </Navbar>
-      */
-
       <Container className="profile-view" align="center">
         <Row>
           <Col>
@@ -97,9 +83,7 @@ const validate = () => {
 
                 <div className="mt-3">
                 <Button variant="light" style={{ color: "blue" }} type="submit" onClick={handleSubmit}>Login</Button>
-                  <Link to="/register">
-                    <Button className="ml-3" variant="secondary">Please register here</Button>
-                    </Link>
+
                     </div>
                     </Form>
                     </Card.Body>
@@ -107,7 +91,7 @@ const validate = () => {
                     </CardGroup>
                     </Col>
                     </Row>
-                    </Container>
+                    </Container>       
 
           );
         }

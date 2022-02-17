@@ -2,13 +2,14 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   background-color: #353535;
-  color: #ffffff;
+  color: blue;
 }
+/*
 * {
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-  background-color: #353535;
-  color: #ffffff;
+  //box-sizing: border-box;
+  //ont-family: 'Montserrat', sans-serif;
+  background-color: blue;
+  color: white;
 }
 
 body {
@@ -18,6 +19,7 @@ body {
 .form-control {
   background-color: #d9d9d9;
 }
+*/
 * {
   box-sizing: border-box;
   font-family: "Montserrat", serif;
