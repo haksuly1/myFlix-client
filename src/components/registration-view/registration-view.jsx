@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 //React Bootstrap
 import { CardGroup, Container, Row, Col, Form, Button, Card, Container } from "react-bootstrap";
 //SCSS Import
@@ -57,7 +57,7 @@ export function RegistrationView(Props) {
     e.preventDefault();
     const isReq = validate();
     if(isReq) { 
-      console.log(username, password);
+      //console.log(username, password);
       //send request to the server for authentication.
     axios.post("https://haksuly1movieapp.herokuapp.com/users", {
       Username: username,
@@ -71,7 +71,7 @@ export function RegistrationView(Props) {
       alert("You are now registered, please login!");
       window.open("/", "_self");
     })
-    .catch( response => {
+    .catch(response => {
       console.error(response);
       alert("Unable to register user")
     });

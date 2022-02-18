@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 //SCSS <Import>
 import "./main-view.scss";
 //React Bootstrap
@@ -81,7 +81,7 @@ render() {
 <Router>
       <Navbar bg="secondary" expand="lg" className="mb-4" sticky="top">
           <Navbar.Brand className="ml-4">
-            <Link style={{ color: "blue" }}to={"/"}>MyFlixApp</Link>
+            <Link style={{ color: "white" }}to={"/"}>MyFlixApp</Link>
               </Navbar.Brand>
                 {user && (
                   <Navbar.Collapse className="justify-content-end">

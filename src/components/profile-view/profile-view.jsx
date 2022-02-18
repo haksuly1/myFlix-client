@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button, Card, Col, Form, Row, Container } from "react-bootstrap";
 //import { MovieCard } from "../movie-card/movie-card";
 import "./profile-view.scss";
@@ -16,7 +16,7 @@ export class ProfileView extends React.Component {
         Email: null,
         Birthday: null,
         FavoriteMovies: [],
-        modalState: false
+        //modalState: false
     };
 }
 
@@ -34,10 +34,12 @@ onLoggedOut() {
     window.open("/", "_self");
 }
   
-  getUserDetails(token) {
+  getUser = (token) => { 
+      const Username = localStorage.getItem("user");
     axios.get(`https://haksuly1movieapp.herokuapp.com/users/${this.props.user}`, {
-        headers: { Authorization: `Bearer ${token}`}
-    }).then(response => {
+        headers: { Authorization: `Bearer ${token}`},
+    })
+    .then(response => {
         this.setState({
             Username: response.data.Username,
             Password: response.data.Password,

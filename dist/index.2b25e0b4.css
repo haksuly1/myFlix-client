@@ -4,6 +4,11 @@
   background-color: #353535;
   color: blue;
 }
+.card {
+  padding: 2%;
+  padding-top: 2%;
+}
+
 /*
 * {
   //box-sizing: border-box;

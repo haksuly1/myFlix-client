@@ -17,9 +17,10 @@
     "url": "https://github.com/haksuly1/myFlix-client/issues"
   },
   "homepage": "https://github.com/haksuly1/myFlix-client#readme",
-  "dependencies": { 
+  "dependencies": {
+    "@vespaiach/axios-fetch-adapter": "^0.1.1",
     "axios": "^0.26.0",
-    "parcel": "^2.0.0-rc.0",
+    "parcel": "^2.3.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.2",
