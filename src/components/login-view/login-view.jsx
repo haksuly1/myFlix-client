@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 //SCSS Import
  import "./login-view.scss";
 
 //React Bootstrap
 import { Form, Container, Col, Row, Button, Card, CardGroup } from "react-bootstrap";
-export default function LoginView(props)  {
+export function LoginView(props)  {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -57,11 +57,11 @@ const validate = () => {
 };
   
   return (
-      <Container className="profile-view" align="center">
+      <Container className="login-view" align="center">
         <Row>
           <Col>
             <CardGroup>
-              <Card bg="secondary" text="light" border="light">
+            <Card className="card" style={{ width: "1rem" }}>
                 <Card.Body>
                   <Card.Title className="text-center">Welcome to myFlixApp login page!</Card.Title>
                    <Card.Subtitle className="mb-2 text-muted text-center">Please Login</Card.Subtitle>
