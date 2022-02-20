@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 //SCSS <Import>
 import "./main-view.scss";
 //React Bootstrap
-import { Container, Navbar, Row, Col } from "react-bootstrap";
+import { Container, Navbar, Row, Col, Button } from "react-bootstrap";
 
 //React Components
 import { LoginView } from "../login-view/login-view";
@@ -81,12 +81,12 @@ render() {
 <Router>
       <Navbar bg="secondary" expand="lg" className="mb-4" sticky="top">
           <Navbar.Brand className="ml-4">
-            <Link style={{ color: "white" }}to={"/"}>MyFlixApp</Link>
+            <Link style={{ color: "green" }}to={"/"}>MyFlixApp</Link>
               </Navbar.Brand>
                 {user && (
                   <Navbar.Collapse className="justify-content-end">
-                    <Link to={"/users/${user}"} className="mr-2">
-                      <Button variant="light" style={{ color: "blue" }}>Profile for {user}</Button>
+                    <Link to={`/users/${user}`} className="mr-2">
+                      <Button variant="light" style={{ color: "blue" }}>Profile for{user}</Button>
                     </Link>
                       <Button onClick={() => this.onLoggedOut()} variant="light" style={{ color: "blue" }}>Logout</Button>
                   </Navbar.Collapse> 

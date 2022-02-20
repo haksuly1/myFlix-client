@@ -57,7 +57,7 @@ export function RegistrationView(Props) {
     e.preventDefault();
     const isReq = validate();
     if(isReq) { 
-      //console.log(username, password);
+      console.log(username, password);
       //send request to the server for authentication.
     axios.post("https://haksuly1movieapp.herokuapp.com/users", {
       Username: username,
@@ -67,7 +67,7 @@ export function RegistrationView(Props) {
     })
     .then(response => {
       const data = response.data;
-      console.log(data);
+      //console.log(data);
       alert("You are now registered, please login!");
       window.open("/", "_self");
     })

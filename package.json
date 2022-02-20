@@ -18,9 +18,15 @@
   },
   "homepage": "https://github.com/haksuly1/myFlix-client#readme",
   "dependencies": {
+    "@parcel/core": "^2.3.2",
+    "@parcel/plugin": "^2.3.2",
+    "@parcel/reporter-dev-server": "^2.3.2",
+    "@parcel/utils": "^2.3.2",
     "@vespaiach/axios-fetch-adapter": "^0.1.1",
     "axios": "^0.26.0",
-    "parcel": "^2.3.1",
+    "axios-mock-adapter": "^1.20.0",
+    "connect": "^3.7.0",
+    "parcel": "^2.3.2",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.2",
@@ -28,10 +34,9 @@
     "react-router-dom": "^5.3.0",
     "socket.io": "^4.4.1"
   },
-  "alias": {
-    "process": false
-  },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0-rc.0"
+    "@parcel/transformer-sass": "^2.3.2",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
   }
 }

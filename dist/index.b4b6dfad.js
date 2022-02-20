@@ -22886,7 +22886,7 @@ class MainView extends _reactDefault.default.Component {
                             className: "ml-4",
                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
                                 style: {
-                                    color: "white"
+                                    color: "green"
                                 },
                                 to: "/",
                                 children: "MyFlixApp"
@@ -22904,15 +22904,15 @@ class MainView extends _reactDefault.default.Component {
                             className: "justify-content-end",
                             children: [
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
-                                    to: "/users/${user}",
+                                    to: `/users/${user1}`,
                                     className: "mr-2",
-                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Button, {
+                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
                                         variant: "light",
                                         style: {
                                             color: "blue"
                                         },
                                         children: [
-                                            "Profile for ",
+                                            "Profile for",
                                             user1
                                         ]
                                     }, void 0, true, {
@@ -22925,7 +22925,7 @@ class MainView extends _reactDefault.default.Component {
                                     lineNumber: 88,
                                     columnNumber: 21
                                 }, this),
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Button, {
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
                                     onClick: ()=>this.onLoggedOut()
                                     ,
                                     variant: "light",
@@ -33434,7 +33434,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","axios":"jo6P5","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./login-view.scss":"e57ax","react-router-dom":"cHIiW"}],"e57ax":[function() {},{}],"3U8r7":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","axios":"jo6P5","react-router-dom":"cHIiW","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./login-view.scss":"e57ax"}],"e57ax":[function() {},{}],"3U8r7":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$789c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -33497,22 +33497,25 @@ function RegistrationView(Props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         const isReq = validate();
-        if (isReq) //console.log(username, password);
-        //send request to the server for authentication.
-        _axiosDefault.default.post("https://haksuly1movieapp.herokuapp.com/users", {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
-        }).then((response)=>{
-            const data = response.data;
-            console.log(data);
-            alert("You are now registered, please login!");
-            window.open("/", "_self");
-        }).catch((response)=>{
-            console.error(response);
-            alert("Unable to register user");
-        });
+        if (isReq) {
+            console.log(username, password);
+            //send request to the server for authentication.
+            _axiosDefault.default.post("https://haksuly1movieapp.herokuapp.com/users", {
+                Username: username,
+                Password: password,
+                Email: email,
+                Birthday: birthday
+            }).then((response)=>{
+                const data = response.data;
+                //console.log(data);
+                alert("You are now registered, please login!");
+                window.open("/", "_self");
+            }).catch((response)=>{
+                console.error(response);
+                alert("Unable to register user");
+            });
+        //props.onLoggedIn(username);
+        }
     };
     return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
