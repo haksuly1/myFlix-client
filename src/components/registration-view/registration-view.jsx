@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 //React Bootstrap
 import { CardGroup, Container, Row, Col, Form, Button, Card, Container } from "react-bootstrap";
 //SCSS Import
@@ -75,7 +75,7 @@ export function RegistrationView(Props) {
       console.error(response);
       alert("Unable to register user")
     });
-    //props.onLoggedIn(username);
+    //Props.onLoggedIn(username);
   }
 };
 
@@ -123,7 +123,7 @@ export function RegistrationView(Props) {
     </Row>
 </Container>
 );
-}
+  }
 
 RegistrationView.propTypes = {
   register: PropTypes.shape({
