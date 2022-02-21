@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   background-color: blue;
-  color: blue;
+  color: white;
 }
 .card {
   padding: 2%;
@@ -24,12 +24,13 @@ body {
   background-color: #d9d9d9;
 }
 */
+/*
 * {
   box-sizing: border-box;
   background-color: blue;
   color: white;
 }
-
+*/
 /*
 .registrationNavbar {
   background: #162b48;
