@@ -23085,7 +23085,7 @@ class MainView extends _reactDefault.default.Component {
                             className: "ml-4",
                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
                                 style: {
-                                    color: "green"
+                                    color: "white"
                                 },
                                 to: "/",
                                 children: "MyFlixApp"
