@@ -67,7 +67,7 @@ export function RegistrationView(Props) {
     })
     .then(response => {
       const data = response.data;
-      //console.log(data);
+      console.log(data);
       alert("You are now registered, please login!");
       window.open("/", "_self");
     })
@@ -75,15 +75,15 @@ export function RegistrationView(Props) {
       console.error(response);
       alert("Unable to register user")
     });
-    //Props.onLoggedIn(username);
+    //props.onLoggedIn(username);
   }
 };
 
   return (
-    <Container>
+    <Container style={{backgroundColor: "blue"}}>
     <Row>
         <Col>
-            <CardGroup>
+            <CardGroup >
                 <Card>
                     <Card.Body>
                         <Card.Title>Register now!</Card.Title>
@@ -112,6 +112,8 @@ export function RegistrationView(Props) {
                             <Form.Group className="mb-3">
                                 <Form.Label>Birthday:</Form.Label>
                                 <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} placeholder="Enter birthday" />
+                                {/* code added here to display validation error */}
+                                {birthdayErr && <p>{birthdayErr}</p>}
                             </Form.Group>
 
                             <Button variant="outline-light" type="submit" onClick={handleSubmit}>Register</Button>
@@ -123,7 +125,7 @@ export function RegistrationView(Props) {
     </Row>
 </Container>
 );
-  }
+}
 
 RegistrationView.propTypes = {
   register: PropTypes.shape({
