@@ -8,6 +8,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
 import { RegistrationView } from "../registration-view/registration-view";
+import { ProfileView } from "../profile-view/profile-view";
 
 import { Row, Col, Navbar, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -73,21 +74,19 @@ export class MainView extends React.Component {
     return (
       <Router>
 
-<Navbar bg="secondary" expand="lg" className="mb-4" sticky="top">
+        <Navbar bg="secondary" expand="lg" className="mb-4" sticky="top">
           <Navbar.Brand className="ml-4">
             <Link style={{ color: "white" }}to={"/"}>MyFlixApp</Link>
               </Navbar.Brand>
                 {user && (
                   <Navbar.Collapse className="justify-content-end">
                     <Link to={`/users/${user}`} className="mr-2">
-                      <Button variant="light" style={{ color: "blue" }}>Profile for{user}</Button>
+                      <Button variant="light" style={{ color: "green" }}>User Profile: {user}</Button>
                     </Link>
-                      <Button onClick={() => this.onLoggedOut()} variant="light" style={{ color: "blue" }}>Logout</Button>
+                      <Button onClick={() => this.onLoggedOut()} variant="light" style={{ color: "red" }}>Logout</Button>
                   </Navbar.Collapse> 
               )}
-      </Navbar>
-
-
+        </Navbar>
         <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
             if (!user) return <Col>
@@ -180,7 +179,6 @@ export class MainView extends React.Component {
         </Col>
         )
       }} />
-
         </Row>
       </Router>
     );

@@ -59,7 +59,7 @@ onLoggedOut() {
         const Username = localStorage.getItem("user");
         const token = localStorage.getItem("token");
 
-        axios.put(`https://orishflix.herokuapp.com/users/${Username}`, {
+        axios.put(`https://haksuly1movieapp.herokuapp.com/users/${Username}`, {
                     Username: this.state.Username,
                     Password: this.state.Password,
                     Email: this.state.Email,
