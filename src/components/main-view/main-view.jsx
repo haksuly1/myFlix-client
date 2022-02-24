@@ -126,12 +126,12 @@ export class MainView extends React.Component {
             if (movies.length === 0) { return <div className="main-view" />;
           }
              return <Col md={8}>
-                 <MovieView movie={movies.find(m => m._id === match.params.movieId)}
+                 <ProfileView movie={movies.find(m => m._id === match.params.movieId)}
                    onBackClick={() => history.goBack()} />
                </Col>
          }} />
 
-          <Route path="/movies/:movieId" render={({ match, history }) => {
+          <Route path="/movies/:movieId" render={({ history }) => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
@@ -141,7 +141,7 @@ export class MainView extends React.Component {
             </Col>
           }} />
 
-          <Route path="/directors/:name" render={({ match, history }) => {
+          <Route path="/directors/:name" render={({ history }) => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
@@ -152,7 +152,7 @@ export class MainView extends React.Component {
           }
           } />
 
-          <Route path="/genres/:name" render={({ match, history }) => {
+          <Route path="/genres/:name" render={({ history }) => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
@@ -164,18 +164,15 @@ export class MainView extends React.Component {
           } />
 
           <Route  path="/users/:Username" render={({ history }) => {
-          if (!user) return 
-            <LoginView onLoggedIn={ (user) => this.onLoggedIn(user) } />
+          if (!user) return <Col> 
+            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+            </Col> 
           if (movies.length === 0) return <div className="main-view" />;
-          return (
-          <Col>
-          <ProfileView
-         user = {this.state.user}
-         movies = {movies}
-          onBackClick={() => history.goBack()} />
+          return <Col md={8}>
+          <ProfileView user={movies.find(m => m.profile.name === match.params.name).profile} onBackClick={() => history.goBack()} />
         </Col>
-        )
-      }} />
+          }
+      } />
         </Row>
       </Router>
     );

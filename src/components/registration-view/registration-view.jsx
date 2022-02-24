@@ -1,16 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
@@ -128,7 +115,6 @@ export function RegistrationView(Props) {
                                 {/* code added here to display validation error */}
                                 {birthdayErr && <p>{birthdayErr}</p>}
                             </Form.Group>
-
                             <Button variant="outline-light" type="submit" onClick={handleSubmit}>Register</Button>
                         </Form>
                     </Card.Body>

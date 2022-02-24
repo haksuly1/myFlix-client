@@ -2,7 +2,7 @@
 import React from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button, Card, Col, Form, Row, Container } from "react-bootstrap";
 //import { MovieCard } from "../movie-card/movie-card";
 import "./profile-view.scss";
@@ -22,13 +22,13 @@ export class ProfileView extends React.Component {
 }
 
 componentDidMount() {
-    const accessToken = localStorage.getItem('token');
+    const accessToken = localStorage.getItem("token");
     this.getUser(accessToken);
 }
 
 onLoggedOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     this.setState({
         user: null,
     });
@@ -252,6 +252,21 @@ render() {
                                             FavoriteMovies.find((fav) => fav === movie._id)
                                         ) {
                                             return (
+
+                                         <Card bg="secondary" text="light" border="light">
+                                            <Card.Img variant="top" src={movie.ImagePath} />
+                                                <Card.Body>
+                                                     <Card.Title>{movie.Title}</Card.Title>
+                                                        <Card.Text>{movie.Description}</Card.Text>
+                                                            <Link to={`/movies/${movie._id}`}> 
+                                                                 <Button variant="primary" style={{ color: "white" }}>Open movie</Button>
+            
+                                                            </Link>    
+                                                </Card.Body>
+                                        </Card>
+
+
+                                                /*
                                                 <Card className="favorite-movie card-content" key={movie._id} >
                                                     <Card.Img
                                                         className="fav-poster"
@@ -265,6 +280,7 @@ render() {
                                                         <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove</Button>
                                                     </Card.Body>
                                                 </Card>
+                                                */
                                             );
                                         }
                                     })}
