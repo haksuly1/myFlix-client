@@ -1,7 +1,8 @@
+
 import React from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { Button, Card, Col, Form, Row, Container } from "react-bootstrap";
 //import { MovieCard } from "../movie-card/movie-card";
 import "./profile-view.scss";
@@ -33,10 +34,10 @@ onLoggedOut() {
     });
     window.open("/", "_self");
 }
-  
+
   getUser = (token) => { 
       const Username = localStorage.getItem("user");
-    axios.get(`https://haksuly1movieapp.herokuapp.com/users/${this.props.user}`, {
+        axios.get(`https://haksuly1movieapp.herokuapp.com/users/${Username}`, {
         headers: { Authorization: `Bearer ${token}`},
     })
     .then(response => {
@@ -91,10 +92,7 @@ onLoggedOut() {
         e.preventDefault();
         const Username = localStorage.getItem("user");
         const token = localStorage.getItem("token");
-
-        axios
-            .delete(
-                `https://haksuly1movieapp.herokuapp.com/users/${Username}/movies/${movie._id}`,
+        axios.delete(`https://haksuly1movieapp.herokuapp.com/users/${Username}/movies/${movie._id}`,
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }
@@ -152,7 +150,6 @@ onLoggedOut() {
             Birthday: value,
         });
     }
-
 // Render function to display items on the DOM
 render() {
     // Get the props that were passed into this view and store them in appropriate variables
@@ -261,7 +258,7 @@ render() {
                                                         variant="top"
                                                         src={movie.ImagePath}
                                                     />
-                                                    <Card.Body style={{ backgroundColor: "black" }}>
+                                                    <Card.Body style={{ backgroundColor: "blue" }}>
                                                         <Card.Title className="movie_title">
                                                             {movie.Title}
                                                         </Card.Title>

@@ -1,3 +1,4 @@
+
 import React from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
@@ -49,7 +50,6 @@ export class MainView extends React.Component {
   }
 
   /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
-
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
@@ -73,17 +73,16 @@ export class MainView extends React.Component {
     const { movies, user } = this.state;
     return (
       <Router>
-
-        <Navbar bg="secondary" expand="lg" className="mb-4" sticky="top">
+        <Navbar bg="primary" expand="lg" className="mb-4" sticky="top">
           <Navbar.Brand className="ml-4">
-            <Link style={{ color: "white" }}to={"/"}>MyFlixApp</Link>
+            <Link style={{ color: "red" }}to={"/"}>MyFlixApp</Link>
               </Navbar.Brand>
                 {user && (
                   <Navbar.Collapse className="justify-content-end">
-                    <Link to={`/users/${user}`} className="mr-2">
-                      <Button variant="light" style={{ color: "green" }}>User Profile: {user}</Button>
+                    <Link to={`/users/${user}`}>
+                      <Button variant="primary" style={{ color: "white" }}>USER: {user}</Button>
                     </Link>
-                      <Button onClick={() => this.onLoggedOut()} variant="light" style={{ color: "red" }}>Logout</Button>
+                      <Button onClick={() => this.onLoggedOut()} variant="primary" style={{ color: "white" }}>LOGOUT</Button>
                   </Navbar.Collapse> 
               )}
         </Navbar>
@@ -166,9 +165,7 @@ export class MainView extends React.Component {
 
           <Route  path="/users/:Username" render={({ history }) => {
           if (!user) return 
-          <Col>
             <LoginView onLoggedIn={ (user) => this.onLoggedIn(user) } />
-          </Col>
           if (movies.length === 0) return <div className="main-view" />;
           return (
           <Col>
