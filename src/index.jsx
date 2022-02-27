@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 import { MainView } from "./components/main-view/main-view";
 //React bootstrap
 import Container from "react-bootstrap/Container";
+
 //index.scss
 import "./index.scss";
 

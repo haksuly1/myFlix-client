@@ -1,8 +1,8 @@
 
 import React from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import { link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Redirect } from "react-router-dom";
 //import PropTypes from 'prop-types';
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
@@ -13,7 +13,6 @@ import { RegistrationView } from "../registration-view/registration-view";
 import { ProfileView } from "../profile-view/profile-view";
 import { NavbarView } from '../navbar-view/navbar-view';
 import { Row, Col, Navbar, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 export class MainView extends React.Component {
 
   constructor() {
@@ -88,7 +87,8 @@ onLoggedOut() {
               )}
         </Navbar>
         <Row className="main-view justify-content-md-center">
-          
+        
+        <Routes>
           <Route exact path="/" render={() => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
@@ -100,14 +100,18 @@ onLoggedOut() {
               </Col>
             ))
           }} />
+        </Routes>
 
+          <Routes> 
           <Route path="/register" render={() => {
             if (!user) return <Redirect to="/" />
             return <Col>
               <RegistrationView />
             </Col>
           }} />
+            </Routes>
 
+          <Routes>
           <Route path="/login" render={({ match, history }) => {
           if (!user) return <Redirect to="/" />;
           <Col> 
@@ -120,7 +124,9 @@ onLoggedOut() {
                onBackClick={() => history.goBack()} />
            </Col>
      }} />
+          </Routes>
 
+          <Routes>
           <Route path="/movies/:movieId" render={({ match, history }) => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
@@ -130,7 +136,9 @@ onLoggedOut() {
               <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
             </Col>
           }} />
+          </Routes>
 
+          <Routes>
           <Route path="/directors/:name" render={({ match, history }) => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
@@ -141,7 +149,9 @@ onLoggedOut() {
             </Col>
           }
           } />
+          </Routes>
 
+          <Routes>
           <Route path="/genres/:name" render={({ match, history }) => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
@@ -152,7 +162,9 @@ onLoggedOut() {
             </Col>
           }
           } />
+          </Routes>
 
+          <Routes> 
           <Route path="/profile" render={({ history }) => {
             if (!user) {
               return (
@@ -168,7 +180,9 @@ onLoggedOut() {
           </Col>
         );
       }} />
+          </Routes>
 
+          <Routes> 
           <Route path="/navbar" render={({ history }) => {
             if (!user) {
               return (
@@ -183,7 +197,9 @@ onLoggedOut() {
           </Col>
         );
       }} />
-          
+          </Routes>
+
+          <Routes>
           <Route path="/users/:Username" render={({ match, history }) => {
           if (!user) return <Redirect to="/" />;
           <Col>
@@ -196,7 +212,7 @@ onLoggedOut() {
           
            </Col>
           }} />
-
+         </Routes>
         </Row>
       </Router>
     );
