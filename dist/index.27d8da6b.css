@@ -81,6 +81,12 @@ body {
 }
 * {
   box-sizing: border-box;
+  font-family: "Montserrat", serif;
+  background-color: #353535;
+  color: #ffffff;
+}
+* {
+  box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   background-color: white;
   color: black;

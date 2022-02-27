@@ -4,9 +4,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Button, Card, Col, Form, Row, Container } from "react-bootstrap";
-//import { MovieCard } from "../movie-card/movie-card";
 import "./profile-view.scss";
-//import Modal from "react-bootstrap/Modal";
 export class ProfileView extends React.Component {
 
   constructor() {
@@ -59,7 +57,6 @@ onLoggedOut() {
         e.preventDefault();
         const Username = localStorage.getItem("user");
         const token = localStorage.getItem("token");
-
         axios.put(`https://haksuly1movieapp.herokuapp.com/users/${Username}`, {
                     Username: this.state.Username,
                     Password: this.state.Password,
@@ -153,13 +150,12 @@ onLoggedOut() {
 // Render function to display items on the DOM
 render() {
     // Get the props that were passed into this view and store them in appropriate variables
-    const { movies, onBackClick} = this.props;
+    const { movies , onBackClick } = this.props;
     const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
         if (!Username) {
             return null;
         }
-
         return (
             <Container className="profile-view" align="center">
                 <Row>
@@ -213,16 +209,18 @@ render() {
                                             onChange={(e) => this.setEmail(e.target.value)}
                                             required
                                         />
-                                    </Form.Group>
+                                
+                                   </Form.Group>
 
                                     <Form.Group>
                                         <Form.Label>Birthday</Form.Label>
-                                        <Form.Control
-                                            type="date"
-                                            name="Birthday"
+                                            <Form.Control
+                                             type="birthday"
+                                             name="Birthday"
                                             value={Birthday}
                                             onChange={(e) => this.setBirthday(e.target.value)}
-                                        />
+                                         />
+                                        
                                     </Form.Group>
                                     <div className="mt-3">
                                         <Button variant="success" type="submit" onClick={this.editUser}>Update User</Button>
@@ -241,9 +239,6 @@ render() {
                 <Row>
                     <Col>
                         <Card.Body>
-                            {FavoriteMovies.length === 0 && (
-                                <div className="text-center">No Favorite Movies</div>
-                            )}
                             <Row className="favorite-container">
                                 {FavoriteMovies.length > 0 &&
                                     movies.map((movie) => {
@@ -252,9 +247,9 @@ render() {
                                             FavoriteMovies.find((fav) => fav === movie._id)
                                         ) {
                                             return (
-
+                                             
                                          <Card bg="secondary" text="light" border="light">
-                                            <Card.Img variant="top" src={movie.ImagePath} />
+                                            <Card.Img variant="top" src={movie.ImagePath} crossOrigin="true" />
                                                 <Card.Body>
                                                      <Card.Title>{movie.Title}</Card.Title>
                                                         <Card.Text>{movie.Description}</Card.Text>
@@ -308,10 +303,10 @@ ProfileView.propTypes = {
             Description: PropTypes.string.isRequired,
         }).isRequired,
         Director: PropTypes.shape({
-            Bio: PropTypes.string.isRequired,
-            Birth: PropTypes.string.isRequired,
-            Death: PropTypes.string,
             Name: PropTypes.string.isRequired,
+            Bio: PropTypes.string.isRequired,
+            Birth: PropTypes.string,
+            Death: PropTypes.string,
         }).isRequired,
     })).isRequired,
     onBackClick: PropTypes.func.isRequired
