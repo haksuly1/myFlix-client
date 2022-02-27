@@ -1,11 +1,10 @@
+
 import React from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Button, Card, Col, Form, Row, Container } from "react-bootstrap";
-//import { MovieCard } from "../movie-card/movie-card";
 import "./profile-view.scss";
-//import Modal from "react-bootstrap/Modal";
 export class ProfileView extends React.Component {
 
   constructor() {
@@ -21,22 +20,22 @@ export class ProfileView extends React.Component {
 }
 
 componentDidMount() {
-    const accessToken = localStorage.getItem('token');
+    const accessToken = localStorage.getItem("token");
     this.getUser(accessToken);
 }
 
 onLoggedOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     this.setState({
         user: null,
     });
     window.open("/", "_self");
 }
-  
+
   getUser = (token) => { 
       const Username = localStorage.getItem("user");
-    axios.get(`https://haksuly1movieapp.herokuapp.com/users/${this.props.user}`, {
+        axios.get(`https://haksuly1movieapp.herokuapp.com/users/${Username}`, {
         headers: { Authorization: `Bearer ${token}`},
     })
     .then(response => {
@@ -58,7 +57,6 @@ onLoggedOut() {
         e.preventDefault();
         const Username = localStorage.getItem("user");
         const token = localStorage.getItem("token");
-
         axios.put(`https://haksuly1movieapp.herokuapp.com/users/${Username}`, {
                     Username: this.state.Username,
                     Password: this.state.Password,
@@ -91,10 +89,7 @@ onLoggedOut() {
         e.preventDefault();
         const Username = localStorage.getItem("user");
         const token = localStorage.getItem("token");
-
-        axios
-            .delete(
-                `https://haksuly1movieapp.herokuapp.com/users/${Username}/movies/${movie._id}`,
+        axios.delete(`https://haksuly1movieapp.herokuapp.com/users/${Username}/movies/${movie._id}`,
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }
@@ -152,17 +147,15 @@ onLoggedOut() {
             Birthday: value,
         });
     }
-
 // Render function to display items on the DOM
 render() {
     // Get the props that were passed into this view and store them in appropriate variables
-    const { movies, onBackClick} = this.props;
+    const { movies , onBackClick } = this.props;
     const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
         if (!Username) {
             return null;
         }
-
         return (
             <Container className="profile-view" align="center">
                 <Row>
@@ -216,16 +209,18 @@ render() {
                                             onChange={(e) => this.setEmail(e.target.value)}
                                             required
                                         />
-                                    </Form.Group>
+                                
+                                   </Form.Group>
 
                                     <Form.Group>
                                         <Form.Label>Birthday</Form.Label>
-                                        <Form.Control
-                                            type="date"
-                                            name="Birthday"
+                                            <Form.Control
+                                             type="birthday"
+                                             name="Birthday"
                                             value={Birthday}
                                             onChange={(e) => this.setBirthday(e.target.value)}
-                                        />
+                                         />
+                                        
                                     </Form.Group>
                                     <div className="mt-3">
                                         <Button variant="success" type="submit" onClick={this.editUser}>Update User</Button>
@@ -244,9 +239,6 @@ render() {
                 <Row>
                     <Col>
                         <Card.Body>
-                            {FavoriteMovies.length === 0 && (
-                                <div className="text-center">No Favorite Movies</div>
-                            )}
                             <Row className="favorite-container">
                                 {FavoriteMovies.length > 0 &&
                                     movies.map((movie) => {
@@ -255,19 +247,35 @@ render() {
                                             FavoriteMovies.find((fav) => fav === movie._id)
                                         ) {
                                             return (
+                                             
+                                         <Card bg="secondary" text="light" border="light">
+                                            <Card.Img variant="top" src={movie.ImagePath} crossOrigin="true" />
+                                                <Card.Body>
+                                                     <Card.Title>{movie.Title}</Card.Title>
+                                                        <Card.Text>{movie.Description}</Card.Text>
+                                                            <Link to={`/movies/${movie._id}`}> 
+                                                                 <Button variant="primary" style={{ color: "white" }}>Open movie</Button>
+            
+                                                            </Link>    
+                                                </Card.Body>
+                                        </Card>
+
+
+                                                /*
                                                 <Card className="favorite-movie card-content" key={movie._id} >
                                                     <Card.Img
                                                         className="fav-poster"
                                                         variant="top"
                                                         src={movie.ImagePath}
                                                     />
-                                                    <Card.Body style={{ backgroundColor: "black" }}>
+                                                    <Card.Body style={{ backgroundColor: "blue" }}>
                                                         <Card.Title className="movie_title">
                                                             {movie.Title}
                                                         </Card.Title>
                                                         <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove</Button>
                                                     </Card.Body>
                                                 </Card>
+                                                */
                                             );
                                         }
                                     })}
@@ -295,10 +303,10 @@ ProfileView.propTypes = {
             Description: PropTypes.string.isRequired,
         }).isRequired,
         Director: PropTypes.shape({
-            Bio: PropTypes.string.isRequired,
-            Birth: PropTypes.string.isRequired,
-            Death: PropTypes.string,
             Name: PropTypes.string.isRequired,
+            Bio: PropTypes.string.isRequired,
+            Birth: PropTypes.string,
+            Death: PropTypes.string,
         }).isRequired,
     })).isRequired,
     onBackClick: PropTypes.func.isRequired

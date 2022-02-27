@@ -44,11 +44,6 @@ componentWillUnmount() {
           <span className="value">{movie.Description}</span>
         </div>
 
-        <div className="movie-releaseyear">
-          <span className="label">Release Year: </span>
-          <span className="value">{movie.ReleaseYear}</span>
-        </div>
-
         <div className="movie-genre">
           <span className="label">Genre: </span>
           <span className="value">{movie.Genre.Name}</span>
@@ -85,6 +80,11 @@ componentWillUnmount() {
           <span className="value">{movie.Director.Death}</span>
         </div>
 
+        <div className="movie-releaseyear">
+          <span className="label">Release Year: </span>
+          <span className="value">{movie.ReleaseYear}</span>
+        </div>
+
         <Button variant="primary" onClick={() => onBackClick(null)}>Back</Button>  
 
         </div>
@@ -109,7 +109,7 @@ MovieView.propTypes = {
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired,
       Bio: PropTypes.string.isRequired,
-      Birth: PropTypes.string,
+      Birth: PropTypes.string.isRequired,
       Death: PropTypes.string
     }),
 

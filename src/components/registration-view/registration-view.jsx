@@ -115,8 +115,8 @@ export function RegistrationView(Props) {
                                 {/* code added here to display validation error */}
                                 {birthdayErr && <p>{birthdayErr}</p>}
                             </Form.Group>
-
-                            <Button variant="outline-light" type="submit" onClick={handleSubmit}>Register</Button>
+                            <Button variant="light" style={{ color: "blue" }} type="submit" onClick={handleSubmit}>Register</Button>
+                           
                         </Form>
                     </Card.Body>
                 </Card>
