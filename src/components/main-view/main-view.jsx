@@ -89,7 +89,8 @@ onLoggedOut() {
         <Row className="main-view justify-content-md-center">
         
         <Routes>
-          <Route exact path="/" render={() => {
+          <Route exact path="/" 
+          render={() => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
@@ -218,20 +219,6 @@ onLoggedOut() {
     );
   }
 }
-
-
-         
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*
