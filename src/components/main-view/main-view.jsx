@@ -39,7 +39,8 @@ export class MainView extends React.Component {
 onLoggedIn(authData) {
   console.log(authData);
   this.setState({
-    user: authData.user.Username
+    user: authData.user.Username,
+    favouriteMovies: authData.user.FavouriteMovies,    
   });
 
   localStorage.setItem("token", authData.token);
@@ -96,7 +97,7 @@ onLoggedOut() {
             if (movies.length === 0) return <div className="main-view" />;
             return movies.map(m => (
               <Col md={3} key={m._id}>
-                <MovieCard movie={m} />
+                <MovieCard movie={m} user={this.state.user} token={localStorage.getItem('token')} />
               </Col>
             ))
           }} />

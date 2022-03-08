@@ -23047,7 +23047,8 @@ class MainView extends _reactDefault.default.Component {
     /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/ onLoggedIn(authData) {
         console.log(authData);
         this.setState({
-            user: authData.user.Username
+            user: authData.user.Username,
+            favouriteMovies: authData.user.FavouriteMovies
         });
         localStorage.setItem("token", authData.token);
         localStorage.setItem("user", authData.user.Username);
@@ -23094,12 +23095,12 @@ class MainView extends _reactDefault.default.Component {
                                 children: "MyFlixApp"
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 79,
+                                lineNumber: 80,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 78,
+                            lineNumber: 79,
                             columnNumber: 11
                         }, this),
                         user1 && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Collapse, {
@@ -23118,12 +23119,12 @@ class MainView extends _reactDefault.default.Component {
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 84,
+                                        lineNumber: 85,
                                         columnNumber: 23
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 83,
+                                    lineNumber: 84,
                                     columnNumber: 21
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -23136,19 +23137,19 @@ class MainView extends _reactDefault.default.Component {
                                     children: "LOGOUT"
                                 }, void 0, false, {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 86,
+                                    lineNumber: 87,
                                     columnNumber: 23
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 82,
+                            lineNumber: 83,
                             columnNumber: 19
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 77,
+                    lineNumber: 78,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
@@ -23169,14 +23170,16 @@ class MainView extends _reactDefault.default.Component {
                                 return movies.map((m)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                                         md: 3,
                                         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
-                                            movie: m
+                                            movie: m,
+                                            user: this.state.user,
+                                            token: localStorage.getItem('token')
                                         }, void 0, false, void 0, void 0)
                                     }, m._id, false, void 0, void 0)
                                 );
                             }
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 92,
+                            lineNumber: 93,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23192,7 +23195,7 @@ class MainView extends _reactDefault.default.Component {
                             }
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 104,
+                            lineNumber: 105,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23220,7 +23223,7 @@ class MainView extends _reactDefault.default.Component {
                             }
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 111,
+                            lineNumber: 112,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23245,7 +23248,7 @@ class MainView extends _reactDefault.default.Component {
                             }
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 124,
+                            lineNumber: 125,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23270,7 +23273,7 @@ class MainView extends _reactDefault.default.Component {
                             }
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 134,
+                            lineNumber: 135,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23295,7 +23298,7 @@ class MainView extends _reactDefault.default.Component {
                             }
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 145,
+                            lineNumber: 146,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23316,7 +23319,7 @@ class MainView extends _reactDefault.default.Component {
                             }
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 156,
+                            lineNumber: 157,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23337,7 +23340,7 @@ class MainView extends _reactDefault.default.Component {
                             }
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 172,
+                            lineNumber: 173,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23365,19 +23368,19 @@ class MainView extends _reactDefault.default.Component {
                             }
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 187,
+                            lineNumber: 188,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 90,
+                    lineNumber: 91,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 76,
+            lineNumber: 77,
             columnNumber: 7
         }, this));
     }
@@ -28349,6 +28352,8 @@ parcelHelpers.export(exports, "ModalBody", ()=>_modalBodyDefault.default
 );
 parcelHelpers.export(exports, "ModalDialog", ()=>_modalDialogDefault.default
 );
+parcelHelpers.export(exports, "ModalHeader", ()=>_modalHeaderDefault.default
+);
 parcelHelpers.export(exports, "ModalFooter", ()=>_modalFooterDefault.default
 );
 parcelHelpers.export(exports, "ModalTitle", ()=>_modalTitleDefault.default
@@ -28515,6 +28520,8 @@ var _modalBody = require("./ModalBody");
 var _modalBodyDefault = parcelHelpers.interopDefault(_modalBody);
 var _modalDialog = require("./ModalDialog");
 var _modalDialogDefault = parcelHelpers.interopDefault(_modalDialog);
+var _modalHeader = require("./ModalHeader");
+var _modalHeaderDefault = parcelHelpers.interopDefault(_modalHeader);
 var _modalFooter = require("./ModalFooter");
 var _modalFooterDefault = parcelHelpers.interopDefault(_modalFooter);
 var _modalTitle = require("./ModalTitle");
@@ -28600,7 +28607,7 @@ var _toggleButtonGroupDefault = parcelHelpers.interopDefault(_toggleButtonGroup)
 var _tooltip = require("./Tooltip");
 var _tooltipDefault = parcelHelpers.interopDefault(_tooltip);
 
-},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./Alert":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"aPzUt","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"lAynp","./CardImg":"1reTi","./CardGroup":"2j3Ij","./Carousel":false,"./CarouselItem":false,"./CloseButton":"1wmVl","./Col":"2L2I6","./Collapse":"acuzI","./Dropdown":false,"./DropdownButton":false,"./Fade":"aH18S","./Form":"iBZ80","./FormControl":"iynMc","./FormCheck":"idkr0","./FormFloating":"aj346","./FloatingLabel":"coYzo","./FormGroup":"1qBHH","./FormLabel":"66epi","./FormText":"ffeC7","./FormSelect":"hHWyB","./Container":"hEdsw","./Image":false,"./Figure":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalFooter":false,"./ModalTitle":false,"./Nav":"cXyL2","./Navbar":"1mHjo","./NavbarBrand":"iOo4v","./NavDropdown":false,"./NavItem":"ew05W","./NavLink":"7geL8","./Offcanvas":"eC3RS","./OffcanvasHeader":"a6xAh","./OffcanvasTitle":"77qdX","./OffcanvasBody":"fX7Bo","./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverHeader":false,"./PopoverBody":false,"./ProgressBar":false,"./Ratio":false,"./Row":"cMC39","./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":false,"./ThemeProvider":"dVixI","./Toast":false,"./ToastBody":false,"./ToastHeader":false,"./ToastContainer":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aPzUt":[function(require,module,exports) {
+},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./Alert":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"aPzUt","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"lAynp","./CardImg":"1reTi","./CardGroup":"2j3Ij","./Carousel":false,"./CarouselItem":false,"./CloseButton":"1wmVl","./Col":"2L2I6","./Collapse":"acuzI","./Dropdown":false,"./DropdownButton":false,"./Fade":"aH18S","./Form":"iBZ80","./FormControl":"iynMc","./FormCheck":"idkr0","./FormFloating":"aj346","./FloatingLabel":"coYzo","./FormGroup":"1qBHH","./FormLabel":"66epi","./FormText":"ffeC7","./FormSelect":"hHWyB","./Container":"hEdsw","./Image":false,"./Figure":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalHeader":false,"./ModalFooter":false,"./ModalTitle":false,"./Nav":"cXyL2","./Navbar":"1mHjo","./NavbarBrand":"iOo4v","./NavDropdown":false,"./NavItem":"ew05W","./NavLink":"7geL8","./Offcanvas":"eC3RS","./OffcanvasHeader":"a6xAh","./OffcanvasTitle":"77qdX","./OffcanvasBody":"fX7Bo","./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverHeader":false,"./PopoverBody":false,"./ProgressBar":false,"./Ratio":false,"./Row":"cMC39","./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":false,"./ThemeProvider":"dVixI","./Toast":false,"./ToastBody":false,"./ToastHeader":false,"./ToastContainer":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aPzUt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -29571,7 +29578,11 @@ module.exports = require('./cjs/react-jsx-runtime.development.js');
 },{"react":"21dqq","object-assign":"7OXxh"}],"dVixI":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "DEFAULT_BREAKPOINTS", ()=>DEFAULT_BREAKPOINTS
+);
 parcelHelpers.export(exports, "useBootstrapPrefix", ()=>useBootstrapPrefix
+);
+parcelHelpers.export(exports, "useBootstrapBreakpoints", ()=>useBootstrapBreakpoints
 );
 parcelHelpers.export(exports, "useIsRTL", ()=>useIsRTL
 );
@@ -29581,21 +29592,32 @@ parcelHelpers.export(exports, "ThemeConsumer", ()=>Consumer
 );
 var _react = require("react");
 var _jsxRuntime = require("react/jsx-runtime");
+const DEFAULT_BREAKPOINTS = [
+    'xxl',
+    'xl',
+    'lg',
+    'md',
+    'sm',
+    'xs'
+];
 const ThemeContext = /*#__PURE__*/ _react.createContext({
     prefixes: {
-    }
+    },
+    breakpoints: DEFAULT_BREAKPOINTS
 });
 const { Consumer , Provider  } = ThemeContext;
 function ThemeProvider({ prefixes ={
-} , dir , children  }) {
+} , breakpoints =DEFAULT_BREAKPOINTS , dir , children  }) {
     const contextValue = _react.useMemo(()=>({
             prefixes: {
                 ...prefixes
             },
+            breakpoints,
             dir
         })
     , [
         prefixes,
+        breakpoints,
         dir
     ]);
     return(/*#__PURE__*/ _jsxRuntime.jsx(Provider, {
@@ -29606,6 +29628,10 @@ function ThemeProvider({ prefixes ={
 function useBootstrapPrefix(prefix, defaultPrefix) {
     const { prefixes  } = _react.useContext(ThemeContext);
     return prefix || prefixes[defaultPrefix] || defaultPrefix;
+}
+function useBootstrapBreakpoints() {
+    const { breakpoints  } = _react.useContext(ThemeContext);
+    return breakpoints;
 }
 function useIsRTL() {
     const { dir  } = _react.useContext(ThemeContext);
@@ -29856,19 +29882,12 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const DEVICE_SIZES = [
-    'xxl',
-    'xl',
-    'lg',
-    'md',
-    'sm',
-    'xs'
-];
 function useCol({ as , bsPrefix , className , ...props }) {
     bsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'col');
+    const breakpoints = _themeProvider.useBootstrapBreakpoints();
     const spans = [];
     const classes = [];
-    DEVICE_SIZES.forEach((brkPoint)=>{
+    breakpoints.forEach((brkPoint)=>{
         const propValue = props[brkPoint];
         delete props[brkPoint];
         let span;
@@ -32212,7 +32231,7 @@ const Nav = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
         if (!currentListNode) return null;
         const items = _querySelectorAllDefault.default(currentListNode, `[${EVENT_KEY_ATTR}]:not([aria-disabled=true])`);
         const activeChild = currentListNode.querySelector('[aria-selected=true]');
-        if (!activeChild) return null;
+        if (!activeChild || activeChild !== document.activeElement) return null;
         const index = items.indexOf(activeChild);
         if (index === -1) return null;
         let nextIndex = index + offset;
@@ -32365,6 +32384,8 @@ var _selectableContextDefault = parcelHelpers.interopDefault(_selectableContext)
 var _button = require("./Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _dataKey = require("./DataKey");
+var _tabContext = require("./TabContext");
+var _tabContextDefault = parcelHelpers.interopDefault(_tabContext);
 var _jsxRuntime = require("react/jsx-runtime");
 const _excluded = [
     "as",
@@ -32388,6 +32409,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 function useNavItem({ key , onClick , active , id , role , disabled  }) {
     const parentOnSelect = _react.useContext(_selectableContextDefault.default);
     const navContext = _react.useContext(_navContextDefault.default);
+    const tabContext = _react.useContext(_tabContextDefault.default);
     let isActive = active;
     const props = {
         role
@@ -32398,8 +32420,16 @@ function useNavItem({ key , onClick , active , id , role , disabled  }) {
         const contextControlledId = navContext.getControlledId(key != null ? key : null); // @ts-ignore
         props[_dataKey.dataAttr('event-key')] = key;
         props.id = contextControllerId || id;
-        props['aria-controls'] = contextControlledId;
         isActive = active == null && key != null ? navContext.activeKey === key : active;
+        /**
+     * Simplified scenario for `mountOnEnter`.
+     *
+     * While it would make sense to keep 'aria-controls' for tabs that have been mounted at least
+     * once, it would also complicate the code quite a bit, for very little gain.
+     * The following implementation is probably good enough.
+     *
+     * @see https://github.com/react-restart/ui/pull/40#issuecomment-1009971561
+     */ if (isActive || !(tabContext != null && tabContext.unmountOnExit) && !(tabContext != null && tabContext.mountOnEnter)) props['aria-controls'] = contextControlledId;
     }
     if (props.role === 'tab') {
         if (disabled) {
@@ -32437,7 +32467,7 @@ const NavItem = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
 NavItem.displayName = 'NavItem';
 exports.default = NavItem;
 
-},{"react":"21dqq","@restart/hooks/useEventCallback":"7ONdq","./NavContext":"j1SMA","./SelectableContext":"8zLqy","./Button":"8YUbR","./DataKey":"9vwZh","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7ONdq":[function(require,module,exports) {
+},{"react":"21dqq","@restart/hooks/useEventCallback":"7ONdq","./NavContext":"j1SMA","./SelectableContext":"8zLqy","./Button":"8YUbR","./DataKey":"9vwZh","./TabContext":"cI3G3","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7ONdq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -33985,20 +34015,13 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const DEVICE_SIZES = [
-    'xxl',
-    'xl',
-    'lg',
-    'md',
-    'sm',
-    'xs'
-];
 const Row = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 as: Component = 'div' , ...props }, ref)=>{
     const decoratedBsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'row');
+    const breakpoints = _themeProvider.useBootstrapBreakpoints();
     const sizePrefix = `${decoratedBsPrefix}-cols`;
     const classes = [];
-    DEVICE_SIZES.forEach((brkPoint)=>{
+    breakpoints.forEach((brkPoint)=>{
         const propValue = props[brkPoint];
         delete props[brkPoint];
         let cols;
@@ -34150,7 +34173,8 @@ parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-//import axios from "axios";
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 //React-Router-Dom
@@ -34160,8 +34184,24 @@ var _reactBootstrap = require("react-bootstrap");
 //SCSS Import
 var _movieCardScss = require("./movie-card.scss");
 class MovieCard extends _reactDefault.default.Component {
+    addToFavourites(movie, user, token) {
+        _axiosDefault.default.post(`https://haksuly1movieapp.herokuapp.com/users/${user}/movies/${movie._id}`, {
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            alert(`Added ${movie.Title} to favourites`);
+            console.log(response);
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+    removeFromFavourites(movie, user) {
+        alert("Removed from favourites");
+    }
     render() {
-        const { movie  } = this.props;
+        const { movie , user , token  } = this.props;
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
             bg: "secondary",
             text: "light",
@@ -34172,7 +34212,7 @@ class MovieCard extends _reactDefault.default.Component {
                     src: movie.ImagePath
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 16,
+                    lineNumber: 33,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
@@ -34181,14 +34221,14 @@ class MovieCard extends _reactDefault.default.Component {
                             children: movie.Title
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 18,
+                            lineNumber: 35,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Text, {
                             children: movie.Description
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 19,
+                            lineNumber: 36,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
@@ -34201,24 +34241,37 @@ class MovieCard extends _reactDefault.default.Component {
                                 children: "Open movie"
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 21,
+                                lineNumber: 38,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 20,
-                            columnNumber: 13
+                            lineNumber: 37,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                            variant: "success",
+                            style: {
+                                color: "white"
+                            },
+                            onClick: ()=>this.addToFavourites(movie, user, token)
+                            ,
+                            children: "Add To Favourites"
+                        }, void 0, false, {
+                            fileName: "src/components/movie-card/movie-card.jsx",
+                            lineNumber: 40,
+                            columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 17,
+                    lineNumber: 34,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 15,
+            lineNumber: 32,
             columnNumber: 7
         }, this));
     }
@@ -34247,7 +34300,7 @@ MovieCard.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-router-dom":"cHIiW","react-bootstrap":"3AD9A","./movie-card.scss":"d6HH4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"d6HH4":[function() {},{}],"ggaUx":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-router-dom":"cHIiW","react-bootstrap":"3AD9A","./movie-card.scss":"d6HH4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","axios":"jo6P5"}],"d6HH4":[function() {},{}],"ggaUx":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
