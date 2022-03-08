@@ -21,10 +21,6 @@ export class MovieCard extends React.Component {
       console.log(error);
     });
   }
-
-  removeFromFavourites(movie, user) {
-    alert("Removed from favourites");
-  }
   render() {
     const { movie, user, token } = this.props;
 

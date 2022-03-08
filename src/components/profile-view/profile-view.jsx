@@ -85,24 +85,40 @@ onLoggedOut() {
     };
 
     // Delete a movie from FavoriteMovies list
-    onRemoveFavorite = (e, movie) => {
-        e.preventDefault();
-        const Username = localStorage.getItem("user");
-        const token = localStorage.getItem("token");
-        axios.delete(`https://haksuly1movieapp.herokuapp.com/users/${Username}/movies/${movie._id}`,
-                {
-                    headers: { Authorization: `Bearer ${token}` },
-                }
-            )
-            .then((response) => {
-                console.log(response);
-                alert("Movie removed");
-                this.componentDidMount();
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    };
+    // onRemoveFavorite = (e, movie) => {
+    //     e.preventDefault();
+    //     const Username = localStorage.getItem("user");
+    //     const token = localStorage.getItem("token");
+    //     axios.delete(`https://haksuly1movieapp.herokuapp.com/users/${Username}/movies/${movie._id}`,
+    //             {
+    //                 headers: { Authorization: `Bearer ${token}` },
+    //             }
+    //         )
+    //         .then((response) => {
+    //             console.log(response);
+    //             alert("Movie removed");
+    //             this.componentDidMount();
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+    // };
+
+    removeFromFavourites(movie, user, token) { 
+        console.log(token)
+        axios.delete(`https://haksuly1movieapp.herokuapp.com/users/${user}/movies/${movie._id}` , {
+        headers: { Authorization: `Bearer ${token}`,
+        }
+        })
+        .then(response => {
+        alert(`Removed ${movie.Title} to favourites`);
+        console.log(response);
+        this.componentDidMount();
+        })
+        .catch(function (error) {
+        console.log(error);
+        });
+    }
 
     // Delete account
     onDeleteUser() {
@@ -248,17 +264,21 @@ render() {
                                         ) {
                                             return (
                                              
-                                         <Card bg="secondary" text="light" border="light">
+                                         <Col md="6">
+                                             <Card bg="secondary" text="light" border="light">
                                             <Card.Img variant="top" src={movie.ImagePath} crossOrigin="true" />
                                                 <Card.Body>
                                                      <Card.Title>{movie.Title}</Card.Title>
-                                                        <Card.Text>{movie.Description}</Card.Text>
+                                                        {/* <Card.Text>{movie.Description}</Card.Text> */}
                                                             <Link to={`/movies/${movie._id}`}> 
                                                                  <Button variant="primary" style={{ color: "white" }}>Open movie</Button>
             
-                                                            </Link>    
+                                                            </Link>  
+                                                        <Button variant="danger" style={{ color: "white" }} onClick={() => this.removeFromFavourites(movie, Username, localStorage.getItem('token'))}>Remove from Favourites</Button>
+  
                                                 </Card.Body>
                                         </Card>
+                                         </Col>
 
 
                                                 /*
