@@ -89,8 +89,7 @@ onLoggedOut() {
         e.preventDefault();
         const Username = localStorage.getItem("user");
         const token = localStorage.getItem("token");
-        axios.delete(`https://haksuly1movieapp.herokuapp.com/users/${Username}/movies/${movie._id}`,
-                {
+        axios.delete(`https://haksuly1movieapp.herokuapp.com/users/${Username}/movies/${movie._id}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 }
             )
@@ -255,27 +254,10 @@ render() {
                                                         <Card.Text>{movie.Description}</Card.Text>
                                                             <Link to={`/movies/${movie._id}`}> 
                                                                  <Button variant="primary" style={{ color: "white" }}>Open movie</Button>
-            
+                                                                <Button variant="danger" style={{ color: "white" }}>Remove From Favorites</Button>
                                                             </Link>    
                                                 </Card.Body>
                                         </Card>
-
-
-                                                /*
-                                                <Card className="favorite-movie card-content" key={movie._id} >
-                                                    <Card.Img
-                                                        className="fav-poster"
-                                                        variant="top"
-                                                        src={movie.ImagePath}
-                                                    />
-                                                    <Card.Body style={{ backgroundColor: "blue" }}>
-                                                        <Card.Title className="movie_title">
-                                                            {movie.Title}
-                                                        </Card.Title>
-                                                        <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove</Button>
-                                                    </Card.Body>
-                                                </Card>
-                                                */
                                             );
                                         }
                                     })}
