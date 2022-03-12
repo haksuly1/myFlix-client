@@ -84,6 +84,25 @@ onLoggedOut() {
             });
     };
 
+
+    removeFromFavourites(movie, user, token) {
+        console.log(token)
+        axios.delete(`https://haksuly1movieapp.herokuapp.com/users/${user}/movies/${movie._id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        })
+            .then(response => {
+                alert(`Removed ${movie.Title} to favourites`);
+                console.log(response);
+                this.componentDidMount();
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    /*
     // Delete a movie from FavoriteMovies list
     onRemoveFavorite = (e, movie) => {
         e.preventDefault();
@@ -104,25 +123,25 @@ onLoggedOut() {
     };
 
     // Delete account
-    onDeleteUser() {
-        const Username = localStorage.getItem("user");
-        const token = localStorage.getItem("token");
-
-        axios.delete(`https://haksuly1movieapp.herokuapp.com/users/${Username}`, {
-                headers: { Authorization: `Bearer ${token}` },
-            })
-            .then((response) => {
+    removeFromFavourites(movie, user, token) {
+        e.preventDefault();
+        console.log(token)
+        axios.delete(`https://haksuly1movieapp.herokuapp.com/users/${user}/movies/${movie._id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        })
+            .then(response => {
+                alert(`Removed ${movie.Title} from favourites`);
                 console.log(response);
-                alert("Profile deleted");
-                localStorage.removeItem("user");
-                localStorage.removeItem("token");
-                window.open("/", "_self");
+                this.componentDidMount();
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
-
+*/
+    
     setUsername(value) {
         this.setState({
             Username: value,
@@ -146,6 +165,8 @@ onLoggedOut() {
             Birthday: value,
         });
     }
+
+
 // Render function to display items on the DOM
 render() {
     // Get the props that were passed into this view and store them in appropriate variables
@@ -253,10 +274,11 @@ render() {
                                                      <Card.Title>{movie.Title}</Card.Title>
                                                         <Card.Text>{movie.Description}</Card.Text>
                                                             <Link to={`/movies/${movie._id}`}> 
-                                                                 <Button variant="primary" style={{ color: "white" }}>Open movie</Button>
-                                                                <Button variant="danger" style={{ color: "white" }}>Remove From Favorites</Button>
-                                                            </Link>    
-                                                </Card.Body>
+                                                                 <Button variant="primary" style={{ color: "white" }}>Open movie</Button>                   
+                                                            </Link>
+                                                            <Button variant="success" style={{ color: "white" }}    
+                                                        onClick={() => this.removeFromFavourites(movie)}>Remove from Favorites</Button>
+                                               </Card.Body>
                                         </Card>
                                             );
                                         }
@@ -265,9 +287,7 @@ render() {
                         </Card.Body>
                     </Col>
                 </Row>
-                <div className="backButton">
-                    <Button variant="outline-primary" onClick={() => { onBackClick(null); }}>Back</Button>
-                </div>
+                
                 <br />
             </Container>
         );

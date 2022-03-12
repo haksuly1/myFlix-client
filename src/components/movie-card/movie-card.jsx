@@ -52,7 +52,6 @@ export class MovieCard extends React.Component {
           <Link to={`/movies/${movie._id}`}>
             <Button variant="primary" style={{ color: "white" }}>Open movie</Button>
           </Link>
-          <Button variant="success" style={{ color: "white" }} onClick={() => this.addToFavourites(movie, user, token)}>Add To Favourites</Button>
         </Card.Body>
       </Card>
     );
