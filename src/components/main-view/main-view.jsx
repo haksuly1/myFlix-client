@@ -189,7 +189,6 @@ render() {
               </Col>
             );
           }
-
           return (
             <Col md={8}>
               <ProfileView movies={movies} onBackClick={() => history.goBack()} />
@@ -221,7 +220,7 @@ render() {
             return <div className="main-view" />;
           }
           return <Col md={8}>
-            <ProfileView history={history} movies={movies} user={user === match.params.username} />
+            <ProfileView movies={movies} onBackClick={() => history.goBack()} />
           </Col>
         }} />
       </Row>

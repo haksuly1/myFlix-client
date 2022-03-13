@@ -170,7 +170,7 @@ onLoggedOut() {
 // Render function to display items on the DOM
 render() {
     // Get the props that were passed into this view and store them in appropriate variables
-    const { movies , onBackClick } = this.props;
+    const { movies, onClick } = this.props;
     const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
         if (!Username) {
@@ -276,7 +276,7 @@ render() {
                                                             <Link to={`/movies/${movie._id}`}> 
                                                                  <Button variant="primary" style={{ color: "white" }}>Open movie</Button>                   
                                                             </Link>
-                                                            <Button variant="success" style={{ color: "white" }}    
+                                                            <Button variant="danger" style={{ color: "white" }}    
                                                         onClick={() => this.removeFromFavourites(movie)}>Remove from Favorites</Button>
                                                </Card.Body>
                                         </Card>

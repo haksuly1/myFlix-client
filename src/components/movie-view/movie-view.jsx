@@ -84,9 +84,14 @@ componentWillUnmount() {
           <span className="label">Release Year: </span>
           <span className="value">{movie.ReleaseYear}</span>
         </div>
-
+        <Link to={`/movies/${movie._id}`}> 
         <Button variant="primary" onClick={() => onBackClick(null)}>Back</Button>  
+        </Link>
 
+        <Link to={`/movies/${movie._id}`}> 
+              <Button variant="success" style={{ color: "white" }}
+                onClick={() => this.removeFromFavourites}>Add to Favorites</Button>
+              </Link>
         </div>
       </Col>
     </Row>
