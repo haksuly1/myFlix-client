@@ -1,22 +1,29 @@
 import React from "react";
-//import axios from "axios";
-//import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
-import { MainView } from "./components/main-view/main-view";
-//React bootstrap
-import Container from "react-bootstrap/Container";
-//index.scss
-import "./index.scss";
+import Container from 'react-bootstrap/Container';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import moviesApp from './reducers/reducers';
+import { devToolsEnhancer } from 'redux-devtools-extension';
 
-//const store = createStore(moviesApp, devToolsEnhancer());
+//Curly Braces removed because MainView is been exported as the default component.
+import MainView from "./components/main-view/main-view";
+
+
+// Import statement to indicate that we need to bundle `./index.scss`
+import './index.scss';
+
+const store = createStore(moviesApp, devToolsEnhancer());
 
 // Main component (will eventually use all the others)
 class MyFlixApplication extends React.Component {
   render() {
     return (
+      <Provider store={store}>
         <Container> 
           <MainView />
         </Container>
+      </Provider>
     );
   }
 }

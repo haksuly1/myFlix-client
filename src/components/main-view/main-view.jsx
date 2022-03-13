@@ -1,11 +1,17 @@
 
 import React from "react";
 import axios from "axios";
+
+import { connect } from 'react-redux';
+//imports the relevant actions (setMovies). Used in rendering {movies} this.props and {user} this.state
+import { setMovies } from '../../actions/actions';
+// we haven't written this one yet
+import MoviesList from '../movies-list/movies-list';
+
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import { link } from "react-router-dom";
-//import PropTypes from 'prop-types';
 import { LoginView } from "../login-view/login-view";
-import { MovieCard } from "../movie-card/movie-card";
+//MovieCaard removed to be imported and used in the MoviesList component
+//import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
@@ -14,7 +20,9 @@ import { ProfileView } from "../profile-view/profile-view";
 import { NavbarView } from '../navbar-view/navbar-view';
 import { Row, Col, Navbar, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-export class MainView extends React.Component {
+
+//Note that "export" word is removed from below to allow use of redux
+class MainView extends React.Component {
 
   constructor() {
     super();
@@ -35,27 +43,20 @@ export class MainView extends React.Component {
     }
   }
 
-/*When a user successfully logs in, this function updates the `user` property in state to that particular user*/
-onLoggedIn(authData) {
-  console.log(authData);
-  this.setState({
-    user: authData.user.Username,
-    favouriteMovies: authData.user.FavouriteMovies,
-  });
+  //Edited to allow use of Redux
+  getMovies(token) {
+    axios.get("https://haksuly1movieapp.herokuapp.com/movies", {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        this.props.setMovies(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
-  localStorage.setItem("token", authData.token);
-  localStorage.setItem("user", authData.user.Username);
-  this.getMovies(authData.token);
-}
-
-onLoggedOut() {
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
-  this.setState({
-    user: null
-  });
-}
-
+/*
 getMovies(token) {
   axios.get("https://haksuly1movieapp.herokuapp.com/movies", {
     headers: { Authorization: `Bearer ${token}` }
@@ -70,9 +71,35 @@ getMovies(token) {
       console.log(error);
     });
 }
+*/
+
+  /*When a user successfully logs in, this function updates the `user` property in state to that particular user*/
+  onLoggedIn(authData) {
+    console.log(authData);
+    this.setState({
+      user: authData.user.Username,
+      favouriteMovies: authData.user.FavouriteMovies,
+    });
+
+    localStorage.setItem("token", authData.token);
+    localStorage.setItem("user", authData.user.Username);
+    this.getMovies(authData.token);
+  }
+
+  onLoggedOut() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    this.setState({
+      user: null
+    });
+  }
+
 
 render() {
-  const { movies, user } = this.state;
+  //const { movies, user } = this.state;
+  let { movies } = this.props;
+  let { user } = this.state;
+
   return (
     <Router>
       <Navbar bg="primary" expand="lg" className="mb-4" sticky="top">
@@ -95,12 +122,8 @@ render() {
             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
           </Col>
           if (movies.length === 0) return <div className="main-view" />;
-          return movies.map(m => (
-            <Col md={3} key={m._id}>
-              <MovieCard movie={m} user={this.state.user} token={localStorage.getItem('token')} />
-            </Col>
-          ))
-        }} />
+          return <MoviesList movies={movies} />; 
+          }} /> 
 
         <Route path="/register" render={() => {
           if (!user) return <Redirect to="/" />
@@ -207,13 +230,30 @@ render() {
 }
 }
 
+let mapStateToProps = state => {
+  return { movies: state.movies }
+}
+
+export default connect(mapStateToProps, { setMovies })(MainView);
 
 
 
 
 
-
-
+/*
+        //"EXACT PATH" ADJUSTED TO AÖLLOW USE OF REDUX
+        <Route exact path="/" render={() => {
+          if (!user) return <Col>
+            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+          </Col>
+        if (movies.length === 0) return <div className="main-view" />;  
+        return movies.map(m => ( 
+          <Col md={3} key={m._id}>
+          <MovieCard movie={m} user={this.state.user} token={localStorage.getItem('token')} />
+        </Col>
+        ))
+        }} />
+          */
 
 
 

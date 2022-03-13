@@ -84,7 +84,7 @@ onLoggedOut() {
             });
     };
 
-
+/*
     removeFromFavourites(movie, user, token) {
         console.log(token)
         axios.delete(`https://haksuly1movieapp.herokuapp.com/users/${user}/movies/${movie._id}`, {
@@ -101,8 +101,8 @@ onLoggedOut() {
                 console.log(error);
             });
     }
-
-    /*
+*/
+    
     // Delete a movie from FavoriteMovies list
     onRemoveFavorite = (e, movie) => {
         e.preventDefault();
@@ -140,7 +140,7 @@ onLoggedOut() {
                 console.log(error);
             });
     }
-*/
+
     
     setUsername(value) {
         this.setState({
