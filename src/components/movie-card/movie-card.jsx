@@ -25,6 +25,7 @@ export class MovieCard extends React.Component {
       });
   }
 
+  
   removeFromFavourites(movie, user, token) {
     axios.post(`https://haksuly1movieapp.herokuapp.com/users/${user}/movies/${movie._id}`, {}, {
       headers: {
