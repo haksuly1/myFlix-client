@@ -22864,7 +22864,11 @@ exports.default = Container;
 },{}],"dVixI":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "DEFAULT_BREAKPOINTS", ()=>DEFAULT_BREAKPOINTS
+);
 parcelHelpers.export(exports, "useBootstrapPrefix", ()=>useBootstrapPrefix
+);
+parcelHelpers.export(exports, "useBootstrapBreakpoints", ()=>useBootstrapBreakpoints
 );
 parcelHelpers.export(exports, "useIsRTL", ()=>useIsRTL
 );
@@ -22874,21 +22878,32 @@ parcelHelpers.export(exports, "ThemeConsumer", ()=>Consumer
 );
 var _react = require("react");
 var _jsxRuntime = require("react/jsx-runtime");
+const DEFAULT_BREAKPOINTS = [
+    'xxl',
+    'xl',
+    'lg',
+    'md',
+    'sm',
+    'xs'
+];
 const ThemeContext = /*#__PURE__*/ _react.createContext({
     prefixes: {
-    }
+    },
+    breakpoints: DEFAULT_BREAKPOINTS
 });
 const { Consumer , Provider  } = ThemeContext;
 function ThemeProvider({ prefixes ={
-} , dir , children  }) {
+} , breakpoints =DEFAULT_BREAKPOINTS , dir , children  }) {
     const contextValue = _react.useMemo(()=>({
             prefixes: {
                 ...prefixes
             },
+            breakpoints,
             dir
         })
     , [
         prefixes,
+        breakpoints,
         dir
     ]);
     return(/*#__PURE__*/ _jsxRuntime.jsx(Provider, {
@@ -22899,6 +22914,10 @@ function ThemeProvider({ prefixes ={
 function useBootstrapPrefix(prefix, defaultPrefix) {
     const { prefixes  } = _react.useContext(ThemeContext);
     return prefix || prefixes[defaultPrefix] || defaultPrefix;
+}
+function useBootstrapBreakpoints() {
+    const { breakpoints  } = _react.useContext(ThemeContext);
+    return breakpoints;
 }
 function useIsRTL() {
     const { dir  } = _react.useContext(ThemeContext);
@@ -27111,7 +27130,7 @@ module.exports = axios;
 // Allow use of default import syntax in TypeScript
 module.exports.default = axios;
 
-},{"./utils":"5By4s","./helpers/bind":"haRQb","./core/Axios":"cpqD8","./core/mergeConfig":"b85oP","./defaults":"lTJJ4","./cancel/Cancel":"kjMy2","./cancel/CancelToken":"45wzn","./cancel/isCancel":"a0VmF","./env/data":"h29L9","./helpers/spread":"dyQ8N","./helpers/isAxiosError":"eyiLq"}],"5By4s":[function(require,module,exports) {
+},{"./utils":"5By4s","./helpers/bind":"haRQb","./core/Axios":"cpqD8","./core/mergeConfig":"b85oP","./defaults":"hXfHM","./cancel/Cancel":"kjMy2","./cancel/CancelToken":"45wzn","./cancel/isCancel":"a0VmF","./env/data":"h29L9","./helpers/spread":"dyQ8N","./helpers/isAxiosError":"eyiLq"}],"5By4s":[function(require,module,exports) {
 'use strict';
 var bind = require('./helpers/bind');
 // utils is a library of generic helper functions non-specific to axios
@@ -27650,10 +27669,10 @@ var Cancel = require('../cancel/Cancel');
     });
 };
 
-},{"./../utils":"5By4s","./transformData":"eRqJY","../cancel/isCancel":"a0VmF","../defaults":"lTJJ4","../cancel/Cancel":"kjMy2"}],"eRqJY":[function(require,module,exports) {
+},{"./../utils":"5By4s","./transformData":"eRqJY","../cancel/isCancel":"a0VmF","../defaults":"hXfHM","../cancel/Cancel":"kjMy2"}],"eRqJY":[function(require,module,exports) {
 'use strict';
 var utils = require('./../utils');
-var defaults = require('./../defaults');
+var defaults = require('../defaults');
 /**
  * Transform the data for a request or a response
  *
@@ -27669,12 +27688,13 @@ var defaults = require('./../defaults');
     return data;
 };
 
-},{"./../utils":"5By4s","./../defaults":"lTJJ4"}],"lTJJ4":[function(require,module,exports) {
+},{"./../utils":"5By4s","../defaults":"hXfHM"}],"hXfHM":[function(require,module,exports) {
 'use strict';
 var process = require("process");
-var utils = require('./utils');
-var normalizeHeaderName = require('./helpers/normalizeHeaderName');
-var enhanceError = require('./core/enhanceError');
+var utils = require('../utils');
+var normalizeHeaderName = require('../helpers/normalizeHeaderName');
+var enhanceError = require('../core/enhanceError');
+var transitionalDefaults = require('./transitional');
 var DEFAULT_CONTENT_TYPE = {
     'Content-Type': 'application/x-www-form-urlencoded'
 };
@@ -27684,9 +27704,9 @@ function setContentTypeIfUnset(headers, value) {
 function getDefaultAdapter() {
     var adapter;
     if (typeof XMLHttpRequest !== 'undefined') // For browsers use XHR adapter
-    adapter = require('./adapters/xhr');
+    adapter = require('../adapters/xhr');
     else if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') // For node use HTTP adapter
-    adapter = require('./adapters/http');
+    adapter = require('../adapters/http');
     return adapter;
 }
 function stringifySafely(rawValue, parser, encoder) {
@@ -27699,11 +27719,7 @@ function stringifySafely(rawValue, parser, encoder) {
     return (encoder || JSON.stringify)(rawValue);
 }
 var defaults = {
-    transitional: {
-        silentJSONParsing: true,
-        forcedJSONParsing: true,
-        clarifyTimeoutError: false
-    },
+    transitional: transitionalDefaults,
     adapter: getDefaultAdapter(),
     transformRequest: [
         function transformRequest(data, headers) {
@@ -27773,7 +27789,7 @@ utils.forEach([
 });
 module.exports = defaults;
 
-},{"process":"d5jf4","./utils":"5By4s","./helpers/normalizeHeaderName":"adBZo","./core/enhanceError":"itUQr","./adapters/xhr":"ldm57","./adapters/http":"ldm57"}],"d5jf4":[function(require,module,exports) {
+},{"process":"d5jf4","../utils":"5By4s","../helpers/normalizeHeaderName":"adBZo","../core/enhanceError":"itUQr","./transitional":"lM32f","../adapters/xhr":"ldm57","../adapters/http":"ldm57"}],"d5jf4":[function(require,module,exports) {
 // shim for using process in browser
 var process = module.exports = {
 };
@@ -27973,6 +27989,14 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
     return error;
 };
 
+},{}],"lM32f":[function(require,module,exports) {
+'use strict';
+module.exports = {
+    silentJSONParsing: true,
+    forcedJSONParsing: true,
+    clarifyTimeoutError: false
+};
+
 },{}],"ldm57":[function(require,module,exports) {
 'use strict';
 var utils = require('./../utils');
@@ -27983,7 +28007,7 @@ var buildFullPath = require('../core/buildFullPath');
 var parseHeaders = require('./../helpers/parseHeaders');
 var isURLSameOrigin = require('./../helpers/isURLSameOrigin');
 var createError = require('../core/createError');
-var defaults = require('../defaults');
+var transitionalDefaults = require('../defaults/transitional');
 var Cancel = require('../cancel/Cancel');
 module.exports = function xhrAdapter(config) {
     return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -28062,7 +28086,7 @@ module.exports = function xhrAdapter(config) {
         // Handle timeout
         request.ontimeout = function handleTimeout() {
             var timeoutErrorMessage = config.timeout ? 'timeout of ' + config.timeout + 'ms exceeded' : 'timeout exceeded';
-            var transitional = config.transitional || defaults.transitional;
+            var transitional = config.transitional || transitionalDefaults;
             if (config.timeoutErrorMessage) timeoutErrorMessage = config.timeoutErrorMessage;
             reject(createError(timeoutErrorMessage, config, transitional.clarifyTimeoutError ? 'ETIMEDOUT' : 'ECONNABORTED', request));
             // Clean up request
@@ -28109,7 +28133,7 @@ module.exports = function xhrAdapter(config) {
     });
 };
 
-},{"./../utils":"5By4s","./../core/settle":"dD9aC","./../helpers/cookies":"4WJjt","./../helpers/buildURL":"3bwC2","../core/buildFullPath":"1I5TW","./../helpers/parseHeaders":"kqDd5","./../helpers/isURLSameOrigin":"lxXtv","../core/createError":"5nVS9","../defaults":"lTJJ4","../cancel/Cancel":"kjMy2"}],"dD9aC":[function(require,module,exports) {
+},{"./../utils":"5By4s","./../core/settle":"dD9aC","./../helpers/cookies":"4WJjt","./../helpers/buildURL":"3bwC2","../core/buildFullPath":"1I5TW","./../helpers/parseHeaders":"kqDd5","./../helpers/isURLSameOrigin":"lxXtv","../core/createError":"5nVS9","../defaults/transitional":"lM32f","../cancel/Cancel":"kjMy2"}],"dD9aC":[function(require,module,exports) {
 'use strict';
 var createError = require('./createError');
 /**
@@ -28498,7 +28522,7 @@ module.exports = {
 
 },{"../env/data":"h29L9"}],"h29L9":[function(require,module,exports) {
 module.exports = {
-    "version": "0.26.0"
+    "version": "0.26.1"
 };
 
 },{}],"45wzn":[function(require,module,exports) {
@@ -28715,19 +28739,12 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const DEVICE_SIZES = [
-    'xxl',
-    'xl',
-    'lg',
-    'md',
-    'sm',
-    'xs'
-];
 function useCol({ as , bsPrefix , className , ...props }) {
     bsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'col');
+    const breakpoints = _themeProvider.useBootstrapBreakpoints();
     const spans = [];
     const classes = [];
-    DEVICE_SIZES.forEach((brkPoint)=>{
+    breakpoints.forEach((brkPoint)=>{
         const propValue = props[brkPoint];
         delete props[brkPoint];
         let span;
@@ -32059,6 +32076,8 @@ parcelHelpers.export(exports, "ModalBody", ()=>_modalBodyDefault.default
 );
 parcelHelpers.export(exports, "ModalDialog", ()=>_modalDialogDefault.default
 );
+parcelHelpers.export(exports, "ModalHeader", ()=>_modalHeaderDefault.default
+);
 parcelHelpers.export(exports, "ModalFooter", ()=>_modalFooterDefault.default
 );
 parcelHelpers.export(exports, "ModalTitle", ()=>_modalTitleDefault.default
@@ -32225,6 +32244,8 @@ var _modalBody = require("./ModalBody");
 var _modalBodyDefault = parcelHelpers.interopDefault(_modalBody);
 var _modalDialog = require("./ModalDialog");
 var _modalDialogDefault = parcelHelpers.interopDefault(_modalDialog);
+var _modalHeader = require("./ModalHeader");
+var _modalHeaderDefault = parcelHelpers.interopDefault(_modalHeader);
 var _modalFooter = require("./ModalFooter");
 var _modalFooterDefault = parcelHelpers.interopDefault(_modalFooter);
 var _modalTitle = require("./ModalTitle");
@@ -32310,7 +32331,7 @@ var _toggleButtonGroupDefault = parcelHelpers.interopDefault(_toggleButtonGroup)
 var _tooltip = require("./Tooltip");
 var _tooltipDefault = parcelHelpers.interopDefault(_tooltip);
 
-},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./Alert":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"aPzUt","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"lAynp","./CardImg":"1reTi","./CardGroup":"2j3Ij","./Carousel":false,"./CarouselItem":false,"./CloseButton":"1wmVl","./Col":"2L2I6","./Collapse":"acuzI","./Dropdown":false,"./DropdownButton":false,"./Fade":"aH18S","./Form":"iBZ80","./FormControl":"iynMc","./FormCheck":"idkr0","./FormFloating":"aj346","./FloatingLabel":"coYzo","./FormGroup":"1qBHH","./FormLabel":"66epi","./FormText":"ffeC7","./FormSelect":"hHWyB","./Container":"hEdsw","./Image":false,"./Figure":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalFooter":false,"./ModalTitle":false,"./Nav":"cXyL2","./Navbar":"1mHjo","./NavbarBrand":"iOo4v","./NavDropdown":false,"./NavItem":"ew05W","./NavLink":"7geL8","./Offcanvas":"eC3RS","./OffcanvasHeader":"a6xAh","./OffcanvasTitle":"77qdX","./OffcanvasBody":"fX7Bo","./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverHeader":false,"./PopoverBody":false,"./ProgressBar":false,"./Ratio":false,"./Row":"cMC39","./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":false,"./ThemeProvider":"dVixI","./Toast":false,"./ToastBody":false,"./ToastHeader":false,"./ToastContainer":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aPzUt":[function(require,module,exports) {
+},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./Alert":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"aPzUt","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"lAynp","./CardImg":"1reTi","./CardGroup":"2j3Ij","./Carousel":false,"./CarouselItem":false,"./CloseButton":"1wmVl","./Col":"2L2I6","./Collapse":"acuzI","./Dropdown":false,"./DropdownButton":false,"./Fade":"aH18S","./Form":"iBZ80","./FormControl":"iynMc","./FormCheck":"idkr0","./FormFloating":"aj346","./FloatingLabel":"coYzo","./FormGroup":"1qBHH","./FormLabel":"66epi","./FormText":"ffeC7","./FormSelect":"hHWyB","./Container":"hEdsw","./Image":false,"./Figure":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalHeader":false,"./ModalFooter":false,"./ModalTitle":false,"./Nav":"cXyL2","./Navbar":"1mHjo","./NavbarBrand":"iOo4v","./NavDropdown":false,"./NavItem":"ew05W","./NavLink":"7geL8","./Offcanvas":"eC3RS","./OffcanvasHeader":"a6xAh","./OffcanvasTitle":"77qdX","./OffcanvasBody":"fX7Bo","./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverHeader":false,"./PopoverBody":false,"./ProgressBar":false,"./Ratio":false,"./Row":"cMC39","./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":false,"./ThemeProvider":"dVixI","./Toast":false,"./ToastBody":false,"./ToastHeader":false,"./ToastContainer":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aPzUt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -34358,7 +34379,7 @@ const Nav = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
         if (!currentListNode) return null;
         const items = _querySelectorAllDefault.default(currentListNode, `[${EVENT_KEY_ATTR}]:not([aria-disabled=true])`);
         const activeChild = currentListNode.querySelector('[aria-selected=true]');
-        if (!activeChild) return null;
+        if (!activeChild || activeChild !== document.activeElement) return null;
         const index = items.indexOf(activeChild);
         if (index === -1) return null;
         let nextIndex = index + offset;
@@ -34511,6 +34532,8 @@ var _selectableContextDefault = parcelHelpers.interopDefault(_selectableContext)
 var _button = require("./Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _dataKey = require("./DataKey");
+var _tabContext = require("./TabContext");
+var _tabContextDefault = parcelHelpers.interopDefault(_tabContext);
 var _jsxRuntime = require("react/jsx-runtime");
 const _excluded = [
     "as",
@@ -34534,6 +34557,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 function useNavItem({ key , onClick , active , id , role , disabled  }) {
     const parentOnSelect = _react.useContext(_selectableContextDefault.default);
     const navContext = _react.useContext(_navContextDefault.default);
+    const tabContext = _react.useContext(_tabContextDefault.default);
     let isActive = active;
     const props = {
         role
@@ -34544,8 +34568,16 @@ function useNavItem({ key , onClick , active , id , role , disabled  }) {
         const contextControlledId = navContext.getControlledId(key != null ? key : null); // @ts-ignore
         props[_dataKey.dataAttr('event-key')] = key;
         props.id = contextControllerId || id;
-        props['aria-controls'] = contextControlledId;
         isActive = active == null && key != null ? navContext.activeKey === key : active;
+        /**
+     * Simplified scenario for `mountOnEnter`.
+     *
+     * While it would make sense to keep 'aria-controls' for tabs that have been mounted at least
+     * once, it would also complicate the code quite a bit, for very little gain.
+     * The following implementation is probably good enough.
+     *
+     * @see https://github.com/react-restart/ui/pull/40#issuecomment-1009971561
+     */ if (isActive || !(tabContext != null && tabContext.unmountOnExit) && !(tabContext != null && tabContext.mountOnEnter)) props['aria-controls'] = contextControlledId;
     }
     if (props.role === 'tab') {
         if (disabled) {
@@ -34583,7 +34615,7 @@ const NavItem = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
 NavItem.displayName = 'NavItem';
 exports.default = NavItem;
 
-},{"react":"21dqq","@restart/hooks/useEventCallback":"7ONdq","./NavContext":"j1SMA","./SelectableContext":"8zLqy","./Button":"8YUbR","./DataKey":"9vwZh","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7ONdq":[function(require,module,exports) {
+},{"react":"21dqq","@restart/hooks/useEventCallback":"7ONdq","./NavContext":"j1SMA","./SelectableContext":"8zLqy","./Button":"8YUbR","./DataKey":"9vwZh","./TabContext":"cI3G3","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7ONdq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -36131,20 +36163,13 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const DEVICE_SIZES = [
-    'xxl',
-    'xl',
-    'lg',
-    'md',
-    'sm',
-    'xs'
-];
 const Row = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 as: Component = 'div' , ...props }, ref)=>{
     const decoratedBsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'row');
+    const breakpoints = _themeProvider.useBootstrapBreakpoints();
     const sizePrefix = `${decoratedBsPrefix}-cols`;
     const classes = [];
-    DEVICE_SIZES.forEach((brkPoint)=>{
+    breakpoints.forEach((brkPoint)=>{
         const propValue = props[brkPoint];
         delete props[brkPoint];
         let cols;
