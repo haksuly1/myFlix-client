@@ -8,57 +8,21 @@ import { Link } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 //SCSS Import
 import "./movie-card.scss"
+
 export class MovieCard extends React.Component {
 
-  addToFavourites(movie, user, token) {
-    axios.post(`https://haksuly1movieapp.herokuapp.com/users/${user}/movies/${movie._id}`, {}, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      }
-    })
-      .then(response => {
-        alert(`Added ${movie.Title} to favourites`);
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
-  
-  removeFromFavourites(movie, user, token) {
-    axios.post(`https://haksuly1movieapp.herokuapp.com/users/${user}/movies/${movie._id}`, {}, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      }
-    })
-      .then(response => {
-        alert(`Removed ${movie.Title} from favourites`);
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
   render() {
-    const { movie, user, token } = this.props;
-
+    const { movie } = this.props;
+    
     return (
-      <Card bg="secondary" text="light" border="light">
+      <Card>
         <Card.Img variant="top" src={movie.ImagePath} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
           <Link to={`/movies/${movie._id}`}>
-            <Button variant="primary" style={{ color: "white" }}>Open movie</Button>
+            <Button variant="link">Open movie</Button>
           </Link>
-
-          <Link to={`/movies/${movie._id}`}>
-            <Button variant="success" style={{ color: "white" }}
-              onClick={() => this.removeFromFavourites}>Add to Favorites</Button>
-          </Link>
-
         </Card.Body>
       </Card>
     );
@@ -70,22 +34,18 @@ MovieCard.propTypes = {
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
     ImagePath: PropTypes.string.isRequired,
-    ReleaseYear: PropTypes.string,
-
     Genre: PropTypes.shape({
       Name: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired
-    }),
-
+      Description: PropTypes.string.isRequired,
+    }).isRequired,
     Director: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
       Bio: PropTypes.string.isRequired,
-      Birth: PropTypes.string,
-      Death: PropTypes.string
-    }),
-
+      Birth: PropTypes.string.isRequired,
+      Death: PropTypes.string.isRequired,
+      Name: PropTypes.string.isRequired,
+    }).isRequired,
   }).isRequired,
-  //onMovieClick: PropTypes.func.isRequired
+  onMovieClick: PropTypes.func.isRequired
 };
 
 

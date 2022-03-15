@@ -83,65 +83,49 @@ onLoggedOut() {
             });
     };
 
-/*
-    removeFromFavourites(movie, user, token) {
-        console.log(token)
-        axios.delete(`https://haksuly1movieapp.herokuapp.com/users/${user}/movies/${movie._id}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            }
-        })
-            .then(response => {
-                alert(`Removed ${movie.Title} to favourites`);
-                console.log(response);
-                this.componentDidMount();
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
-*/
-    
     // Delete a movie from FavoriteMovies list
-    onRemoveFavorite = (e, movie) => {
-        e.preventDefault();
-        const Username = localStorage.getItem("user");
-        const token = localStorage.getItem("token");
-        axios.delete(`https://haksuly1movieapp.herokuapp.com/users/${Username}/movies/${movie._id}`, {
-                    headers: { Authorization: `Bearer ${token}` },
-                }
-            )
+onRemoveFavorite = (e, movie) => {
+    e.preventDefault();
+    const Username = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+
+    axios
+        .delete(
+            `https://orishflix.herokuapp.com/users/${Username}/movies/${movie._id}`,
+            {
+                headers: { Authorization: `Bearer ${token}` },
+            }
+        )
+        .then((response) => {
+            console.log(response);
+            alert("Movie removed");
+            this.componentDidMount();
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+};
+
+    // Deregister
+    onDeleteUser() {
+        const Username = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+
+        axios.delete(`https://haksuly1.herokuapp.com/users/${Username}`, {
+                headers: { Authorization: `Bearer ${token}` },
+            })
             .then((response) => {
                 console.log(response);
-                alert("Movie removed");
-                this.componentDidMount();
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    };
-
-
-    // Delete account
-    removeFromFavourites(movie, user, token) {
-        e.preventDefault();
-        console.log(token)
-        axios.delete(`https://haksuly1movieapp.herokuapp.com/users/${user}/movies/${movie._id}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            }
-        })
-            .then(response => {
-                alert(`Removed ${movie.Title} from favourites`);
-                console.log(response);
-                this.componentDidMount();
+                alert("Profile deleted");
+                localStorage.removeItem('user');
+                localStorage.removeItem('token');
+                window.open('/', '_self');
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
 
-    
     setUsername(value) {
         this.setState({
             Username: value,
@@ -166,11 +150,10 @@ onLoggedOut() {
         });
     }
 
-
 // Render function to display items on the DOM
 render() {
     // Get the props that were passed into this view and store them in appropriate variables
-    const { movies, onClick } = this.props;
+    const { movies, onBackClick } = this.props;
     const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
         if (!Username) {
@@ -260,24 +243,21 @@ render() {
                     <Col>
                         <Card.Body>
                             <Row className="favorite-container">
-                                {FavoriteMovies.length > 0 &&
+                                {FavoriteMovies.length > 0 && 
                                     movies.map((movie) => {
                                         if (
                                             movie._id ===
                                             FavoriteMovies.find((fav) => fav === movie._id)
                                         ) {
                                             return (
-                                             
-                                         <Card bg="secondary" text="light" border="light">
-                                            <Card.Img variant="top" src={movie.ImagePath} crossOrigin="true" />
+                                         <Card className="favorite-movie card-content" key={movie._id} >
+                                            <Card.Img className="fav-poster"
+                                            varient="top" src={movie.ImagePath} crossOrigin="true" />
                                                 <Card.Body>
-                                                     <Card.Title>{movie.Title}</Card.Title>
+                                                     <Card.Title className="movie_title">
+                                                         {movie.Title}</Card.Title>
                                                         <Card.Text>{movie.Description}</Card.Text>
-                                                            <Link to={`/movies/${movie._id}`}> 
-                                                                 <Button variant="primary" style={{ color: "white" }}>Open movie</Button>                   
-                                                            </Link>
-                                                            <Button variant="danger" style={{ color: "white" }}    
-                                                        onClick={() => this.removeFromFavourites(movie)}>Remove from Favorites</Button>
+                                                            <Button size ="sm" varient="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove Favorites</Button>
                                                </Card.Body>
                                         </Card>
                                             );
@@ -287,7 +267,9 @@ render() {
                         </Card.Body>
                     </Col>
                 </Row>
-                
+                <div className="backButton">
+                    <Button variant="outline-primary" onClick={() => { onBackClick(null); }}>Back</Button>
+                </div>
                 <br />
             </Container>
         );
@@ -305,10 +287,10 @@ ProfileView.propTypes = {
             Description: PropTypes.string.isRequired,
         }).isRequired,
         Director: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
             Bio: PropTypes.string.isRequired,
-            Birth: PropTypes.string,
-            Death: PropTypes.string,
+            Birth: PropTypes.string.isRequired,
+            Death: PropTypes.string.isRequired,
+            Name: PropTypes.string.isRequired,
         }).isRequired,
     })).isRequired,
     onBackClick: PropTypes.func.isRequired

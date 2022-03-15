@@ -1,7 +1,6 @@
 
 import React from "react";
 import axios from "axios";
-
 import { connect } from 'react-redux';
 //imports the relevant actions (setMovies). Used in rendering {movies} this.props and {user} this.state
 import { setMovies } from '../../actions/actions';
@@ -19,7 +18,7 @@ import { RegistrationView } from "../registration-view/registration-view";
 import { ProfileView } from "../profile-view/profile-view";
 import { NavbarView } from '../navbar-view/navbar-view';
 import { Row, Col, Navbar, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+
 
 //Note that "export" word is removed from below to allow use of redux
 class MainView extends React.Component {
@@ -29,6 +28,7 @@ class MainView extends React.Component {
     // Initial state is set to null
     this.state = {
       movies: [],
+      selectedMovie: null,
       user: null
     };
   }
@@ -56,23 +56,6 @@ class MainView extends React.Component {
       });
   }
 
-/*
-getMovies(token) {
-  axios.get("https://haksuly1movieapp.herokuapp.com/movies", {
-    headers: { Authorization: `Bearer ${token}` }
-  })
-    .then(response => {
-      // Assign the result to the state
-      this.setState({
-        movies: response.data
-      });
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-}
-*/
-
   /*When a user successfully logs in, this function updates the `user` property in state to that particular user*/
   onLoggedIn(authData) {
     console.log(authData);
@@ -94,12 +77,12 @@ getMovies(token) {
     });
   }
 
-
 render() {
   //const { movies, user } = this.state;
   let { movies } = this.props;
   let { user } = this.state;
 
+  
   return (
     <Router>
       <Navbar bg="primary" expand="lg" className="mb-4" sticky="top">
