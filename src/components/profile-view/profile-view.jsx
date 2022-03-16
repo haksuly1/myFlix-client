@@ -91,7 +91,7 @@ onRemoveFavorite = (e, movie) => {
 
     axios
         .delete(
-            `https://orishflix.herokuapp.com/users/${Username}/movies/${movie._id}`,
+            `https://haksuly1movieapp.herokuapp.com/users/${Username}/movies/${movie._id}`,
             {
                 headers: { Authorization: `Bearer ${token}` },
             }
@@ -257,7 +257,8 @@ render() {
                                                      <Card.Title className="movie_title">
                                                          {movie.Title}</Card.Title>
                                                         <Card.Text>{movie.Description}</Card.Text>
-                                                            <Button size ="sm" varient="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove Favorites</Button>
+                                                            <Button size ="sm" variant="danger" value={movie._id} 
+                                                            onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove Favorites</Button>
                                                </Card.Body>
                                         </Card>
                                             );

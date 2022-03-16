@@ -82,9 +82,11 @@ const validate = () => {
                 </Form.Group>
 
                 <div className="mt-3">
-                <Button variant="primary" style={{ color: "blue" }} type="submit" onClick={handleSubmit}>Login</Button>
+                <Button variant="primary" style={{ color: "white" }} type="submit" onClick={handleSubmit}>Login</Button>
 
-                    </div>
+                    <Button className="btn" variant="primary" style={{ color: "white" }} type="submit" onClick={handleSubmit}>Please Register Here</Button>
+
+                  </div>
                     </Form>
                     </Card.Body>
                     </Card>

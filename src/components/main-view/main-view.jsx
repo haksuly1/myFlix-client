@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 import { setMovies } from '../../actions/actions';
 // we haven't written this one yet
 import MoviesList from '../movies-list/movies-list';
-
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LoginView } from "../login-view/login-view";
 //MovieCaard removed to be imported and used in the MoviesList component
 //import { MovieCard } from "../movie-card/movie-card";
@@ -18,7 +18,6 @@ import { RegistrationView } from "../registration-view/registration-view";
 import { ProfileView } from "../profile-view/profile-view";
 import { NavbarView } from '../navbar-view/navbar-view';
 import { Row, Col, Navbar, Button } from "react-bootstrap";
-
 
 //Note that "export" word is removed from below to allow use of redux
 class MainView extends React.Component {
@@ -217,10 +216,6 @@ let mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { setMovies })(MainView);
-
-
-
-
 
 /*
         //"EXACT PATH" ADJUSTED TO AÖLLOW USE OF REDUX
