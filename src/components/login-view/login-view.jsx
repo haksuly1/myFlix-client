@@ -83,9 +83,9 @@ const validate = () => {
 
                 <div className="mt-3">
                 <Button variant="primary" style={{ color: "white" }} type="submit" onClick={handleSubmit}>Login</Button>
-
-                    <Button className="btn" variant="primary" style={{ color: "white" }} type="submit" onClick={handleSubmit}>Please Register Here</Button>
-
+                    <Link to={"/register"}> 
+                    <Button className='btn' variant='primary' style={{ color: "white" }} type='submit' > Please Register Here </Button> 
+                    </Link>
                   </div>
                     </Form>
                     </Card.Body>

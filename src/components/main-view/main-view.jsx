@@ -107,12 +107,9 @@ render() {
           return <MoviesList movies={movies} />; 
           }} /> 
 
-        <Route path="/register" render={() => {
-          if (!user) return <Redirect to="/" />
-          return <Col>
-            <RegistrationView />
-          </Col>
-        }} />
+        <Route path='/register' render={() => { 
+          if (user) return <Redirect to='/' />; 
+          return (<Col> <RegistrationView /> </Col>); }} />
 
         <Route path="/login" render={({ match, history }) => {
           if (!user) return <Redirect to="/" />;
