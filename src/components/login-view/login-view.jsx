@@ -22,14 +22,14 @@ const validate = () => {
   if(!username){
    setUsernameErr("Username Required");
    isReq = false;
-  }else if(username.length < 6){
+  }else if(username.length < 4){
    setUsernameErr("Username must be at least 6 characters");
    isReq = false;
   }
   if(!password){
    setPasswordErr("Password Required");
    isReq = false;
-  }else if(password.length < 8){
+  }else if(password.length < 4){
    setPassword("Password must be at least 8 characters");
    isReq = false;
   }
