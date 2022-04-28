@@ -49,30 +49,6 @@ export class GenreView extends React.Component {
 }
 }  
 
-/*
-        <Card bg="secondary" text="light" border="light" align="center">
-            <Card.Body>
-              <Card.Title>Genre</Card.Title>
-              <div className="genre-name">
-                <span className="label">Name: </span>
-                <span className="value">{Genre.Name}</span>
-              </div>
-              <div className="genre-description">
-                <span className="label">Description: </span>
-                <span className="value">{Genre.Description}</span>
-              </div>
-              <Link to={`/`}>
-                <Button onClick={() => onBackClick(null)} variant="light" style={{ color: "blue" }}>Back</Button>
-              </Link>
-          </Card.Body>
-        </Card>
-     
-      </>        
-   )
- }
-}
-*/
-
 GenreView.propTypes = {
     genre: PropTypes.shape({
         Name: PropTypes.string,
