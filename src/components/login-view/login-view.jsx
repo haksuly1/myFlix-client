@@ -57,51 +57,49 @@ const validate = () => {
 };
   
   return (
-      <Container className="login-view" align="center">
-        <Row>
-          <Col>
-            <CardGroup>
-            <Card className="card" style={{ width: "1rem" }}>
-                <Card.Body>
-                  <Card.Title className="text-center">Welcome to myFlixApp login page!</Card.Title>
-                   <Card.Subtitle className="mb-2 text-muted text-center">Please Login</Card.Subtitle>
-                    
-              <Form>
-              <Form.Group className="mb-3" controlId="formUsername">
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="text" onChange={e => setUsername(e.target.value)} placeholder="Enter username" />
-                {/* code added here to display validation error */}
-                {usernameErr && <p>{usernameErr}</p>}
-              </Form.Group>
+    <Container id="login-form">
+      <Row>
+        <Col>
+          <CardGroup>
+            <Card id="login-card">
+              <Card.Body>
+                <Card.Title id="login-card-title">Please login</Card.Title>
+                <Form>
+                  <Form.Group controlId="formUsername">
+                    <Form.Label id="login-form-label">Username</Form.Label>
+                    <Form.Control type="text" onChange={e => setUsername(e.target.value)}
+                      placeholder="Enter your username" />
+                    {usernameErr && <p>{usernameErr}</p>}
+                  </Form.Group>
+                  <Form.Group controlId="formPassword">
+                    <Form.Label id="login-form-label">Password</Form.Label>
+                    <Form.Control type="password" onChange={e => setPassword(e.target.value)}
+                      placeholder="Enter your password" />
+                    {passwordErr && <p>{passwordErr}</p>}
+                  </Form.Group>
+                  <Button id="login-button" variant="primary" type="submit" onClick={handleSubmit}>Login</Button>
+                </Form>
+                <Card.Text>Not registered yet?</Card.Text>
+                <div id="register-container">
+                  <Link to="/register">
+                    <Button id="link-to-register-button">Register now</Button>
+                  </Link>
+                </div>
+              </Card.Body>
+            </Card>
+          </CardGroup>
+        </Col>
+      </Row>
+    </Container>
 
-                <Form.Group className="mb-3" controlId="formPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password"  onChange={e => setPassword(e.target.value)} placeholder="Password" />
-                   {/* code added here to display validation error */}
-                  {passwordErr && <p>{passwordErr}</p>}     
-                </Form.Group>
+  );
+}
 
-                <div className="mt-3">
-                <Button variant="primary" style={{ color: "white" }} type="submit" onClick={handleSubmit}>Login</Button>
-                    <Link to={"/register"}> 
-                    <Button className='btn' variant='primary' style={{ color: "white" }} type='submit' > Please Register Here </Button> 
-                    </Link>
-                  </div>
-                    </Form>
-                    </Card.Body>
-                    </Card>
-                    </CardGroup>
-                    </Col>
-                    </Row>
-                    </Container>       
-
-          );
-        }
 
 LoginView.propTypes = {
   user: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
   }),
-  onLoggedIn: PropTypes.func.isRequired,
+  onLoggedIn: PropTypes.func.isRequired
 };

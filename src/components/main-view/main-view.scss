@@ -1,8 +1,26 @@
-/*
+$backgroundColor: #020402;
+$textColor: #f1fffa;
+$mainColor: #e5383b;
+
+:root {
+  --fontsize-button-text: 15px;
+  --fontweight-button-text: 400;
+}
+
 * {
   box-sizing: border-box;
-  background-color: blue;
-  color: white;
+  font-family: "League Spartan", sans-serif;
+  background-color: $backgroundColor;
+  color: $textColor;
 }
-/*
-.m
+
+#logout-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: $textColor;
+  background-color: $mainColor;
+  border: none;
+  font-size: var(--fontsize-button-text);
+  font-weight: var(--fontweight-button-text);
+}

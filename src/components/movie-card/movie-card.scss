@@ -1,6 +1,37 @@
+$backgroundColor: #020402;
+$textColor: #f1fffa;
+$mainColor: #e5383b;
+
+:root {
+  --fontsize-card-title: 20px;
+  --fontweight-card-title: 600;
+  --fontsize-card-button: 15px;
+  --fontweight-card-button: 400;
+}
+
 * {
   box-sizing: border-box;
-  font-family: 'Montserrat', serif;
-  background-color: #fff;
-  color: #ffff;
+  font-family: "League Spartan", sans-serif;
+  background-color: $backgroundColor;
+  color: $textColor;
+}
+
+#card-button {
+  margin: auto;
+  color: $textColor;
+  font-size: var(--fontsize-card-button);
+  font-weight: var(--fontweight-card-button);
+}
+
+#movie-card {
+  text-align: center;
+  min-height: 500px;
+  margin-bottom: 50px;
+  border-color: $textColor;
+  border-width: 10px;
+}
+
+#card-title {
+  font-size: var(--fontsize-card-title);
+  font-weight: var(--fontweight-card-title);
 }
